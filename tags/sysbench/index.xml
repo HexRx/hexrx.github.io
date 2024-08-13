@@ -1,2 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Sysbench on HexRx</title><link>https://hexrx.github.io/tags/sysbench/</link><description>Recent content in Sysbench on HexRx</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Copyright © 2023 HexRx</copyright><lastBuildDate>Sun, 23 Apr 2023 23:39:22 +0300</lastBuildDate><atom:link href="https://hexrx.github.io/tags/sysbench/index.xml" rel="self" type="application/rss+xml"/><item><title>AWS EC2 sysbench test for t3.medium and t4g.medium</title><link>https://hexrx.github.io/posts/aws-ec2-sysbench-test-for-t3.medium-and-t4g.medium/</link><pubDate>Sun, 23 Apr 2023 23:39:22 +0300</pubDate><guid>https://hexrx.github.io/posts/aws-ec2-sysbench-test-for-t3.medium-and-t4g.medium/</guid><description>Sysbench test was run on two types of AWS EC2 instances t3.medium (x86-64) and t4g.medium (ARM). The command was executed with the parameters sysbench --test=cpu run.
-t3.medium: sysbench 1.0.18 (using system LuaJIT 2.1.0-beta3) Running the test with following options: Number of threads: 1 Initializing random number generator from current time Prime numbers limit: 10000 Initializing worker threads... Threads started! CPU speed: events per second: 984.07 General statistics: total time: 10.0008s total number of events: 9843 Latency (ms): min: 0.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sysbench on HexRx</title>
+    <link>https://hexrx.github.io/tags/sysbench/</link>
+    <description>Recent content in Sysbench on HexRx</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright © 2023 HexRx</copyright>
+    <lastBuildDate>Sun, 23 Apr 2023 23:39:22 +0300</lastBuildDate>
+    <atom:link href="https://hexrx.github.io/tags/sysbench/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AWS EC2 sysbench test for t3.medium and t4g.medium</title>
+      <link>https://hexrx.github.io/posts/aws-ec2-sysbench-test-for-t3.medium-and-t4g.medium/</link>
+      <pubDate>Sun, 23 Apr 2023 23:39:22 +0300</pubDate>
+      <guid>https://hexrx.github.io/posts/aws-ec2-sysbench-test-for-t3.medium-and-t4g.medium/</guid>
+      <description>Sysbench test was run on two types of AWS EC2 instances t3.medium (x86-64) and t4g.medium (ARM). The command was executed with the parameters sysbench --test=cpu run.&#xA;t3.medium: sysbench 1.0.18 (using system LuaJIT 2.1.0-beta3) Running the test with following options: Number of threads: 1 Initializing random number generator from current time Prime numbers limit: 10000 Initializing worker threads... Threads started! CPU speed: events per second: 984.07 General statistics: total time: 10.0008s total number of events: 9843 Latency (ms): min: 0.</description>
+    </item>
+  </channel>
+</rss>

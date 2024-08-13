@@ -1,6 +1,41 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on HexRx</title><link>https://hexrx.github.io/posts/</link><description>Recent content in Posts on HexRx</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Copyright © 2023 HexRx</copyright><lastBuildDate>Sun, 23 Apr 2023 23:39:22 +0300</lastBuildDate><atom:link href="https://hexrx.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>AWS EC2 sysbench test for t3.medium and t4g.medium</title><link>https://hexrx.github.io/posts/aws-ec2-sysbench-test-for-t3.medium-and-t4g.medium/</link><pubDate>Sun, 23 Apr 2023 23:39:22 +0300</pubDate><guid>https://hexrx.github.io/posts/aws-ec2-sysbench-test-for-t3.medium-and-t4g.medium/</guid><description>Sysbench test was run on two types of AWS EC2 instances t3.medium (x86-64) and t4g.medium (ARM). The command was executed with the parameters sysbench --test=cpu run.
-t3.medium: sysbench 1.0.18 (using system LuaJIT 2.1.0-beta3) Running the test with following options: Number of threads: 1 Initializing random number generator from current time Prime numbers limit: 10000 Initializing worker threads... Threads started! CPU speed: events per second: 984.07 General statistics: total time: 10.0008s total number of events: 9843 Latency (ms): min: 0.</description></item><item><title>AWS EC2 lscpu for t3.small, t2.medium, t3a.xlarge, m5zn.3xlarge, and c6a.large</title><link>https://hexrx.github.io/posts/aws-ec2-lscpu-for-t3small-t2medium-t3axlarge-m5zn3xlarge-c6alarge/</link><pubDate>Sat, 22 Apr 2023 23:52:21 +0300</pubDate><guid>https://hexrx.github.io/posts/aws-ec2-lscpu-for-t3small-t2medium-t3axlarge-m5zn3xlarge-c6alarge/</guid><description>Below is the output of the lscpu (CPU details) command for the AWS EC2 instances with types: t3.small, t2.medium, t3a.xlarge, m5zn.3xlarge, and c6a.large.
-t3.small lscpu output: Architecture: x86_64 CPU op-mode(s): 32-bit, 64-bit Byte Order: Little Endian Address sizes: 46 bits physical, 48 bits virtual CPU(s): 2 On-line CPU(s) list: 0,1 Thread(s) per core: 2 Core(s) per socket: 1 Socket(s): 1 NUMA node(s): 1 Vendor ID: GenuineIntel CPU family: 6 Model: 85 Model name: Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.</description></item><item><title>How to download Google Chrome extension from Chrome Web Store as a zip archive</title><link>https://hexrx.github.io/posts/how-to-download-google-chrome-extension-from-chrome-web-store-as-a-zip-archive/</link><pubDate>Sun, 16 Apr 2023 13:28:30 +0300</pubDate><guid>https://hexrx.github.io/posts/how-to-download-google-chrome-extension-from-chrome-web-store-as-a-zip-archive/</guid><description>How to download Google Chrome extension Google Chrome extension can be downloaded from the below link by changing the entire string {EXTENSION_ID}, including curly brackets, to the extension id that you need: https://clients2.google.com/service/update2/crx?response=redirect&amp;amp;prodversion=110.0.0.0&amp;amp;x=id%3D{EXTENSION_ID}%26installsource%3Dondemand%26uc&amp;amp;nacl_arch=x86-64&amp;amp;acceptformat=crx2,crx3
-This link will download the *.crx file, which should be renamed to *.zip.
-You can get the extension id from the extension page in the Chrome Web Store.
-Example For example, you want to download Google Translate extension, this extension has the link https://chrome.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on HexRx</title>
+    <link>https://hexrx.github.io/posts/</link>
+    <description>Recent content in Posts on HexRx</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright © 2023 HexRx</copyright>
+    <lastBuildDate>Wed, 07 Aug 2024 19:17:58 +0300</lastBuildDate>
+    <atom:link href="https://hexrx.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Unlocking Ebyte E104-BT5005A module using pyOCD</title>
+      <link>https://hexrx.github.io/posts/unlocking-ebyte-e104-bt5005a-module-using-pyocd/</link>
+      <pubDate>Wed, 07 Aug 2024 19:17:58 +0300</pubDate>
+      <guid>https://hexrx.github.io/posts/unlocking-ebyte-e104-bt5005a-module-using-pyocd/</guid>
+      <description>Unlocking module using pyOCD The Ebyte E104-BT5005A module uses nRF52805 as a chip and can be easily unlocked for flashing new firmware by pyOCD command: pyocd cmd --target nrf52805_xxaa -O auto_unlock</description>
+    </item>
+    <item>
+      <title>AWS EC2 sysbench test for t3.medium and t4g.medium</title>
+      <link>https://hexrx.github.io/posts/aws-ec2-sysbench-test-for-t3.medium-and-t4g.medium/</link>
+      <pubDate>Sun, 23 Apr 2023 23:39:22 +0300</pubDate>
+      <guid>https://hexrx.github.io/posts/aws-ec2-sysbench-test-for-t3.medium-and-t4g.medium/</guid>
+      <description>Sysbench test was run on two types of AWS EC2 instances t3.medium (x86-64) and t4g.medium (ARM). The command was executed with the parameters sysbench --test=cpu run.&#xA;t3.medium: sysbench 1.0.18 (using system LuaJIT 2.1.0-beta3) Running the test with following options: Number of threads: 1 Initializing random number generator from current time Prime numbers limit: 10000 Initializing worker threads... Threads started! CPU speed: events per second: 984.07 General statistics: total time: 10.0008s total number of events: 9843 Latency (ms): min: 0.</description>
+    </item>
+    <item>
+      <title>AWS EC2 lscpu for t3.small, t2.medium, t3a.xlarge, m5zn.3xlarge, and c6a.large</title>
+      <link>https://hexrx.github.io/posts/aws-ec2-lscpu-for-t3small-t2medium-t3axlarge-m5zn3xlarge-c6alarge/</link>
+      <pubDate>Sat, 22 Apr 2023 23:52:21 +0300</pubDate>
+      <guid>https://hexrx.github.io/posts/aws-ec2-lscpu-for-t3small-t2medium-t3axlarge-m5zn3xlarge-c6alarge/</guid>
+      <description>Below is the output of the lscpu (CPU details) command for the AWS EC2 instances with types: t3.small, t2.medium, t3a.xlarge, m5zn.3xlarge, and c6a.large.&#xA;t3.small lscpu output: Architecture: x86_64 CPU op-mode(s): 32-bit, 64-bit Byte Order: Little Endian Address sizes: 46 bits physical, 48 bits virtual CPU(s): 2 On-line CPU(s) list: 0,1 Thread(s) per core: 2 Core(s) per socket: 1 Socket(s): 1 NUMA node(s): 1 Vendor ID: GenuineIntel CPU family: 6 Model: 85 Model name: Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.</description>
+    </item>
+    <item>
+      <title>How to download Google Chrome extension from Chrome Web Store as a zip archive</title>
+      <link>https://hexrx.github.io/posts/how-to-download-google-chrome-extension-from-chrome-web-store-as-a-zip-archive/</link>
+      <pubDate>Sun, 16 Apr 2023 13:28:30 +0300</pubDate>
+      <guid>https://hexrx.github.io/posts/how-to-download-google-chrome-extension-from-chrome-web-store-as-a-zip-archive/</guid>
+      <description>How to download Google Chrome extension Google Chrome extension can be downloaded from the below link by changing the entire string {EXTENSION_ID}, including curly brackets, to the extension id that you need: https://clients2.google.com/service/update2/crx?response=redirect&amp;amp;prodversion=110.0.0.0&amp;amp;x=id%3D{EXTENSION_ID}%26installsource%3Dondemand%26uc&amp;amp;nacl_arch=x86-64&amp;amp;acceptformat=crx2,crx3&#xA;This link will download the *.crx file, which should be renamed to *.zip.&#xA;You can get the extension id from the extension page in the Chrome Web Store.&#xA;Example For example, you want to download Google Translate extension, this extension has the link https://chrome.</description>
+    </item>
+  </channel>
+</rss>

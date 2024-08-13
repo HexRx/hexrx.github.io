@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>NRF52 on HexRx</title>
+    <link>https://hexrx.github.io/tags/nrf52/</link>
+    <description>Recent content in NRF52 on HexRx</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright © 2023 HexRx</copyright>
+    <lastBuildDate>Wed, 07 Aug 2024 19:17:58 +0300</lastBuildDate>
+    <atom:link href="https://hexrx.github.io/tags/nrf52/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Unlocking Ebyte E104-BT5005A module using pyOCD</title>
+      <link>https://hexrx.github.io/posts/unlocking-ebyte-e104-bt5005a-module-using-pyocd/</link>
+      <pubDate>Wed, 07 Aug 2024 19:17:58 +0300</pubDate>
+      <guid>https://hexrx.github.io/posts/unlocking-ebyte-e104-bt5005a-module-using-pyocd/</guid>
+      <description>Unlocking module using pyOCD The Ebyte E104-BT5005A module uses nRF52805 as a chip and can be easily unlocked for flashing new firmware by pyOCD command: pyocd cmd --target nrf52805_xxaa -O auto_unlock</description>
+    </item>
+  </channel>
+</rss>
