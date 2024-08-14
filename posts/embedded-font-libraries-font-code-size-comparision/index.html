@@ -4,19 +4,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta content='text/html; charset=utf-8' http-equiv='content-type' />
 
-  <title>Unlocking Ebyte E104-BT5005A module using pyOCD - HexRx</title>
-  <meta content='Unlocking Ebyte E104-BT5005A module using pyOCD - HexRx' property='title' />
-  <meta content='Unlocking Ebyte E104-BT5005A module using pyOCD - HexRx' property='og:title' />
+  <title>Embedded font libraries font code size comparison - HexRx</title>
+  <meta content='Embedded font libraries font code size comparison - HexRx' property='title' />
+  <meta content='Embedded font libraries font code size comparison - HexRx' property='og:title' />
 
 
-<meta property="og:description" content="Unlocking module using pyOCD The Ebyte E104-BT5005A module uses nRF52805 as a chip and can be easily unlocked for flashing new firmware by pyOCD command: pyocd cmd --target nrf52805_xxaa -O auto_unlock" />
+<meta property="og:description" content="Only ASCII characters 0x20-0x7e
+The below table shows sizes in bytes
+Font Roboto 12 px Roboto 24 px Roboto 48 px Roboto 72 px Adafruit_GFX/TFT_eSPI (1 bpp) 3832 14589 56677 129389 u8g2 (1 bpp) 1508 3039 6632 N/A mcu-renderer 1 bpp 1473 2891 5902 9511 mcu-renderer 2 bpp 2052 4162 8743 13969 mcu-renderer 3 bpp 2695 5677 12128 18701 mcu-renderer 4 bpp 3328 7329 15533 23676 MCUFont (4 bpp) 3125 6296 12969 20045 TFT_eSPI (vlw) 7642 19387 65833 143333 Source: https://github." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://hexrx.github.io/posts/unlocking-ebyte-e104-bt5005a-module-using-pyocd/" />
+<meta property="og:url" content="https://hexrx.github.io/posts/embedded-font-libraries-font-code-size-comparision/" />
 
 
-<meta property="article:published_time" content="2024-08-07T19:17:58&#43;03:00"/>
+<meta property="article:published_time" content="2024-08-13T21:13:40&#43;03:00"/>
 
-<meta property="article:modified_time" content="2024-08-07T19:17:58&#43;03:00"/>
+<meta property="article:modified_time" content="2024-08-13T21:13:40&#43;03:00"/>
 
 
 
@@ -69,18 +71,87 @@ if (!doNotTrack) {
 </nav>
   
 <main class="center mv4 content-width ph3">
-  <div class="f3 fw6 heading-color heading-font post-title">Unlocking Ebyte E104-BT5005A module using pyOCD</div>
+  <div class="f3 fw6 heading-color heading-font post-title">Embedded font libraries font code size comparison</div>
   <p class="silver f6 mt1 mb4 post-meta">
-    <time>07 Aug 2024</time> 
+    <time>13 Aug 2024</time> 
      | 
     
     
-    tags: [ <a href='/tags/nrf52' class="link silver">NRF52</a> <a href='/tags/notes' class="link silver">Notes</a>  ]
+    tags: [ <a href='/tags/fonts' class="link silver">Fonts</a> <a href='/tags/notes' class="link silver">Notes</a>  ]
     
   </p>
-  <div class="lh-copy post-content"><h2 id="unlocking-module-using-pyocd">Unlocking module using pyOCD</h2>
-<p>The Ebyte E104-BT5005A module uses nRF52805 as a chip and can be easily unlocked for flashing new firmware by pyOCD command:
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pyocd cmd --target nrf52805_xxaa -O auto_unlock</span></span></code></pre></div></p>
+  <div class="lh-copy post-content"><p>Only ASCII characters 0x20-0x7e</p>
+<p>The below table shows sizes in bytes</p>
+<table>
+<thead>
+<tr>
+<th>Font</th>
+<th>Roboto 12 px</th>
+<th>Roboto 24 px</th>
+<th>Roboto 48 px</th>
+<th>Roboto 72 px</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Adafruit_GFX/TFT_eSPI (1 bpp)</td>
+<td>3832</td>
+<td>14589</td>
+<td>56677</td>
+<td>129389</td>
+</tr>
+<tr>
+<td>u8g2 (1 bpp)</td>
+<td>1508</td>
+<td>3039</td>
+<td>6632</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>mcu-renderer 1 bpp</td>
+<td>1473</td>
+<td>2891</td>
+<td>5902</td>
+<td>9511</td>
+</tr>
+<tr>
+<td>mcu-renderer 2 bpp</td>
+<td>2052</td>
+<td>4162</td>
+<td>8743</td>
+<td>13969</td>
+</tr>
+<tr>
+<td>mcu-renderer 3 bpp</td>
+<td>2695</td>
+<td>5677</td>
+<td>12128</td>
+<td>18701</td>
+</tr>
+<tr>
+<td>mcu-renderer 4 bpp</td>
+<td>3328</td>
+<td>7329</td>
+<td>15533</td>
+<td>23676</td>
+</tr>
+<tr>
+<td>MCUFont (4 bpp)</td>
+<td>3125</td>
+<td>6296</td>
+<td>12969</td>
+<td>20045</td>
+</tr>
+<tr>
+<td>TFT_eSPI (vlw)</td>
+<td>7642</td>
+<td>19387</td>
+<td>65833</td>
+<td>143333</td>
+</tr>
+</tbody>
+</table>
+<p>Source: <a href="https://github.com/Gissio/mcu-renderer/tree/main?tab=readme-ov-file#font-compression-ratio-comparison">https://github.com/Gissio/mcu-renderer/tree/main?tab=readme-ov-file#font-compression-ratio-comparison</a></p>
 </div>
 </main>
  
@@ -90,8 +161,6 @@ if (!doNotTrack) {
 
 
 
-<div class="tl fixed list-pages lh-copy" id="contents-list"></div>
-
 
 
 <div class="pagination tc tr-l db fixed-l bottom-2-l right-2-l mb3 mb0-l">
@@ -99,8 +168,8 @@ if (!doNotTrack) {
 <a id="scroll-to-top" class="f6 o-0 link br2 ph2 pv1 mb1 bg-main-color pointer" onclick="topFunction()" style="color: #fff; visibility: hidden; display: none; transition: opacity .5s, visibility .5s;" title="back to top">back to top</a>
 <br>
   <p class="mb0 mt2">
-  <a href="https://hexrx.github.io/posts/aws-ec2-sysbench-test-for-t3.medium-and-t4g.medium/">prev post</a>
-  <a href="https://hexrx.github.io/posts/embedded-font-libraries-font-code-size-comparision/">next post</a>
+  <a href="https://hexrx.github.io/posts/unlocking-ebyte-e104-bt5005a-module-using-pyocd/">prev post</a>
+  
   </p>
 </div>
 
@@ -112,10 +181,6 @@ if (!doNotTrack) {
   
 
 
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
-<style>.is-active-link::before { background-color: var(--secondary-color); }</style>
 
 
 
@@ -160,17 +225,6 @@ function topFunction() {
 
 
 
-
-if (document.getElementById("contents-list") !== null && document.getElementsByClassName("post-content").length !== 0) { 
-  tocbot.init({
-    
-    tocSelector: '#contents-list',
-    
-    contentSelector: '.post-content',
-    
-    headingSelector: 'h1, h2, h3',
-  });
-}
 
 
 </script>

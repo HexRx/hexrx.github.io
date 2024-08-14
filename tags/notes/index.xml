@@ -7,8 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright © 2023 HexRx</copyright>
-    <lastBuildDate>Wed, 07 Aug 2024 19:17:58 +0300</lastBuildDate>
+    <lastBuildDate>Tue, 13 Aug 2024 21:13:40 +0300</lastBuildDate>
     <atom:link href="https://hexrx.github.io/tags/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Embedded font libraries font code size comparison</title>
+      <link>https://hexrx.github.io/posts/embedded-font-libraries-font-code-size-comparision/</link>
+      <pubDate>Tue, 13 Aug 2024 21:13:40 +0300</pubDate>
+      <guid>https://hexrx.github.io/posts/embedded-font-libraries-font-code-size-comparision/</guid>
+      <description>Only ASCII characters 0x20-0x7e&#xA;The below table shows sizes in bytes&#xA;Font Roboto 12 px Roboto 24 px Roboto 48 px Roboto 72 px Adafruit_GFX/TFT_eSPI (1 bpp) 3832 14589 56677 129389 u8g2 (1 bpp) 1508 3039 6632 N/A mcu-renderer 1 bpp 1473 2891 5902 9511 mcu-renderer 2 bpp 2052 4162 8743 13969 mcu-renderer 3 bpp 2695 5677 12128 18701 mcu-renderer 4 bpp 3328 7329 15533 23676 MCUFont (4 bpp) 3125 6296 12969 20045 TFT_eSPI (vlw) 7642 19387 65833 143333 Source: https://github.</description>
+    </item>
     <item>
       <title>Unlocking Ebyte E104-BT5005A module using pyOCD</title>
       <link>https://hexrx.github.io/posts/unlocking-ebyte-e104-bt5005a-module-using-pyocd/</link>
