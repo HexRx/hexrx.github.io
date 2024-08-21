@@ -7,8 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright © 2023 HexRx</copyright>
-    <lastBuildDate>Tue, 13 Aug 2024 21:13:40 +0300</lastBuildDate>
+    <lastBuildDate>Tue, 20 Aug 2024 12:17:01 +0300</lastBuildDate>
     <atom:link href="https://hexrx.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Convert multiple images to WebP</title>
+      <link>https://hexrx.github.io/posts/convert-multiple-images-to-webp/</link>
+      <pubDate>Tue, 20 Aug 2024 12:17:01 +0300</pubDate>
+      <guid>https://hexrx.github.io/posts/convert-multiple-images-to-webp/</guid>
+      <description>Download and unpack WebP tools (it includes the cwebp cli utility that requires to converting images to WebP) https://developers.google.com/speed/webp/docs/precompiled&#xA;Set PATH to bin folder where the archive was unpacked export PATH=$PATH:~/libwebp-1.4.0-linux-x86-64/bin&#xA;Execute in a folder with JPEG images for x in ./*.jpg; do cwebp ${x} -o ${x/jpg/webp}; done</description>
+    </item>
     <item>
       <title>Embedded font libraries font code size comparison</title>
       <link>https://hexrx.github.io/posts/embedded-font-libraries-font-code-size-comparision/</link>
