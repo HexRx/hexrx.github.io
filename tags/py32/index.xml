@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>PY32 on HexRx</title>
+    <link>https://hexrx.github.io/tags/py32/</link>
+    <description>Recent content in PY32 on HexRx</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright © 2023 HexRx</copyright>
+    <lastBuildDate>Mon, 23 Sep 2024 23:19:03 +0300</lastBuildDate>
+    <atom:link href="https://hexrx.github.io/tags/py32/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>PY32F002 pyOCD STLink error (22): DP error</title>
+      <link>https://hexrx.github.io/posts/py32f002-pyocd-stlink-dp-error/</link>
+      <pubDate>Mon, 23 Sep 2024 23:19:03 +0300</pubDate>
+      <guid>https://hexrx.github.io/posts/py32f002-pyocd-stlink-dp-error/</guid>
+      <description>After run the command to upload firmware to chip PY32F002AA15M6TU pyocd load app.hex -t PY32F002Ax5&#xA;I got the error 0004908 C STLink error (22): DP error [__main__]&#xA;But if you try to read firmware, it works fine pyocd&amp;gt; savemem 0x08000000 20480 py32f002.bin&#xA;BTW pyOCD and ST-Link V2 work well with the PY32F003xx series.&#xA;The solution is to use CMSIS-DAP based programmer instead of ST-Link V2, but instead of buying a new one you can use STM32 Blue Pill board without adding any extra components, just upload the firmware https://github.</description>
+    </item>
+  </channel>
+</rss>

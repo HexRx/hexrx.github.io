@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta content='text/html; charset=utf-8' http-equiv='content-type' />
+
+  <title>PY32F002 pyOCD STLink error (22): DP error - HexRx</title>
+  <meta content='PY32F002 pyOCD STLink error (22): DP error - HexRx' property='title' />
+  <meta content='PY32F002 pyOCD STLink error (22): DP error - HexRx' property='og:title' />
+
+
+<meta property="og:description" content="After run the command to upload firmware to chip PY32F002AA15M6TU pyocd load app.hex -t PY32F002Ax5
+I got the error 0004908 C STLink error (22): DP error [__main__]
+But if you try to read firmware, it works fine pyocd&gt; savemem 0x08000000 20480 py32f002.bin
+BTW pyOCD and ST-Link V2 work well with the PY32F003xx series.
+The solution is to use CMSIS-DAP based programmer instead of ST-Link V2, but instead of buying a new one you can use STM32 Blue Pill board without adding any extra components, just upload the firmware https://github." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://hexrx.github.io/posts/py32f002-pyocd-stlink-dp-error/" />
+
+
+<meta property="article:published_time" content="2024-09-23T23:19:03&#43;03:00"/>
+
+<meta property="article:modified_time" content="2024-09-23T23:19:03&#43;03:00"/>
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.121.1">
+
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600" rel="stylesheet">
+<style type="text/css">/*https://coolors.co/afd5aa-f0f2ef-a69f98-3d3d3d-8c6057*/
+:root {
+  --main-color: #8C6056; 
+  --secondary-color: #AFD5AA;
+  --logo-text-color: #fff;
+  --body-text-color: #3d3d3d;
+  --heading-text-color: #383838;
+  --background-color: #fff;
+}</style>
+<link href='/css/tachyons.min.css' rel="stylesheet">
+<link href='/css/styles.css' rel="stylesheet">
+
+
+<link rel="icon" 
+ 
+  href='/favicon.ico'
+
+type="image/x-icon"/>
+
+<link href='/feed.xml' rel="alternate" type="application/atom+xml" title="HexRx" />
+
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-F8HK5X7GEB', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+</head>
+<body class="global-font">
+  <nav class=" justify-between border-box pa3 pl3-l pr2-l mt1 mt0-ns" id="navbar">
+  <div class="flex">
+    <a class="f4 fw6 ttu no-underline dim bg-main-color pv1 ph2 br2" id="site-title" href='/' title="Home">HexRx</a>
+  </div>
+  
+</nav>
+  
+<main class="center mv4 content-width ph3">
+  <div class="f3 fw6 heading-color heading-font post-title">PY32F002 pyOCD STLink error (22): DP error</div>
+  <p class="silver f6 mt1 mb4 post-meta">
+    <time>23 Sep 2024</time> 
+     | 
+    
+    
+    tags: [ <a href='/tags/py32' class="link silver">PY32</a> <a href='/tags/notes' class="link silver">Notes</a>  ]
+    
+  </p>
+  <div class="lh-copy post-content"><p>After run the command to upload firmware to chip PY32F002AA15M6TU
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pyocd load app.hex -t PY32F002Ax5</span></span></code></pre></div></p>
+<p>I got the error
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#ae81ff">0004908</span> C STLink error <span style="color:#f92672">(</span>22<span style="color:#f92672">)</span>: DP error <span style="color:#f92672">[</span>__main__<span style="color:#f92672">]</span></span></span></code></pre></div></p>
+<p>But if you try to read firmware, it works fine
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pyocd&gt; savemem 0x08000000 <span style="color:#ae81ff">20480</span> py32f002.bin</span></span></code></pre></div></p>
+<p>BTW pyOCD and ST-Link V2 work well with the PY32F003xx series.</p>
+<p>The solution is to use CMSIS-DAP based programmer instead of ST-Link V2, but instead of buying a new one you can use STM32 Blue Pill board without adding any extra components, just upload the firmware <a href="https://github.com/RadioOperator/STM32F103C8T6_CMSIS-DAP_SWO/blob/master/build/F103-DAP-SWO-CDC-BLUEPILL-SWD_PB8PB9.hex">https://github.com/RadioOperator/STM32F103C8T6_CMSIS-DAP_SWO/blob/master/build/F103-DAP-SWO-CDC-BLUEPILL-SWD_PB8PB9.hex</a> from the repository <a href="https://github.com/RadioOperator/STM32F103C8T6_CMSIS-DAP_SWO">https://github.com/RadioOperator/STM32F103C8T6_CMSIS-DAP_SWO</a> and connect 2 wires.</p>
+<p>After flashing Blue Pill, connect Blue Pill to your computer and connect PY32F002xx target as described below</p>
+<table>
+<thead>
+<tr>
+<th>STM32 Blue Pull</th>
+<th>PY32F002xx</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PB8</td>
+<td>SWDIO</td>
+</tr>
+<tr>
+<td>PB9</td>
+<td>SWCLK</td>
+</tr>
+</tbody>
+</table>
+<p><img src="https://i.sstatic.net/lIPdd.png" alt="STM32 Blue Pill pinout diagram"></p>
+<blockquote>
+<p>The original source of the image is <a href="http://reblag.dk/stm32">http://reblag.dk/stm32</a></p>
+</blockquote>
+<p>After running the command you will see a new device <code>CMSIS-DAP by ARM CMSIS-DAP</code>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pyocd list</span></span></code></pre></div></p>
+<p>Now you can use a new Blue Pill based programmer to programm PY32F002 chips with pyOCD.</p>
+</div>
+</main>
+ 
+
+
+
+
+
+
+
+
+<div class="pagination tc tr-l db fixed-l bottom-2-l right-2-l mb3 mb0-l">
+  
+<a id="scroll-to-top" class="f6 o-0 link br2 ph2 pv1 mb1 bg-main-color pointer" onclick="topFunction()" style="color: #fff; visibility: hidden; display: none; transition: opacity .5s, visibility .5s;" title="back to top">back to top</a>
+<br>
+  <p class="mb0 mt2">
+  <a href="https://hexrx.github.io/posts/convert-multiple-images-to-webp/">prev post</a>
+  
+  </p>
+</div>
+
+  <footer class="content-width mt0 mt5-l mb4 f6 center ph3 gray tc tl-l">
+  <hr class="dn db-l ml0-l gray w3"><br>
+  Powered by <a href="https://gohugo.io/" target="_blank" class="link gray dim">Hugo</a>, based on the <a href="https://github.com/lingxz/er" target="_blank" class="link gray dim">Er</a> theme. <br>
+  Copyright © 2023 HexRx
+</footer>
+  
+
+
+
+
+
+
+<script type="text/javascript">
+var prevScrollpos = window.pageYOffset;
+window.onscroll = function() {
+  var currentScrollPos = window.pageYOffset;
+
+  
+  if (document.getElementById("tag-cloud") !== null) { 
+    if (prevScrollpos > currentScrollPos) { 
+      document.getElementById("tag-cloud").style.visibility = "visible";
+      document.getElementById("tag-cloud").style.opacity = "1";
+    } else {
+      document.getElementById("tag-cloud").style.visibility = "hidden";
+      document.getElementById("tag-cloud").style.opacity = "0";
+    }
+  }
+  
+
+  
+  if (document.body.scrollTop > 1000 || document.documentElement.scrollTop > 1000) {
+      document.getElementById("scroll-to-top").style.display = "inline";
+      document.getElementById("scroll-to-top").style.visibility = "visible";
+      document.getElementById("scroll-to-top").style.opacity = "1";
+  } else {
+      document.getElementById("scroll-to-top").style.visibility = "hidden";
+      document.getElementById("scroll-to-top").style.opacity = "0";
+  }
+  
+  prevScrollpos = currentScrollPos;
+}
+
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0; 
+}
+
+
+
+
+
+
+
+</script>
+
+
+
+
+</body>
+</html>
