@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta content='text/html; charset=utf-8' http-equiv='content-type' />
+
+  <title>Ubuntu laptop &#43; Intel Wireless AC8262 wake up from suspend with bluetooth disabled - HexRx</title>
+  <meta content='Ubuntu laptop &#43; Intel Wireless AC8262 wake up from suspend with bluetooth disabled - HexRx' property='title' />
+  <meta content='Ubuntu laptop &#43; Intel Wireless AC8262 wake up from suspend with bluetooth disabled - HexRx' property='og:title' />
+
+
+<meta property="og:description" content="Sometimes after waking up form suspend mode, on a laptop with Ubuntu 22.04 (I don&rsquo;t think that Ubuntu version matters) and adapter Intel Dual Band Wireless-AC 8265, bluetooth is disabled in the system and you can&rsquo;t get it work back without restart your laptop.
+The same problem was discussed here https://askubuntu.com/questions/1036195/bluetooth-doesnt-work-after-resuming-from-sleep-ubuntu-18-04-lts
+The solution is to reload bluetooth module in the system by command sudo modprobe -r btusb &amp;&amp; sleep 5 &amp;&amp; sudo modprobe btusb" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://hexrx.github.io/posts/ubuntu-laptop-intel-wireless-ac8262-wake-up-from-suspend-with-bluetooth-disabled/" />
+
+
+<meta property="article:published_time" content="2024-10-10T15:31:48&#43;03:00"/>
+
+<meta property="article:modified_time" content="2024-10-10T15:31:48&#43;03:00"/>
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.121.1">
+
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600" rel="stylesheet">
+<style type="text/css">/*https://coolors.co/afd5aa-f0f2ef-a69f98-3d3d3d-8c6057*/
+:root {
+  --main-color: #8C6056; 
+  --secondary-color: #AFD5AA;
+  --logo-text-color: #fff;
+  --body-text-color: #3d3d3d;
+  --heading-text-color: #383838;
+  --background-color: #fff;
+}</style>
+<link href='/css/tachyons.min.css' rel="stylesheet">
+<link href='/css/styles.css' rel="stylesheet">
+
+
+<link rel="icon" 
+ 
+  href='/favicon.ico'
+
+type="image/x-icon"/>
+
+<link href='/feed.xml' rel="alternate" type="application/atom+xml" title="HexRx" />
+
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-F8HK5X7GEB', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+</head>
+<body class="global-font">
+  <nav class=" justify-between border-box pa3 pl3-l pr2-l mt1 mt0-ns" id="navbar">
+  <div class="flex">
+    <a class="f4 fw6 ttu no-underline dim bg-main-color pv1 ph2 br2" id="site-title" href='/' title="Home">HexRx</a>
+  </div>
+  
+</nav>
+  
+<main class="center mv4 content-width ph3">
+  <div class="f3 fw6 heading-color heading-font post-title">Ubuntu laptop &#43; Intel Wireless AC8262 wake up from suspend with bluetooth disabled</div>
+  <p class="silver f6 mt1 mb4 post-meta">
+    <time>10 Oct 2024</time> 
+     | 
+    
+    
+    tags: [ <a href='/tags/ubuntu' class="link silver">Ubuntu</a> <a href='/tags/bluetooth' class="link silver">Bluetooth</a> <a href='/tags/notes' class="link silver">Notes</a>  ]
+    
+  </p>
+  <div class="lh-copy post-content"><p>Sometimes after waking up form suspend mode, on a laptop with Ubuntu 22.04 (I don&rsquo;t think that Ubuntu version matters) and adapter Intel Dual Band Wireless-AC 8265, bluetooth is disabled in the system and you can&rsquo;t get it work back without restart your laptop.</p>
+<p>The same problem was discussed here <a href="https://askubuntu.com/questions/1036195/bluetooth-doesnt-work-after-resuming-from-sleep-ubuntu-18-04-lts">https://askubuntu.com/questions/1036195/bluetooth-doesnt-work-after-resuming-from-sleep-ubuntu-18-04-lts</a></p>
+<p>The solution is to reload bluetooth module in the system by command
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo modprobe -r btusb <span style="color:#f92672">&amp;&amp;</span> sleep <span style="color:#ae81ff">5</span> <span style="color:#f92672">&amp;&amp;</span> sudo modprobe btusb</span></span></code></pre></div></p>
+</div>
+</main>
+ 
+
+
+
+
+
+
+
+
+<div class="pagination tc tr-l db fixed-l bottom-2-l right-2-l mb3 mb0-l">
+  
+<a id="scroll-to-top" class="f6 o-0 link br2 ph2 pv1 mb1 bg-main-color pointer" onclick="topFunction()" style="color: #fff; visibility: hidden; display: none; transition: opacity .5s, visibility .5s;" title="back to top">back to top</a>
+<br>
+  <p class="mb0 mt2">
+  <a href="https://hexrx.github.io/posts/py32f002-pyocd-stlink-dp-error/">prev post</a>
+  
+  </p>
+</div>
+
+  <footer class="content-width mt0 mt5-l mb4 f6 center ph3 gray tc tl-l">
+  <hr class="dn db-l ml0-l gray w3"><br>
+  Powered by <a href="https://gohugo.io/" target="_blank" class="link gray dim">Hugo</a>, based on the <a href="https://github.com/lingxz/er" target="_blank" class="link gray dim">Er</a> theme. <br>
+  Copyright © 2023 HexRx
+</footer>
+  
+
+
+
+
+
+
+<script type="text/javascript">
+var prevScrollpos = window.pageYOffset;
+window.onscroll = function() {
+  var currentScrollPos = window.pageYOffset;
+
+  
+  if (document.getElementById("tag-cloud") !== null) { 
+    if (prevScrollpos > currentScrollPos) { 
+      document.getElementById("tag-cloud").style.visibility = "visible";
+      document.getElementById("tag-cloud").style.opacity = "1";
+    } else {
+      document.getElementById("tag-cloud").style.visibility = "hidden";
+      document.getElementById("tag-cloud").style.opacity = "0";
+    }
+  }
+  
+
+  
+  if (document.body.scrollTop > 1000 || document.documentElement.scrollTop > 1000) {
+      document.getElementById("scroll-to-top").style.display = "inline";
+      document.getElementById("scroll-to-top").style.visibility = "visible";
+      document.getElementById("scroll-to-top").style.opacity = "1";
+  } else {
+      document.getElementById("scroll-to-top").style.visibility = "hidden";
+      document.getElementById("scroll-to-top").style.opacity = "0";
+  }
+  
+  prevScrollpos = currentScrollPos;
+}
+
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0; 
+}
+
+
+
+
+
+
+
+</script>
+
+
+
+
+</body>
+</html>

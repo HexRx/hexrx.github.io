@@ -7,8 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright © 2023 HexRx</copyright>
-    <lastBuildDate>Mon, 23 Sep 2024 23:19:03 +0300</lastBuildDate>
+    <lastBuildDate>Thu, 10 Oct 2024 15:31:48 +0300</lastBuildDate>
     <atom:link href="https://hexrx.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ubuntu laptop &#43; Intel Wireless AC8262 wake up from suspend with bluetooth disabled</title>
+      <link>https://hexrx.github.io/posts/ubuntu-laptop-intel-wireless-ac8262-wake-up-from-suspend-with-bluetooth-disabled/</link>
+      <pubDate>Thu, 10 Oct 2024 15:31:48 +0300</pubDate>
+      <guid>https://hexrx.github.io/posts/ubuntu-laptop-intel-wireless-ac8262-wake-up-from-suspend-with-bluetooth-disabled/</guid>
+      <description>Sometimes after waking up form suspend mode, on a laptop with Ubuntu 22.04 (I don&amp;rsquo;t think that Ubuntu version matters) and adapter Intel Dual Band Wireless-AC 8265, bluetooth is disabled in the system and you can&amp;rsquo;t get it work back without restart your laptop.&#xA;The same problem was discussed here https://askubuntu.com/questions/1036195/bluetooth-doesnt-work-after-resuming-from-sleep-ubuntu-18-04-lts&#xA;The solution is to reload bluetooth module in the system by command sudo modprobe -r btusb &amp;amp;&amp;amp; sleep 5 &amp;amp;&amp;amp; sudo modprobe btusb</description>
+    </item>
     <item>
       <title>PY32F002 pyOCD STLink error (22): DP error</title>
       <link>https://hexrx.github.io/posts/py32f002-pyocd-stlink-dp-error/</link>
