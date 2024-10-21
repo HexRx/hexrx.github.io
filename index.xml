@@ -7,8 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright © 2023 HexRx</copyright>
-    <lastBuildDate>Thu, 10 Oct 2024 15:31:48 +0300</lastBuildDate>
+    <lastBuildDate>Fri, 18 Oct 2024 21:25:46 +0300</lastBuildDate>
     <atom:link href="https://hexrx.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Get DMA, PLL with 48 MHz, 4 KB RAM, and 32 KB flash memory for PY32F002Ax5 chips</title>
+      <link>https://hexrx.github.io/posts/get-dma-pll-with-48mhz-4kb-ram-and-32kb-flash-memory-for-py32f002ax5-chips/</link>
+      <pubDate>Fri, 18 Oct 2024 21:25:46 +0300</pubDate>
+      <guid>https://hexrx.github.io/posts/get-dma-pll-with-48mhz-4kb-ram-and-32kb-flash-memory-for-py32f002ax5-chips/</guid>
+      <description>It seems that most Chinese chips PUYA PY32F002Ax5 have the core from PY32F030x6 chips inside, which gives undocumented features like DMA support, PLL with the ability to run chip on 48 MHz, additional timers like TIM3, and 4 KB RAM with 32 KB flash.&#xA;How to check if you PY32F002Ax5 has more memory There you have several options:&#xA;Build and flash this code to test RAM and flash https://github.com/IOsetting/py32f0-template/tree/main/Examples/PY32F0xx/HAL/Test/PY32F002A_32KF_4KR Create an empty 32kb binary file in your preferred hex editor (or use the online hex editor https://hexed.</description>
+    </item>
     <item>
       <title>Ubuntu laptop &#43; Intel Wireless AC8262 wake up from suspend with bluetooth disabled</title>
       <link>https://hexrx.github.io/posts/ubuntu-laptop-intel-wireless-ac8262-wake-up-from-suspend-with-bluetooth-disabled/</link>
