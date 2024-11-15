@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Ubuntu on HexRx</title>
     <link>https://hexrx.github.io/tags/ubuntu/</link>
     <description>Recent content in Ubuntu on HexRx</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.138.0</generator>
     <language>en-us</language>
     <copyright>Copyright © 2024 HexRx</copyright>
     <lastBuildDate>Thu, 10 Oct 2024 15:31:48 +0300</lastBuildDate>
@@ -14,7 +14,10 @@
       <link>https://hexrx.github.io/posts/ubuntu-laptop-intel-wireless-ac8262-wake-up-from-suspend-with-bluetooth-disabled/</link>
       <pubDate>Thu, 10 Oct 2024 15:31:48 +0300</pubDate>
       <guid>https://hexrx.github.io/posts/ubuntu-laptop-intel-wireless-ac8262-wake-up-from-suspend-with-bluetooth-disabled/</guid>
-      <description>Sometimes after waking up form suspend mode, on a laptop with Ubuntu 22.04 (I don&amp;rsquo;t think that Ubuntu version matters) and adapter Intel Dual Band Wireless-AC 8265, bluetooth is disabled in the system and you can&amp;rsquo;t get it work back without restart your laptop.&#xA;The same problem was discussed here https://askubuntu.com/questions/1036195/bluetooth-doesnt-work-after-resuming-from-sleep-ubuntu-18-04-lts&#xA;The solution is to reload bluetooth module in the system by command sudo modprobe -r btusb &amp;amp;&amp;amp; sleep 5 &amp;amp;&amp;amp; sudo modprobe btusb</description>
+      <description>&lt;p&gt;Sometimes after waking up form suspend mode, on a laptop with Ubuntu 22.04 (I don&amp;rsquo;t think that Ubuntu version matters) and adapter Intel Dual Band Wireless-AC 8265, bluetooth is disabled in the system and you can&amp;rsquo;t get it work back without restart your laptop.&lt;/p&gt;
+&lt;p&gt;The same problem was discussed here &lt;a href=&#34;https://askubuntu.com/questions/1036195/bluetooth-doesnt-work-after-resuming-from-sleep-ubuntu-18-04-lts&#34;&gt;https://askubuntu.com/questions/1036195/bluetooth-doesnt-work-after-resuming-from-sleep-ubuntu-18-04-lts&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The solution is to reload bluetooth module in the system by command
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo modprobe -r btusb &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; sleep &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; sudo modprobe btusb&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

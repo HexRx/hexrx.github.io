@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Fonts on HexRx</title>
     <link>https://hexrx.github.io/tags/fonts/</link>
     <description>Recent content in Fonts on HexRx</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.138.0</generator>
     <language>en-us</language>
     <copyright>Copyright © 2024 HexRx</copyright>
     <lastBuildDate>Tue, 13 Aug 2024 21:13:40 +0300</lastBuildDate>
@@ -14,7 +14,78 @@
       <link>https://hexrx.github.io/posts/embedded-font-libraries-font-code-size-comparision/</link>
       <pubDate>Tue, 13 Aug 2024 21:13:40 +0300</pubDate>
       <guid>https://hexrx.github.io/posts/embedded-font-libraries-font-code-size-comparision/</guid>
-      <description>Only ASCII characters 0x20-0x7e&#xA;The below table shows sizes in bytes&#xA;Font Roboto 12 px Roboto 24 px Roboto 48 px Roboto 72 px Adafruit_GFX/TFT_eSPI (1 bpp) 3832 14589 56677 129389 u8g2 (1 bpp) 1508 3039 6632 N/A mcu-renderer 1 bpp 1473 2891 5902 9511 mcu-renderer 2 bpp 2052 4162 8743 13969 mcu-renderer 3 bpp 2695 5677 12128 18701 mcu-renderer 4 bpp 3328 7329 15533 23676 MCUFont (4 bpp) 3125 6296 12969 20045 TFT_eSPI (vlw) 7642 19387 65833 143333 Source: https://github.</description>
+      <description>&lt;p&gt;Only ASCII characters 0x20-0x7e&lt;/p&gt;
+&lt;p&gt;The below table shows sizes in bytes&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;Font&lt;/th&gt;
+          &lt;th&gt;Roboto 12 px&lt;/th&gt;
+          &lt;th&gt;Roboto 24 px&lt;/th&gt;
+          &lt;th&gt;Roboto 48 px&lt;/th&gt;
+          &lt;th&gt;Roboto 72 px&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Adafruit_GFX/TFT_eSPI (1 bpp)&lt;/td&gt;
+          &lt;td&gt;3832&lt;/td&gt;
+          &lt;td&gt;14589&lt;/td&gt;
+          &lt;td&gt;56677&lt;/td&gt;
+          &lt;td&gt;129389&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;u8g2 (1 bpp)&lt;/td&gt;
+          &lt;td&gt;1508&lt;/td&gt;
+          &lt;td&gt;3039&lt;/td&gt;
+          &lt;td&gt;6632&lt;/td&gt;
+          &lt;td&gt;N/A&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;mcu-renderer 1 bpp&lt;/td&gt;
+          &lt;td&gt;1473&lt;/td&gt;
+          &lt;td&gt;2891&lt;/td&gt;
+          &lt;td&gt;5902&lt;/td&gt;
+          &lt;td&gt;9511&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;mcu-renderer 2 bpp&lt;/td&gt;
+          &lt;td&gt;2052&lt;/td&gt;
+          &lt;td&gt;4162&lt;/td&gt;
+          &lt;td&gt;8743&lt;/td&gt;
+          &lt;td&gt;13969&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;mcu-renderer 3 bpp&lt;/td&gt;
+          &lt;td&gt;2695&lt;/td&gt;
+          &lt;td&gt;5677&lt;/td&gt;
+          &lt;td&gt;12128&lt;/td&gt;
+          &lt;td&gt;18701&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;mcu-renderer 4 bpp&lt;/td&gt;
+          &lt;td&gt;3328&lt;/td&gt;
+          &lt;td&gt;7329&lt;/td&gt;
+          &lt;td&gt;15533&lt;/td&gt;
+          &lt;td&gt;23676&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;MCUFont (4 bpp)&lt;/td&gt;
+          &lt;td&gt;3125&lt;/td&gt;
+          &lt;td&gt;6296&lt;/td&gt;
+          &lt;td&gt;12969&lt;/td&gt;
+          &lt;td&gt;20045&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;TFT_eSPI (vlw)&lt;/td&gt;
+          &lt;td&gt;7642&lt;/td&gt;
+          &lt;td&gt;19387&lt;/td&gt;
+          &lt;td&gt;65833&lt;/td&gt;
+          &lt;td&gt;143333&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Source: &lt;a href=&#34;https://github.com/Gissio/mcu-renderer/tree/main?tab=readme-ov-file#font-compression-ratio-comparison&#34;&gt;https://github.com/Gissio/mcu-renderer/tree/main?tab=readme-ov-file#font-compression-ratio-comparison&lt;/a&gt;&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

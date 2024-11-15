@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Sysbench on HexRx</title>
     <link>https://hexrx.github.io/tags/sysbench/</link>
     <description>Recent content in Sysbench on HexRx</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.138.0</generator>
     <language>en-us</language>
     <copyright>Copyright © 2024 HexRx</copyright>
     <lastBuildDate>Sun, 23 Apr 2023 23:39:22 +0300</lastBuildDate>
@@ -14,7 +14,70 @@
       <link>https://hexrx.github.io/posts/aws-ec2-sysbench-test-for-t3.medium-and-t4g.medium/</link>
       <pubDate>Sun, 23 Apr 2023 23:39:22 +0300</pubDate>
       <guid>https://hexrx.github.io/posts/aws-ec2-sysbench-test-for-t3.medium-and-t4g.medium/</guid>
-      <description>Sysbench test was run on two types of AWS EC2 instances t3.medium (x86-64) and t4g.medium (ARM). The command was executed with the parameters sysbench --test=cpu run.&#xA;t3.medium: sysbench 1.0.18 (using system LuaJIT 2.1.0-beta3) Running the test with following options: Number of threads: 1 Initializing random number generator from current time Prime numbers limit: 10000 Initializing worker threads... Threads started! CPU speed: events per second: 984.07 General statistics: total time: 10.0008s total number of events: 9843 Latency (ms): min: 0.</description>
+      <description>&lt;p&gt;Sysbench test was run on two types of AWS EC2 instances t3.medium (x86-64) and t4g.medium (ARM). The command was executed with the parameters &lt;code&gt;sysbench --test=cpu run&lt;/code&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;t3medium&#34;&gt;t3.medium:&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sysbench 1.0.18 (using system LuaJIT 2.1.0-beta3)
+
+Running the test with following options:
+Number of threads: 1
+Initializing random number generator from current time
+
+
+Prime numbers limit: 10000
+
+Initializing worker threads...
+
+Threads started!
+
+CPU speed:
+    events per second:   984.07
+
+General statistics:
+    total time:                          10.0008s
+    total number of events:              9843
+
+Latency (ms):
+         min:                                    0.94
+         avg:                                    1.02
+         max:                                    8.81
+         95th percentile:                        1.06
+         sum:                                 9995.26
+
+Threads fairness:
+    events (avg/stddev):           9843.0000/0.00
+    execution time (avg/stddev):   9.9953/0.00
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;t4gmedium&#34;&gt;t4g.medium:&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sysbench 1.0.20 (using system LuaJIT 2.1.0-beta3)
+
+Running the test with following options:
+Number of threads: 1
+Initializing random number generator from current time
+
+
+Prime numbers limit: 10000
+
+Initializing worker threads...
+
+Threads started!
+
+CPU speed:
+    events per second:  2807.81
+
+General statistics:
+    total time:                          10.0004s
+    total number of events:              28083
+
+Latency (ms):
+         min:                                    0.35
+         avg:                                    0.36
+         max:                                    0.43
+         95th percentile:                        0.36
+         sum:                                 9995.59
+
+Threads fairness:
+    events (avg/stddev):           28083.0000/0.00
+    execution time (avg/stddev):   9.9956/0.00
+&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
   </channel>
 </rss>

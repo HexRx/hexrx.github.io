@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>HexRx</title>
     <link>https://hexrx.github.io/</link>
     <description>Recent content on HexRx</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.138.0</generator>
     <language>en-us</language>
     <copyright>Copyright © 2024 HexRx</copyright>
     <lastBuildDate>Fri, 18 Oct 2024 21:25:46 +0300</lastBuildDate>
@@ -14,63 +14,450 @@
       <link>https://hexrx.github.io/posts/get-dma-pll-with-48mhz-4kb-ram-and-32kb-flash-memory-for-py32f002ax5-chips/</link>
       <pubDate>Fri, 18 Oct 2024 21:25:46 +0300</pubDate>
       <guid>https://hexrx.github.io/posts/get-dma-pll-with-48mhz-4kb-ram-and-32kb-flash-memory-for-py32f002ax5-chips/</guid>
-      <description>It seems that most Chinese chips PUYA PY32F002Ax5 have the core from PY32F030x6 chips inside, which gives undocumented features like DMA support, PLL with the ability to run chip on 48 MHz, additional timers like TIM3, and 4 KB RAM with 32 KB flash.&#xA;How to check if you PY32F002Ax5 has more memory There you have several options:&#xA;Build and flash this code to test RAM and flash https://github.com/IOsetting/py32f0-template/tree/main/Examples/PY32F0xx/HAL/Test/PY32F002A_32KF_4KR Create an empty 32kb binary file in your preferred hex editor (or use the online hex editor https://hexed.</description>
+      <description>&lt;p&gt;It seems that most Chinese chips PUYA PY32F002Ax5 have the core from PY32F030x6 chips inside, which gives undocumented features like DMA support, PLL with the ability to run chip on 48 MHz, additional timers like TIM3, and 4 KB RAM with 32 KB flash.&lt;/p&gt;
+&lt;h3 id=&#34;how-to-check-if-you-py32f002ax5-has-more-memory&#34;&gt;How to check if you PY32F002Ax5 has more memory&lt;/h3&gt;
+&lt;p&gt;There you have several options:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Build and flash this code to test RAM and flash &lt;a href=&#34;https://github.com/IOsetting/py32f0-template/tree/main/Examples/PY32F0xx/HAL/Test/PY32F002A_32KF_4KR&#34;&gt;https://github.com/IOsetting/py32f0-template/tree/main/Examples/PY32F0xx/HAL/Test/PY32F002A_32KF_4KR&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Create an empty 32kb binary file in your preferred hex editor (or use the online hex editor &lt;a href=&#34;https://hexed.it&#34;&gt;https://hexed.it&lt;/a&gt;), put some bytes to the end of the file, flash the file to the chip, then verify those bytes by reading the firmware back.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;how-to-unlock-hidden-features-of-py32f002ax5&#34;&gt;How to unlock hidden features of PY32F002Ax5&lt;/h3&gt;
+&lt;p&gt;If you&amp;rsquo;re using the HAL and LL libraries from the repository &lt;a href=&#34;https://github.com/IOsetting/py32f0-template&#34;&gt;https://github.com/IOsetting/py32f0-template&lt;/a&gt;, you just need to modify Makefile, change:
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;MCU_TYPE &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; PY32F002Ax5&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+to
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;MCU_TYPE &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; PY32F003x6&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+and recompile the entire project.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Ubuntu laptop &#43; Intel Wireless AC8262 wake up from suspend with bluetooth disabled</title>
       <link>https://hexrx.github.io/posts/ubuntu-laptop-intel-wireless-ac8262-wake-up-from-suspend-with-bluetooth-disabled/</link>
       <pubDate>Thu, 10 Oct 2024 15:31:48 +0300</pubDate>
       <guid>https://hexrx.github.io/posts/ubuntu-laptop-intel-wireless-ac8262-wake-up-from-suspend-with-bluetooth-disabled/</guid>
-      <description>Sometimes after waking up form suspend mode, on a laptop with Ubuntu 22.04 (I don&amp;rsquo;t think that Ubuntu version matters) and adapter Intel Dual Band Wireless-AC 8265, bluetooth is disabled in the system and you can&amp;rsquo;t get it work back without restart your laptop.&#xA;The same problem was discussed here https://askubuntu.com/questions/1036195/bluetooth-doesnt-work-after-resuming-from-sleep-ubuntu-18-04-lts&#xA;The solution is to reload bluetooth module in the system by command sudo modprobe -r btusb &amp;amp;&amp;amp; sleep 5 &amp;amp;&amp;amp; sudo modprobe btusb</description>
+      <description>&lt;p&gt;Sometimes after waking up form suspend mode, on a laptop with Ubuntu 22.04 (I don&amp;rsquo;t think that Ubuntu version matters) and adapter Intel Dual Band Wireless-AC 8265, bluetooth is disabled in the system and you can&amp;rsquo;t get it work back without restart your laptop.&lt;/p&gt;
+&lt;p&gt;The same problem was discussed here &lt;a href=&#34;https://askubuntu.com/questions/1036195/bluetooth-doesnt-work-after-resuming-from-sleep-ubuntu-18-04-lts&#34;&gt;https://askubuntu.com/questions/1036195/bluetooth-doesnt-work-after-resuming-from-sleep-ubuntu-18-04-lts&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The solution is to reload bluetooth module in the system by command
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo modprobe -r btusb &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; sleep &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; sudo modprobe btusb&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>PY32F002 pyOCD STLink error (22): DP error</title>
       <link>https://hexrx.github.io/posts/py32f002-pyocd-stlink-dp-error/</link>
       <pubDate>Mon, 23 Sep 2024 23:19:03 +0300</pubDate>
       <guid>https://hexrx.github.io/posts/py32f002-pyocd-stlink-dp-error/</guid>
-      <description>After run the command to upload firmware to chip PY32F002AA15M6TU pyocd load app.hex -t PY32F002Ax5&#xA;I got the error 0004908 C STLink error (22): DP error [__main__]&#xA;But if you try to read firmware, it works fine pyocd&amp;gt; savemem 0x08000000 20480 py32f002.bin&#xA;BTW pyOCD and ST-Link V2 work well with the PY32F003xx series.&#xA;The solution is to use CMSIS-DAP based programmer instead of ST-Link V2, but instead of buying a new one you can use STM32 Blue Pill board without adding any extra components, just upload the firmware https://github.</description>
+      <description>&lt;p&gt;After run the command to upload firmware to chip PY32F002AA15M6TU
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;pyocd load app.hex -t PY32F002Ax5&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;I got the error
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0004908&lt;/span&gt; C STLink error &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;22&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;: DP error &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;__main__&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;But if you try to read firmware, it works fine
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;pyocd&amp;gt; savemem 0x08000000 &lt;span style=&#34;color:#ae81ff&#34;&gt;20480&lt;/span&gt; py32f002.bin&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;BTW pyOCD and ST-Link V2 work well with the PY32F003xx series.&lt;/p&gt;
+&lt;p&gt;The solution is to use CMSIS-DAP based programmer instead of ST-Link V2, but instead of buying a new one you can use STM32 Blue Pill board without adding any extra components, just upload the firmware &lt;a href=&#34;https://github.com/RadioOperator/STM32F103C8T6_CMSIS-DAP_SWO/blob/master/build/F103-DAP-SWO-CDC-BLUEPILL-SWD_PB8PB9.hex&#34;&gt;https://github.com/RadioOperator/STM32F103C8T6_CMSIS-DAP_SWO/blob/master/build/F103-DAP-SWO-CDC-BLUEPILL-SWD_PB8PB9.hex&lt;/a&gt; from the repository &lt;a href=&#34;https://github.com/RadioOperator/STM32F103C8T6_CMSIS-DAP_SWO&#34;&gt;https://github.com/RadioOperator/STM32F103C8T6_CMSIS-DAP_SWO&lt;/a&gt; and connect 2 wires.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Convert multiple images to WebP</title>
       <link>https://hexrx.github.io/posts/convert-multiple-images-to-webp/</link>
       <pubDate>Tue, 20 Aug 2024 12:17:01 +0300</pubDate>
       <guid>https://hexrx.github.io/posts/convert-multiple-images-to-webp/</guid>
-      <description>Download and unpack WebP tools (it includes the cwebp cli utility that requires to converting images to WebP) https://developers.google.com/speed/webp/docs/precompiled&#xA;Set PATH to bin folder where the archive was unpacked export PATH=$PATH:~/libwebp-1.4.0-linux-x86-64/bin&#xA;Execute in a folder with JPEG images for x in ./*.jpg; do cwebp ${x} -o ${x/jpg/webp}; done</description>
+      <description>&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Download and unpack WebP tools (it includes the &lt;code&gt;cwebp&lt;/code&gt; cli utility that requires to converting images to WebP)
+&lt;a href=&#34;https://developers.google.com/speed/webp/docs/precompiled&#34;&gt;https://developers.google.com/speed/webp/docs/precompiled&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Set PATH to bin folder where the archive was unpacked
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;export PATH&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;$PATH:~/libwebp-1.4.0-linux-x86-64/bin&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Execute in a folder with JPEG images
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; x in ./*.jpg; &lt;span style=&#34;color:#66d9ef&#34;&gt;do&lt;/span&gt; cwebp &lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;x&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt; -o &lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;x/jpg/webp&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;; &lt;span style=&#34;color:#66d9ef&#34;&gt;done&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;</description>
     </item>
     <item>
       <title>Embedded font libraries font code size comparison</title>
       <link>https://hexrx.github.io/posts/embedded-font-libraries-font-code-size-comparision/</link>
       <pubDate>Tue, 13 Aug 2024 21:13:40 +0300</pubDate>
       <guid>https://hexrx.github.io/posts/embedded-font-libraries-font-code-size-comparision/</guid>
-      <description>Only ASCII characters 0x20-0x7e&#xA;The below table shows sizes in bytes&#xA;Font Roboto 12 px Roboto 24 px Roboto 48 px Roboto 72 px Adafruit_GFX/TFT_eSPI (1 bpp) 3832 14589 56677 129389 u8g2 (1 bpp) 1508 3039 6632 N/A mcu-renderer 1 bpp 1473 2891 5902 9511 mcu-renderer 2 bpp 2052 4162 8743 13969 mcu-renderer 3 bpp 2695 5677 12128 18701 mcu-renderer 4 bpp 3328 7329 15533 23676 MCUFont (4 bpp) 3125 6296 12969 20045 TFT_eSPI (vlw) 7642 19387 65833 143333 Source: https://github.</description>
+      <description>&lt;p&gt;Only ASCII characters 0x20-0x7e&lt;/p&gt;
+&lt;p&gt;The below table shows sizes in bytes&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;Font&lt;/th&gt;
+          &lt;th&gt;Roboto 12 px&lt;/th&gt;
+          &lt;th&gt;Roboto 24 px&lt;/th&gt;
+          &lt;th&gt;Roboto 48 px&lt;/th&gt;
+          &lt;th&gt;Roboto 72 px&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Adafruit_GFX/TFT_eSPI (1 bpp)&lt;/td&gt;
+          &lt;td&gt;3832&lt;/td&gt;
+          &lt;td&gt;14589&lt;/td&gt;
+          &lt;td&gt;56677&lt;/td&gt;
+          &lt;td&gt;129389&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;u8g2 (1 bpp)&lt;/td&gt;
+          &lt;td&gt;1508&lt;/td&gt;
+          &lt;td&gt;3039&lt;/td&gt;
+          &lt;td&gt;6632&lt;/td&gt;
+          &lt;td&gt;N/A&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;mcu-renderer 1 bpp&lt;/td&gt;
+          &lt;td&gt;1473&lt;/td&gt;
+          &lt;td&gt;2891&lt;/td&gt;
+          &lt;td&gt;5902&lt;/td&gt;
+          &lt;td&gt;9511&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;mcu-renderer 2 bpp&lt;/td&gt;
+          &lt;td&gt;2052&lt;/td&gt;
+          &lt;td&gt;4162&lt;/td&gt;
+          &lt;td&gt;8743&lt;/td&gt;
+          &lt;td&gt;13969&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;mcu-renderer 3 bpp&lt;/td&gt;
+          &lt;td&gt;2695&lt;/td&gt;
+          &lt;td&gt;5677&lt;/td&gt;
+          &lt;td&gt;12128&lt;/td&gt;
+          &lt;td&gt;18701&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;mcu-renderer 4 bpp&lt;/td&gt;
+          &lt;td&gt;3328&lt;/td&gt;
+          &lt;td&gt;7329&lt;/td&gt;
+          &lt;td&gt;15533&lt;/td&gt;
+          &lt;td&gt;23676&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;MCUFont (4 bpp)&lt;/td&gt;
+          &lt;td&gt;3125&lt;/td&gt;
+          &lt;td&gt;6296&lt;/td&gt;
+          &lt;td&gt;12969&lt;/td&gt;
+          &lt;td&gt;20045&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;TFT_eSPI (vlw)&lt;/td&gt;
+          &lt;td&gt;7642&lt;/td&gt;
+          &lt;td&gt;19387&lt;/td&gt;
+          &lt;td&gt;65833&lt;/td&gt;
+          &lt;td&gt;143333&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Source: &lt;a href=&#34;https://github.com/Gissio/mcu-renderer/tree/main?tab=readme-ov-file#font-compression-ratio-comparison&#34;&gt;https://github.com/Gissio/mcu-renderer/tree/main?tab=readme-ov-file#font-compression-ratio-comparison&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Unlocking Ebyte E104-BT5005A module using pyOCD</title>
       <link>https://hexrx.github.io/posts/unlocking-ebyte-e104-bt5005a-module-using-pyocd/</link>
       <pubDate>Wed, 07 Aug 2024 19:17:58 +0300</pubDate>
       <guid>https://hexrx.github.io/posts/unlocking-ebyte-e104-bt5005a-module-using-pyocd/</guid>
-      <description>Unlocking module using pyOCD The Ebyte E104-BT5005A module uses nRF52805 as a chip and can be easily unlocked for flashing new firmware by pyOCD command: pyocd cmd --target nrf52805_xxaa -O auto_unlock</description>
+      <description>&lt;h2 id=&#34;unlocking-module-using-pyocd&#34;&gt;Unlocking module using pyOCD&lt;/h2&gt;
+&lt;p&gt;The Ebyte E104-BT5005A module uses nRF52805 as a chip and can be easily unlocked for flashing new firmware by pyOCD command:
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;pyocd cmd --target nrf52805_xxaa -O auto_unlock&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>AWS EC2 sysbench test for t3.medium and t4g.medium</title>
       <link>https://hexrx.github.io/posts/aws-ec2-sysbench-test-for-t3.medium-and-t4g.medium/</link>
       <pubDate>Sun, 23 Apr 2023 23:39:22 +0300</pubDate>
       <guid>https://hexrx.github.io/posts/aws-ec2-sysbench-test-for-t3.medium-and-t4g.medium/</guid>
-      <description>Sysbench test was run on two types of AWS EC2 instances t3.medium (x86-64) and t4g.medium (ARM). The command was executed with the parameters sysbench --test=cpu run.&#xA;t3.medium: sysbench 1.0.18 (using system LuaJIT 2.1.0-beta3) Running the test with following options: Number of threads: 1 Initializing random number generator from current time Prime numbers limit: 10000 Initializing worker threads... Threads started! CPU speed: events per second: 984.07 General statistics: total time: 10.0008s total number of events: 9843 Latency (ms): min: 0.</description>
+      <description>&lt;p&gt;Sysbench test was run on two types of AWS EC2 instances t3.medium (x86-64) and t4g.medium (ARM). The command was executed with the parameters &lt;code&gt;sysbench --test=cpu run&lt;/code&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;t3medium&#34;&gt;t3.medium:&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sysbench 1.0.18 (using system LuaJIT 2.1.0-beta3)
+
+Running the test with following options:
+Number of threads: 1
+Initializing random number generator from current time
+
+
+Prime numbers limit: 10000
+
+Initializing worker threads...
+
+Threads started!
+
+CPU speed:
+    events per second:   984.07
+
+General statistics:
+    total time:                          10.0008s
+    total number of events:              9843
+
+Latency (ms):
+         min:                                    0.94
+         avg:                                    1.02
+         max:                                    8.81
+         95th percentile:                        1.06
+         sum:                                 9995.26
+
+Threads fairness:
+    events (avg/stddev):           9843.0000/0.00
+    execution time (avg/stddev):   9.9953/0.00
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;t4gmedium&#34;&gt;t4g.medium:&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sysbench 1.0.20 (using system LuaJIT 2.1.0-beta3)
+
+Running the test with following options:
+Number of threads: 1
+Initializing random number generator from current time
+
+
+Prime numbers limit: 10000
+
+Initializing worker threads...
+
+Threads started!
+
+CPU speed:
+    events per second:  2807.81
+
+General statistics:
+    total time:                          10.0004s
+    total number of events:              28083
+
+Latency (ms):
+         min:                                    0.35
+         avg:                                    0.36
+         max:                                    0.43
+         95th percentile:                        0.36
+         sum:                                 9995.59
+
+Threads fairness:
+    events (avg/stddev):           28083.0000/0.00
+    execution time (avg/stddev):   9.9956/0.00
+&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
     <item>
       <title>AWS EC2 lscpu for t3.small, t2.medium, t3a.xlarge, m5zn.3xlarge, and c6a.large</title>
       <link>https://hexrx.github.io/posts/aws-ec2-lscpu-for-t3small-t2medium-t3axlarge-m5zn3xlarge-c6alarge/</link>
       <pubDate>Sat, 22 Apr 2023 23:52:21 +0300</pubDate>
       <guid>https://hexrx.github.io/posts/aws-ec2-lscpu-for-t3small-t2medium-t3axlarge-m5zn3xlarge-c6alarge/</guid>
-      <description>Below is the output of the lscpu (CPU details) command for the AWS EC2 instances with types: t3.small, t2.medium, t3a.xlarge, m5zn.3xlarge, and c6a.large.&#xA;t3.small lscpu output: Architecture: x86_64 CPU op-mode(s): 32-bit, 64-bit Byte Order: Little Endian Address sizes: 46 bits physical, 48 bits virtual CPU(s): 2 On-line CPU(s) list: 0,1 Thread(s) per core: 2 Core(s) per socket: 1 Socket(s): 1 NUMA node(s): 1 Vendor ID: GenuineIntel CPU family: 6 Model: 85 Model name: Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.</description>
+      <description>&lt;p&gt;Below is the output of the &lt;code&gt;lscpu&lt;/code&gt; (CPU details) command for the AWS EC2 instances with types: t3.small, t2.medium, t3a.xlarge, m5zn.3xlarge, and c6a.large.&lt;/p&gt;
+&lt;h3 id=&#34;t3small-lscpu-output&#34;&gt;t3.small lscpu output:&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Architecture:                    x86_64
+CPU op-mode(s):                  32-bit, 64-bit
+Byte Order:                      Little Endian
+Address sizes:                   46 bits physical, 48 bits virtual
+CPU(s):                          2
+On-line CPU(s) list:             0,1
+Thread(s) per core:              2
+Core(s) per socket:              1
+Socket(s):                       1
+NUMA node(s):                    1
+Vendor ID:                       GenuineIntel
+CPU family:                      6
+Model:                           85
+Model name:                      Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz
+Stepping:                        7
+CPU MHz:                         2500.004
+BogoMIPS:                        5000.00
+Hypervisor vendor:               KVM
+Virtualization type:             full
+L1d cache:                       32 KiB
+L1i cache:                       32 KiB
+L2 cache:                        1 MiB
+L3 cache:                        35.8 MiB
+NUMA node0 CPU(s):               0,1
+Vulnerability Itlb multihit:     KVM: Mitigation: VMX unsupported
+Vulnerability L1tf:              Mitigation; PTE Inversion
+Vulnerability Mds:               Vulnerable: Clear CPU buffers attempted, no microcode; SMT Host state unknown
+Vulnerability Meltdown:          Mitigation; PTI
+Vulnerability Mmio stale data:   Vulnerable: Clear CPU buffers attempted, no microcode; SMT Host state unknown
+Vulnerability Retbleed:          Vulnerable
+Vulnerability Spec store bypass: Vulnerable
+Vulnerability Spectre v1:        Mitigation; usercopy/swapgs barriers and __user pointer sanitization
+Vulnerability Spectre v2:        Mitigation; Retpolines, STIBP disabled, RSB filling, PBRSB-eIBRS Not affected
+Vulnerability Srbds:             Not affected
+Vulnerability Tsx async abort:   Not affected
+Flags:                           fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_
+                                 tsc cpuid tsc_known_freq pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch inv
+                                 pcid_single pti fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid mpx avx512f avx512dq rdseed adx smap clflushopt clwb avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsave
+                                 s ida arat pku ospke
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;t2medium-lscpu-output&#34;&gt;t2.medium lscpu output:&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Architecture:                    x86_64
+CPU op-mode(s):                  32-bit, 64-bit
+Byte Order:                      Little Endian
+Address sizes:                   46 bits physical, 48 bits virtual
+CPU(s):                          2
+On-line CPU(s) list:             0,1
+Thread(s) per core:              1
+Core(s) per socket:              2
+Socket(s):                       1
+NUMA node(s):                    1
+Vendor ID:                       GenuineIntel
+CPU family:                      6
+Model:                           63
+Model name:                      Intel(R) Xeon(R) CPU E5-2676 v3 @ 2.40GHz
+Stepping:                        2
+CPU MHz:                         2400.155
+BogoMIPS:                        4800.10
+Hypervisor vendor:               Xen
+Virtualization type:             full
+L1d cache:                       64 KiB
+L1i cache:                       64 KiB
+L2 cache:                        512 KiB
+L3 cache:                        30 MiB
+NUMA node0 CPU(s):               0,1
+Vulnerability Itlb multihit:     KVM: Mitigation: VMX unsupported
+Vulnerability L1tf:              Mitigation; PTE Inversion
+Vulnerability Mds:               Vulnerable: Clear CPU buffers attempted, no microcode; SMT Host state unknown
+Vulnerability Meltdown:          Mitigation; PTI
+Vulnerability Mmio stale data:   Vulnerable: Clear CPU buffers attempted, no microcode; SMT Host state unknown
+Vulnerability Retbleed:          Not affected
+Vulnerability Spec store bypass: Vulnerable
+Vulnerability Spectre v1:        Mitigation; usercopy/swapgs barriers and __user pointer sanitization
+Vulnerability Spectre v2:        Mitigation; Retpolines, STIBP disabled, RSB filling, PBRSB-eIBRS Not affected
+Vulnerability Srbds:             Not affected
+Vulnerability Tsx async abort:   Not affected
+Flags:                           fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx rdtscp lm constant_tsc rep_good nopl xtopology cpuid tsc_known_fre
+                                 q pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm cpuid_fault invpcid_single pti fsgsbase 
+                                 bmi1 avx2 smep bmi2 erms invpcid xsaveopt
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;t3axlarge-lscpu-output&#34;&gt;t3a.xlarge lscpu output:&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Architecture:                    x86_64
+CPU op-mode(s):                  32-bit, 64-bit
+Byte Order:                      Little Endian
+Address sizes:                   48 bits physical, 48 bits virtual
+CPU(s):                          4
+On-line CPU(s) list:             0-3
+Thread(s) per core:              2
+Core(s) per socket:              2
+Socket(s):                       1
+NUMA node(s):                    1
+Vendor ID:                       AuthenticAMD
+CPU family:                      23
+Model:                           1
+Model name:                      AMD EPYC 7571
+Stepping:                        2
+CPU MHz:                         2199.944
+BogoMIPS:                        4399.88
+Hypervisor vendor:               KVM
+Virtualization type:             full
+L1d cache:                       64 KiB
+L1i cache:                       128 KiB
+L2 cache:                        1 MiB
+L3 cache:                        8 MiB
+NUMA node0 CPU(s):               0-3
+Vulnerability Itlb multihit:     Not affected
+Vulnerability L1tf:              Not affected
+Vulnerability Mds:               Not affected
+Vulnerability Meltdown:          Not affected
+Vulnerability Mmio stale data:   Not affected
+Vulnerability Retbleed:          Mitigation; untrained return thunk; SMT vulnera
+                                 ble
+Vulnerability Spec store bypass: Vulnerable
+Vulnerability Spectre v1:        Mitigation; usercopy/swapgs barriers and __user
+                                  pointer sanitization
+Vulnerability Spectre v2:        Mitigation; Retpolines, STIBP disabled, RSB fil
+                                 ling, PBRSB-eIBRS Not affected
+Vulnerability Srbds:             Not affected
+Vulnerability Tsx async abort:   Not affected
+Flags:                           fpu vme de pse tsc msr pae mce cx8 apic sep mtr
+                                 r pge mca cmov pat pse36 clflush mmx fxsr sse s
+                                 se2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtsc
+                                 p lm constant_tsc rep_good nopl nonstop_tsc cpu
+                                 id extd_apicid tsc_known_freq pni pclmulqdq sss
+                                 e3 fma cx16 sse4_1 sse4_2 movbe popcnt aes xsav
+                                 e avx f16c rdrand hypervisor lahf_lm cmp_legacy
+                                  cr8_legacy abm sse4a misalignsse 3dnowprefetch
+                                  topoext vmmcall fsgsbase bmi1 avx2 smep bmi2 r
+                                 dseed adx smap clflushopt sha_ni xsaveopt xsave
+                                 c xgetbv1 clzero xsaveerptr arat npt nrip_save
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;m5zn3xlarge-lscpu-output&#34;&gt;m5zn.3xlarge lscpu output:&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Architecture:                    x86_64
+CPU op-mode(s):                  32-bit, 64-bit
+Byte Order:                      Little Endian
+Address sizes:                   46 bits physical, 48 bits virtual
+CPU(s):                          12
+On-line CPU(s) list:             0-11
+Thread(s) per core:              2
+Core(s) per socket:              6
+Socket(s):                       1
+NUMA node(s):                    1
+Vendor ID:                       GenuineIntel
+CPU family:                      6
+Model:                           85
+Model name:                      Intel(R) Xeon(R) Platinum 8252C CPU @ 3.80GHz
+Stepping:                        7
+CPU MHz:                         3799.998
+BogoMIPS:                        7599.99
+Hypervisor vendor:               KVM
+Virtualization type:             full
+L1d cache:                       192 KiB
+L1i cache:                       192 KiB
+L2 cache:                        6 MiB
+L3 cache:                        24.8 MiB
+NUMA node0 CPU(s):               0-11
+Vulnerability Itlb multihit:     KVM: Mitigation: VMX unsupported
+Vulnerability L1tf:              Mitigation; PTE Inversion
+Vulnerability Mds:               Vulnerable: Clear CPU buffers attempted, no microcode; SMT Host state unknown
+Vulnerability Meltdown:          Mitigation; PTI
+Vulnerability Mmio stale data:   Vulnerable: Clear CPU buffers attempted, no microcode; SMT Host state unknown
+Vulnerability Retbleed:          Vulnerable
+Vulnerability Spec store bypass: Vulnerable
+Vulnerability Spectre v1:        Mitigation; usercopy/swapgs barriers and __user pointer sanitization
+Vulnerability Spectre v2:        Mitigation; Retpolines, STIBP disabled, RSB filling, PBRSB-eIBRS Not affected
+Vulnerability Srbds:             Not affected
+Vulnerability Tsx async abort:   Not affected
+Flags:                           fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_
+                                 tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowp
+                                 refetch invpcid_single pti fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid mpx avx512f avx512dq rdseed adx smap clflushopt clwb avx512cd avx512bw avx512vl xsaveopt xsavec xg
+                                 etbv1 xsaves ida arat pku ospke avx512_vnni
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;c6alarge-lscpu-output&#34;&gt;c6a.large lscpu output:&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Architecture:                    x86_64
+CPU op-mode(s):                  32-bit, 64-bit
+Byte Order:                      Little Endian
+Address sizes:                   48 bits physical, 48 bits virtual
+CPU(s):                          2
+On-line CPU(s) list:             0,1
+Thread(s) per core:              2
+Core(s) per socket:              1
+Socket(s):                       1
+NUMA node(s):                    1
+Vendor ID:                       AuthenticAMD
+CPU family:                      25
+Model:                           1
+Model name:                      AMD EPYC 7R13 Processor
+Stepping:                        1
+CPU MHz:                         3087.620
+BogoMIPS:                        5299.97
+Hypervisor vendor:               KVM
+Virtualization type:             full
+L1d cache:                       32 KiB
+L1i cache:                       32 KiB
+L2 cache:                        512 KiB
+L3 cache:                        4 MiB
+NUMA node0 CPU(s):               0,1
+Vulnerability Itlb multihit:     Not affected
+Vulnerability L1tf:              Not affected
+Vulnerability Mds:               Not affected
+Vulnerability Meltdown:          Not affected
+Vulnerability Mmio stale data:   Not affected
+Vulnerability Retbleed:          Not affected
+Vulnerability Spec store bypass: Mitigation; Speculative Store Bypass disabled via prctl and seccomp
+Vulnerability Spectre v1:        Mitigation; usercopy/swapgs barriers and __user pointer sanitization
+Vulnerability Spectre v2:        Mitigation; Retpolines, IBPB conditional, IBRS_FW, STIBP conditional, RSB filling, PBRSB-eIBRS Not affected
+Vulnerability Srbds:             Not affected
+Vulnerability Tsx async abort:   Not affected
+Flags:                           fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl nonst
+                                 op_tsc cpuid extd_apicid aperfmperf tsc_known_freq pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm cmp_legacy cr8
+                                 _legacy abm sse4a misalignsse 3dnowprefetch topoext invpcid_single ssbd ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 erms invpcid rdseed adx smap clflushopt clwb sha_ni x
+                                 saveopt xsavec xgetbv1 clzero xsaveerptr rdpru wbnoinvd arat npt nrip_save vaes vpclmulqdq rdpid
+&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
     <item>
       <title>How to download Google Chrome extension from Chrome Web Store as a zip archive</title>
       <link>https://hexrx.github.io/posts/how-to-download-google-chrome-extension-from-chrome-web-store-as-a-zip-archive/</link>
       <pubDate>Sun, 16 Apr 2023 13:28:30 +0300</pubDate>
       <guid>https://hexrx.github.io/posts/how-to-download-google-chrome-extension-from-chrome-web-store-as-a-zip-archive/</guid>
-      <description>How to download Google Chrome extension Google Chrome extension can be downloaded from the below link by changing the entire string {EXTENSION_ID}, including curly brackets, to the extension id that you need: https://clients2.google.com/service/update2/crx?response=redirect&amp;amp;prodversion=110.0.0.0&amp;amp;x=id%3D{EXTENSION_ID}%26installsource%3Dondemand%26uc&amp;amp;nacl_arch=x86-64&amp;amp;acceptformat=crx2,crx3&#xA;This link will download the *.crx file, which should be renamed to *.zip.&#xA;You can get the extension id from the extension page in the Chrome Web Store.&#xA;Example For example, you want to download Google Translate extension, this extension has the link https://chrome.</description>
+      <description>&lt;h2 id=&#34;how-to-download-google-chrome-extension&#34;&gt;How to download Google Chrome extension&lt;/h2&gt;
+&lt;p&gt;Google Chrome extension can be downloaded from the below link by changing the entire string &lt;strong&gt;{EXTENSION_ID}&lt;/strong&gt;, including curly brackets, to the extension id that you need:
+&lt;code&gt;https://clients2.google.com/service/update2/crx?response=redirect&amp;amp;prodversion=110.0.0.0&amp;amp;x=id%3D{EXTENSION_ID}%26installsource%3Dondemand%26uc&amp;amp;nacl_arch=x86-64&amp;amp;acceptformat=crx2,crx3&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;This link will download the *.crx file, which should be renamed to *.zip.&lt;/p&gt;
+&lt;p&gt;You can get the extension id from the extension page in the Chrome Web Store.&lt;/p&gt;
+&lt;h2 id=&#34;example&#34;&gt;Example&lt;/h2&gt;
+&lt;p&gt;For example, you want to download Google Translate extension, this extension has the link &lt;a href=&#34;https://chrome.google.com/webstore/detail/google-translate/aapbdbdomjkkjkaonfhkkikfgjllcleb&#34;&gt;https://chrome.google.com/webstore/detail/google-translate/aapbdbdomjkkjkaonfhkkikfgjllcleb&lt;/a&gt; and the last part of the url is the extension id: &lt;code&gt;aapbdbdomjkkjkaonfhkkikfgjllcleb&lt;/code&gt;.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

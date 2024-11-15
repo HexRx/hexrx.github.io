@@ -1,271 +1,347 @@
-<!doctype html>
-<html lang="en">
-<head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta content='text/html; charset=utf-8' http-equiv='content-type' />
+<!DOCTYPE html>
+<html lang="en" dir="auto">
 
-  <title>HexRx</title>
-  <meta content='HexRx' property='title' />
-  <meta content='HexRx' property='og:title' />
+<head>
+	<meta name="generator" content="Hugo 0.138.0"><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>HexRx</title>
 
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="canonical" href="https://hexrx.github.io/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.d6fcd20a4fb86efa4dfac8ec95da60244cc8871042183da1ef28e3a762ad79c8.css" integrity="sha256-1vzSCk&#43;4bvpN&#43;sjsldpgJEzIhxBCGD2h7yjjp2Ktecg=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://hexrx.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://hexrx.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://hexrx.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://hexrx.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://hexrx.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="https://hexrx.github.io/index.xml">
+<link rel="alternate" hreflang="en" href="https://hexrx.github.io/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
 
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://hexrx.github.io/" />
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
 
+            .list {
+                background: var(--theme);
+            }
 
-<meta property="og:updated_time" content="2024-10-18T21:25:46&#43;03:00"/>
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
 
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
 
+    </style>
+</noscript>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-F8HK5X7GEB"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-F8HK5X7GEB');
+        }
+      </script><meta property="og:url" content="https://hexrx.github.io/">
+  <meta property="og:site_name" content="HexRx">
+  <meta property="og:title" content="HexRx">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HexRx">
+<meta name="twitter:description" content="">
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "HexRx",
+  "url": "https://hexrx.github.io/",
+  "description": "",
+  "logo": "https://hexrx.github.io/favicon.ico",
+  "sameAs": [
+      
+  ]
+}
+</script>
+</head>
 
+<body class="list" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
 
+</script>
 
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://hexrx.github.io/" accesskey="h" title="HexRx (Alt + H)">HexRx</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
 
-<meta name="generator" content="Hugo 0.121.1">
+<article class="first-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Get DMA, PLL with 48 MHz, 4 KB RAM, and 32 KB flash memory for PY32F002Ax5 chips
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>It seems that most Chinese chips PUYA PY32F002Ax5 have the core from PY32F030x6 chips inside, which gives undocumented features like DMA support, PLL with the ability to run chip on 48 MHz, additional timers like TIM3, and 4 KB RAM with 32 KB flash.
+How to check if you PY32F002Ax5 has more memory There you have several options:
+Build and flash this code to test RAM and flash https://github.com/IOsetting/py32f0-template/tree/main/Examples/PY32F0xx/HAL/Test/PY32F002A_32KF_4KR Create an empty 32kb binary file in your preferred hex editor (or use the online hex editor https://hexed.it), put some bytes to the end of the file, flash the file to the chip, then verify those bytes by reading the firmware back. How to unlock hidden features of PY32F002Ax5 If you’re using the HAL and LL libraries from the repository https://github.com/IOsetting/py32f0-template, you just need to modify Makefile, change: MCU_TYPE = PY32F002Ax5 to MCU_TYPE = PY32F003x6 and recompile the entire project.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-10-18 21:25:46 +0300 EEST'>October 18, 2024</span></footer>
+  <a class="entry-link" aria-label="post link to Get DMA, PLL with 48 MHz, 4 KB RAM, and 32 KB flash memory for PY32F002Ax5 chips" href="https://hexrx.github.io/posts/get-dma-pll-with-48mhz-4kb-ram-and-32kb-flash-memory-for-py32f002ax5-chips/"></a>
+</article>
 
-<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600" rel="stylesheet">
-<style type="text/css">/*https://coolors.co/afd5aa-f0f2ef-a69f98-3d3d3d-8c6057*/
-:root {
-  --main-color: #8C6056; 
-  --secondary-color: #AFD5AA;
-  --logo-text-color: #fff;
-  --body-text-color: #3d3d3d;
-  --heading-text-color: #383838;
-  --background-color: #fff;
-}</style>
-<link href='/css/tachyons.min.css' rel="stylesheet">
-<link href='/css/styles.css' rel="stylesheet">
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Ubuntu laptop &#43; Intel Wireless AC8262 wake up from suspend with bluetooth disabled
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Sometimes after waking up form suspend mode, on a laptop with Ubuntu 22.04 (I don’t think that Ubuntu version matters) and adapter Intel Dual Band Wireless-AC 8265, bluetooth is disabled in the system and you can’t get it work back without restart your laptop.
+The same problem was discussed here https://askubuntu.com/questions/1036195/bluetooth-doesnt-work-after-resuming-from-sleep-ubuntu-18-04-lts
+The solution is to reload bluetooth module in the system by command sudo modprobe -r btusb &amp;&amp; sleep 5 &amp;&amp; sudo modprobe btusb
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-10-10 15:31:48 +0300 EEST'>October 10, 2024</span></footer>
+  <a class="entry-link" aria-label="post link to Ubuntu laptop &#43; Intel Wireless AC8262 wake up from suspend with bluetooth disabled" href="https://hexrx.github.io/posts/ubuntu-laptop-intel-wireless-ac8262-wake-up-from-suspend-with-bluetooth-disabled/"></a>
+</article>
 
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">PY32F002 pyOCD STLink error (22): DP error
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>After run the command to upload firmware to chip PY32F002AA15M6TU pyocd load app.hex -t PY32F002Ax5
+I got the error 0004908 C STLink error (22): DP error [__main__]
+But if you try to read firmware, it works fine pyocd&gt; savemem 0x08000000 20480 py32f002.bin
+BTW pyOCD and ST-Link V2 work well with the PY32F003xx series.
+The solution is to use CMSIS-DAP based programmer instead of ST-Link V2, but instead of buying a new one you can use STM32 Blue Pill board without adding any extra components, just upload the firmware https://github.com/RadioOperator/STM32F103C8T6_CMSIS-DAP_SWO/blob/master/build/F103-DAP-SWO-CDC-BLUEPILL-SWD_PB8PB9.hex from the repository https://github.com/RadioOperator/STM32F103C8T6_CMSIS-DAP_SWO and connect 2 wires.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-09-23 23:19:03 +0300 EEST'>September 23, 2024</span></footer>
+  <a class="entry-link" aria-label="post link to PY32F002 pyOCD STLink error (22): DP error" href="https://hexrx.github.io/posts/py32f002-pyocd-stlink-dp-error/"></a>
+</article>
 
-<link rel="icon" 
- 
-  href='/favicon.ico'
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Convert multiple images to WebP
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> Download and unpack WebP tools (it includes the cwebp cli utility that requires to converting images to WebP) https://developers.google.com/speed/webp/docs/precompiled
+Set PATH to bin folder where the archive was unpacked export PATH=$PATH:~/libwebp-1.4.0-linux-x86-64/bin
+Execute in a folder with JPEG images for x in ./*.jpg; do cwebp ${x} -o ${x/jpg/webp}; done
+</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-08-20 12:17:01 +0300 EEST'>August 20, 2024</span></footer>
+  <a class="entry-link" aria-label="post link to Convert multiple images to WebP" href="https://hexrx.github.io/posts/convert-multiple-images-to-webp/"></a>
+</article>
 
-type="image/x-icon"/>
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Embedded font libraries font code size comparison
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Only ASCII characters 0x20-0x7e
+The below table shows sizes in bytes
+Font Roboto 12 px Roboto 24 px Roboto 48 px Roboto 72 px Adafruit_GFX/TFT_eSPI (1 bpp) 3832 14589 56677 129389 u8g2 (1 bpp) 1508 3039 6632 N/A mcu-renderer 1 bpp 1473 2891 5902 9511 mcu-renderer 2 bpp 2052 4162 8743 13969 mcu-renderer 3 bpp 2695 5677 12128 18701 mcu-renderer 4 bpp 3328 7329 15533 23676 MCUFont (4 bpp) 3125 6296 12969 20045 TFT_eSPI (vlw) 7642 19387 65833 143333 Source: https://github.com/Gissio/mcu-renderer/tree/main?tab=readme-ov-file#font-compression-ratio-comparison
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-08-13 21:13:40 +0300 EEST'>August 13, 2024</span></footer>
+  <a class="entry-link" aria-label="post link to Embedded font libraries font code size comparison" href="https://hexrx.github.io/posts/embedded-font-libraries-font-code-size-comparision/"></a>
+</article>
 
-<link href='/feed.xml' rel="alternate" type="application/atom+xml" title="HexRx" />
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Unlocking Ebyte E104-BT5005A module using pyOCD
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Unlocking module using pyOCD The Ebyte E104-BT5005A module uses nRF52805 as a chip and can be easily unlocked for flashing new firmware by pyOCD command: pyocd cmd --target nrf52805_xxaa -O auto_unlock
+</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-08-07 19:17:58 +0300 EEST'>August 7, 2024</span></footer>
+  <a class="entry-link" aria-label="post link to Unlocking Ebyte E104-BT5005A module using pyOCD" href="https://hexrx.github.io/posts/unlocking-ebyte-e104-bt5005a-module-using-pyocd/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">AWS EC2 sysbench test for t3.medium and t4g.medium
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Sysbench test was run on two types of AWS EC2 instances t3.medium (x86-64) and t4g.medium (ARM). The command was executed with the parameters sysbench --test=cpu run.
+t3.medium: sysbench 1.0.18 (using system LuaJIT 2.1.0-beta3) Running the test with following options: Number of threads: 1 Initializing random number generator from current time Prime numbers limit: 10000 Initializing worker threads... Threads started! CPU speed: events per second: 984.07 General statistics: total time: 10.0008s total number of events: 9843 Latency (ms): min: 0.94 avg: 1.02 max: 8.81 95th percentile: 1.06 sum: 9995.26 Threads fairness: events (avg/stddev): 9843.0000/0.00 execution time (avg/stddev): 9.9953/0.00 t4g.medium: sysbench 1.0.20 (using system LuaJIT 2.1.0-beta3) Running the test with following options: Number of threads: 1 Initializing random number generator from current time Prime numbers limit: 10000 Initializing worker threads... Threads started! CPU speed: events per second: 2807.81 General statistics: total time: 10.0004s total number of events: 28083 Latency (ms): min: 0.35 avg: 0.36 max: 0.43 95th percentile: 0.36 sum: 9995.59 Threads fairness: events (avg/stddev): 28083.0000/0.00 execution time (avg/stddev): 9.9956/0.00 </p>
+  </div>
+  <footer class="entry-footer"><span title='2023-04-23 23:39:22 +0300 EEST'>April 23, 2023</span></footer>
+  <a class="entry-link" aria-label="post link to AWS EC2 sysbench test for t3.medium and t4g.medium" href="https://hexrx.github.io/posts/aws-ec2-sysbench-test-for-t3.medium-and-t4g.medium/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">AWS EC2 lscpu for t3.small, t2.medium, t3a.xlarge, m5zn.3xlarge, and c6a.large
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Below is the output of the lscpu (CPU details) command for the AWS EC2 instances with types: t3.small, t2.medium, t3a.xlarge, m5zn.3xlarge, and c6a.large.
+t3.small lscpu output: Architecture: x86_64 CPU op-mode(s): 32-bit, 64-bit Byte Order: Little Endian Address sizes: 46 bits physical, 48 bits virtual CPU(s): 2 On-line CPU(s) list: 0,1 Thread(s) per core: 2 Core(s) per socket: 1 Socket(s): 1 NUMA node(s): 1 Vendor ID: GenuineIntel CPU family: 6 Model: 85 Model name: Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz Stepping: 7 CPU MHz: 2500.004 BogoMIPS: 5000.00 Hypervisor vendor: KVM Virtualization type: full L1d cache: 32 KiB L1i cache: 32 KiB L2 cache: 1 MiB L3 cache: 35.8 MiB NUMA node0 CPU(s): 0,1 Vulnerability Itlb multihit: KVM: Mitigation: VMX unsupported Vulnerability L1tf: Mitigation; PTE Inversion Vulnerability Mds: Vulnerable: Clear CPU buffers attempted, no microcode; SMT Host state unknown Vulnerability Meltdown: Mitigation; PTI Vulnerability Mmio stale data: Vulnerable: Clear CPU buffers attempted, no microcode; SMT Host state unknown Vulnerability Retbleed: Vulnerable Vulnerability Spec store bypass: Vulnerable Vulnerability Spectre v1: Mitigation; usercopy/swapgs barriers and __user pointer sanitization Vulnerability Spectre v2: Mitigation; Retpolines, STIBP disabled, RSB filling, PBRSB-eIBRS Not affected Vulnerability Srbds: Not affected Vulnerability Tsx async abort: Not affected Flags: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_ tsc cpuid tsc_known_freq pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch inv pcid_single pti fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid mpx avx512f avx512dq rdseed adx smap clflushopt clwb avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsave s ida arat pku ospke t2.medium lscpu output: Architecture: x86_64 CPU op-mode(s): 32-bit, 64-bit Byte Order: Little Endian Address sizes: 46 bits physical, 48 bits virtual CPU(s): 2 On-line CPU(s) list: 0,1 Thread(s) per core: 1 Core(s) per socket: 2 Socket(s): 1 NUMA node(s): 1 Vendor ID: GenuineIntel CPU family: 6 Model: 63 Model name: Intel(R) Xeon(R) CPU E5-2676 v3 @ 2.40GHz Stepping: 2 CPU MHz: 2400.155 BogoMIPS: 4800.10 Hypervisor vendor: Xen Virtualization type: full L1d cache: 64 KiB L1i cache: 64 KiB L2 cache: 512 KiB L3 cache: 30 MiB NUMA node0 CPU(s): 0,1 Vulnerability Itlb multihit: KVM: Mitigation: VMX unsupported Vulnerability L1tf: Mitigation; PTE Inversion Vulnerability Mds: Vulnerable: Clear CPU buffers attempted, no microcode; SMT Host state unknown Vulnerability Meltdown: Mitigation; PTI Vulnerability Mmio stale data: Vulnerable: Clear CPU buffers attempted, no microcode; SMT Host state unknown Vulnerability Retbleed: Not affected Vulnerability Spec store bypass: Vulnerable Vulnerability Spectre v1: Mitigation; usercopy/swapgs barriers and __user pointer sanitization Vulnerability Spectre v2: Mitigation; Retpolines, STIBP disabled, RSB filling, PBRSB-eIBRS Not affected Vulnerability Srbds: Not affected Vulnerability Tsx async abort: Not affected Flags: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx rdtscp lm constant_tsc rep_good nopl xtopology cpuid tsc_known_fre q pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm cpuid_fault invpcid_single pti fsgsbase bmi1 avx2 smep bmi2 erms invpcid xsaveopt t3a.xlarge lscpu output: Architecture: x86_64 CPU op-mode(s): 32-bit, 64-bit Byte Order: Little Endian Address sizes: 48 bits physical, 48 bits virtual CPU(s): 4 On-line CPU(s) list: 0-3 Thread(s) per core: 2 Core(s) per socket: 2 Socket(s): 1 NUMA node(s): 1 Vendor ID: AuthenticAMD CPU family: 23 Model: 1 Model name: AMD EPYC 7571 Stepping: 2 CPU MHz: 2199.944 BogoMIPS: 4399.88 Hypervisor vendor: KVM Virtualization type: full L1d cache: 64 KiB L1i cache: 128 KiB L2 cache: 1 MiB L3 cache: 8 MiB NUMA node0 CPU(s): 0-3 Vulnerability Itlb multihit: Not affected Vulnerability L1tf: Not affected Vulnerability Mds: Not affected Vulnerability Meltdown: Not affected Vulnerability Mmio stale data: Not affected Vulnerability Retbleed: Mitigation; untrained return thunk; SMT vulnera ble Vulnerability Spec store bypass: Vulnerable Vulnerability Spectre v1: Mitigation; usercopy/swapgs barriers and __user pointer sanitization Vulnerability Spectre v2: Mitigation; Retpolines, STIBP disabled, RSB fil ling, PBRSB-eIBRS Not affected Vulnerability Srbds: Not affected Vulnerability Tsx async abort: Not affected Flags: fpu vme de pse tsc msr pae mce cx8 apic sep mtr r pge mca cmov pat pse36 clflush mmx fxsr sse s se2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtsc p lm constant_tsc rep_good nopl nonstop_tsc cpu id extd_apicid tsc_known_freq pni pclmulqdq sss e3 fma cx16 sse4_1 sse4_2 movbe popcnt aes xsav e avx f16c rdrand hypervisor lahf_lm cmp_legacy cr8_legacy abm sse4a misalignsse 3dnowprefetch topoext vmmcall fsgsbase bmi1 avx2 smep bmi2 r dseed adx smap clflushopt sha_ni xsaveopt xsave c xgetbv1 clzero xsaveerptr arat npt nrip_save m5zn.3xlarge lscpu output: Architecture: x86_64 CPU op-mode(s): 32-bit, 64-bit Byte Order: Little Endian Address sizes: 46 bits physical, 48 bits virtual CPU(s): 12 On-line CPU(s) list: 0-11 Thread(s) per core: 2 Core(s) per socket: 6 Socket(s): 1 NUMA node(s): 1 Vendor ID: GenuineIntel CPU family: 6 Model: 85 Model name: Intel(R) Xeon(R) Platinum 8252C CPU @ 3.80GHz Stepping: 7 CPU MHz: 3799.998 BogoMIPS: 7599.99 Hypervisor vendor: KVM Virtualization type: full L1d cache: 192 KiB L1i cache: 192 KiB L2 cache: 6 MiB L3 cache: 24.8 MiB NUMA node0 CPU(s): 0-11 Vulnerability Itlb multihit: KVM: Mitigation: VMX unsupported Vulnerability L1tf: Mitigation; PTE Inversion Vulnerability Mds: Vulnerable: Clear CPU buffers attempted, no microcode; SMT Host state unknown Vulnerability Meltdown: Mitigation; PTI Vulnerability Mmio stale data: Vulnerable: Clear CPU buffers attempted, no microcode; SMT Host state unknown Vulnerability Retbleed: Vulnerable Vulnerability Spec store bypass: Vulnerable Vulnerability Spectre v1: Mitigation; usercopy/swapgs barriers and __user pointer sanitization Vulnerability Spectre v2: Mitigation; Retpolines, STIBP disabled, RSB filling, PBRSB-eIBRS Not affected Vulnerability Srbds: Not affected Vulnerability Tsx async abort: Not affected Flags: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_ tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowp refetch invpcid_single pti fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid mpx avx512f avx512dq rdseed adx smap clflushopt clwb avx512cd avx512bw avx512vl xsaveopt xsavec xg etbv1 xsaves ida arat pku ospke avx512_vnni c6a.large lscpu output: Architecture: x86_64 CPU op-mode(s): 32-bit, 64-bit Byte Order: Little Endian Address sizes: 48 bits physical, 48 bits virtual CPU(s): 2 On-line CPU(s) list: 0,1 Thread(s) per core: 2 Core(s) per socket: 1 Socket(s): 1 NUMA node(s): 1 Vendor ID: AuthenticAMD CPU family: 25 Model: 1 Model name: AMD EPYC 7R13 Processor Stepping: 1 CPU MHz: 3087.620 BogoMIPS: 5299.97 Hypervisor vendor: KVM Virtualization type: full L1d cache: 32 KiB L1i cache: 32 KiB L2 cache: 512 KiB L3 cache: 4 MiB NUMA node0 CPU(s): 0,1 Vulnerability Itlb multihit: Not affected Vulnerability L1tf: Not affected Vulnerability Mds: Not affected Vulnerability Meltdown: Not affected Vulnerability Mmio stale data: Not affected Vulnerability Retbleed: Not affected Vulnerability Spec store bypass: Mitigation; Speculative Store Bypass disabled via prctl and seccomp Vulnerability Spectre v1: Mitigation; usercopy/swapgs barriers and __user pointer sanitization Vulnerability Spectre v2: Mitigation; Retpolines, IBPB conditional, IBRS_FW, STIBP conditional, RSB filling, PBRSB-eIBRS Not affected Vulnerability Srbds: Not affected Vulnerability Tsx async abort: Not affected Flags: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl nonst op_tsc cpuid extd_apicid aperfmperf tsc_known_freq pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm cmp_legacy cr8 _legacy abm sse4a misalignsse 3dnowprefetch topoext invpcid_single ssbd ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 erms invpcid rdseed adx smap clflushopt clwb sha_ni x saveopt xsavec xgetbv1 clzero xsaveerptr rdpru wbnoinvd arat npt nrip_save vaes vpclmulqdq rdpid </p>
+  </div>
+  <footer class="entry-footer"><span title='2023-04-22 23:52:21 +0300 EEST'>April 22, 2023</span></footer>
+  <a class="entry-link" aria-label="post link to AWS EC2 lscpu for t3.small, t2.medium, t3a.xlarge, m5zn.3xlarge, and c6a.large" href="https://hexrx.github.io/posts/aws-ec2-lscpu-for-t3small-t2medium-t3axlarge-m5zn3xlarge-c6alarge/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">How to download Google Chrome extension from Chrome Web Store as a zip archive
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>How to download Google Chrome extension Google Chrome extension can be downloaded from the below link by changing the entire string {EXTENSION_ID}, including curly brackets, to the extension id that you need: https://clients2.google.com/service/update2/crx?response=redirect&amp;prodversion=110.0.0.0&amp;x=id%3D{EXTENSION_ID}%26installsource%3Dondemand%26uc&amp;nacl_arch=x86-64&amp;acceptformat=crx2,crx3
+This link will download the *.crx file, which should be renamed to *.zip.
+You can get the extension id from the extension page in the Chrome Web Store.
+Example For example, you want to download Google Translate extension, this extension has the link https://chrome.google.com/webstore/detail/google-translate/aapbdbdomjkkjkaonfhkkikfgjllcleb and the last part of the url is the extension id: aapbdbdomjkkjkaonfhkkikfgjllcleb.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2023-04-16 13:28:30 +0300 EEST'>April 16, 2023</span></footer>
+  <a class="entry-link" aria-label="post link to How to download Google Chrome extension from Chrome Web Store as a zip archive" href="https://hexrx.github.io/posts/how-to-download-google-chrome-extension-from-chrome-web-store-as-a-zip-archive/"></a>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>Copyright © 2024 HexRx</span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
 
 <script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'G-F8HK5X7GEB', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-</head>
-<body class="global-font">
-  <nav class=" justify-between border-box pa3 pl3-l pr2-l mt1 mt0-ns" id="navbar">
-  <div class="flex">
-    <a class="f4 fw6 ttu no-underline dim bg-main-color pv1 ph2 br2" id="site-title" href='/' title="Home">HexRx</a>
-  </div>
-  
-</nav>
-  
-
-<main class="center mv4 content-width ph3">
-  <ul class="list pa0">
-    
-    <li class="mb2">
-      <a class="f4 heading-color heading-font fw6 no-underline" href="https://hexrx.github.io/posts/get-dma-pll-with-48mhz-4kb-ram-and-32kb-flash-memory-for-py32f002ax5-chips/">Get DMA, PLL with 48 MHz, 4 KB RAM, and 32 KB flash memory for PY32F002Ax5 chips</a>
-      <p class="f5 mt1 silver">
-        <time>18 Oct 2024</time>
-         | 
-        
-        
-        tags: [ <a href='/tags/py32' class="link silver">PY32</a> <a href='/tags/notes' class="link silver">Notes</a>  ]
-        
-      </p>
-    </li>
-    
-    <li class="mb2">
-      <a class="f4 heading-color heading-font fw6 no-underline" href="https://hexrx.github.io/posts/ubuntu-laptop-intel-wireless-ac8262-wake-up-from-suspend-with-bluetooth-disabled/">Ubuntu laptop &#43; Intel Wireless AC8262 wake up from suspend with bluetooth disabled</a>
-      <p class="f5 mt1 silver">
-        <time>10 Oct 2024</time>
-         | 
-        
-        
-        tags: [ <a href='/tags/ubuntu' class="link silver">Ubuntu</a> <a href='/tags/bluetooth' class="link silver">Bluetooth</a> <a href='/tags/notes' class="link silver">Notes</a>  ]
-        
-      </p>
-    </li>
-    
-    <li class="mb2">
-      <a class="f4 heading-color heading-font fw6 no-underline" href="https://hexrx.github.io/posts/py32f002-pyocd-stlink-dp-error/">PY32F002 pyOCD STLink error (22): DP error</a>
-      <p class="f5 mt1 silver">
-        <time>23 Sep 2024</time>
-         | 
-        
-        
-        tags: [ <a href='/tags/py32' class="link silver">PY32</a> <a href='/tags/notes' class="link silver">Notes</a>  ]
-        
-      </p>
-    </li>
-    
-    <li class="mb2">
-      <a class="f4 heading-color heading-font fw6 no-underline" href="https://hexrx.github.io/posts/convert-multiple-images-to-webp/">Convert multiple images to WebP</a>
-      <p class="f5 mt1 silver">
-        <time>20 Aug 2024</time>
-         | 
-        
-        
-        tags: [ <a href='/tags/notes' class="link silver">Notes</a>  ]
-        
-      </p>
-    </li>
-    
-    <li class="mb2">
-      <a class="f4 heading-color heading-font fw6 no-underline" href="https://hexrx.github.io/posts/embedded-font-libraries-font-code-size-comparision/">Embedded font libraries font code size comparison</a>
-      <p class="f5 mt1 silver">
-        <time>13 Aug 2024</time>
-         | 
-        
-        
-        tags: [ <a href='/tags/fonts' class="link silver">Fonts</a> <a href='/tags/notes' class="link silver">Notes</a>  ]
-        
-      </p>
-    </li>
-    
-    <li class="mb2">
-      <a class="f4 heading-color heading-font fw6 no-underline" href="https://hexrx.github.io/posts/unlocking-ebyte-e104-bt5005a-module-using-pyocd/">Unlocking Ebyte E104-BT5005A module using pyOCD</a>
-      <p class="f5 mt1 silver">
-        <time>07 Aug 2024</time>
-         | 
-        
-        
-        tags: [ <a href='/tags/nrf52' class="link silver">NRF52</a> <a href='/tags/notes' class="link silver">Notes</a>  ]
-        
-      </p>
-    </li>
-    
-    <li class="mb2">
-      <a class="f4 heading-color heading-font fw6 no-underline" href="https://hexrx.github.io/posts/aws-ec2-sysbench-test-for-t3.medium-and-t4g.medium/">AWS EC2 sysbench test for t3.medium and t4g.medium</a>
-      <p class="f5 mt1 silver">
-        <time>23 Apr 2023</time>
-         | 
-        
-        
-        tags: [ <a href='/tags/aws' class="link silver">AWS</a> <a href='/tags/aws-ec2' class="link silver">AWS EC2</a> <a href='/tags/sysbench' class="link silver">Sysbench</a> <a href='/tags/notes' class="link silver">Notes</a>  ]
-        
-      </p>
-    </li>
-    
-    <li class="mb2">
-      <a class="f4 heading-color heading-font fw6 no-underline" href="https://hexrx.github.io/posts/aws-ec2-lscpu-for-t3small-t2medium-t3axlarge-m5zn3xlarge-c6alarge/">AWS EC2 lscpu for t3.small, t2.medium, t3a.xlarge, m5zn.3xlarge, and c6a.large</a>
-      <p class="f5 mt1 silver">
-        <time>22 Apr 2023</time>
-         | 
-        
-        
-        tags: [ <a href='/tags/aws' class="link silver">AWS</a> <a href='/tags/aws-ec2' class="link silver">AWS EC2</a> <a href='/tags/notes' class="link silver">Notes</a>  ]
-        
-      </p>
-    </li>
-    
-    <li class="mb2">
-      <a class="f4 heading-color heading-font fw6 no-underline" href="https://hexrx.github.io/posts/how-to-download-google-chrome-extension-from-chrome-web-store-as-a-zip-archive/">How to download Google Chrome extension from Chrome Web Store as a zip archive</a>
-      <p class="f5 mt1 silver">
-        <time>16 Apr 2023</time>
-         | 
-        
-        
-        tags: [ <a href='/tags/google-chrome' class="link silver">Google Chrome</a> <a href='/tags/notes' class="link silver">Notes</a>  ]
-        
-      </p>
-    </li>
-    
-  </ul>
-</main>
-
-
-<div class="dn tr fixed right-2" id="tag-cloud">
-    tags <br>
-    
-    <a class="silver no-underline" href="/tags/notes">notes</a></li>
-  
-    <a class="silver no-underline" href="/tags/aws">aws</a></li>
-  
-    <a class="silver no-underline" href="/tags/aws-ec2">aws-ec2</a></li>
-  
-    <a class="silver no-underline" href="/tags/py32">py32</a></li>
-  
-    <a class="silver no-underline" href="/tags/bluetooth">bluetooth</a></li>
-  
-    <a class="silver no-underline" href="/tags/fonts">fonts</a></li>
-  
-    <a class="silver no-underline" href="/tags/google-chrome">google-chrome</a></li>
-  
-    <a class="silver no-underline" href="/tags/nrf52">nrf52</a></li>
-  
-    <a class="silver no-underline" href="/tags/sysbench">sysbench</a></li>
-  
-    <a class="silver no-underline" href="/tags/ubuntu">ubuntu</a></li>
-  
-</div>
-
-
-
-  <footer class="content-width mt0 mt5-l mb4 f6 center ph3 gray tc tl-l">
-  <hr class="dn db-l ml0-l gray w3"><br>
-  Powered by <a href="https://gohugo.io/" target="_blank" class="link gray dim">Hugo</a>, based on the <a href="https://github.com/lingxz/er" target="_blank" class="link gray dim">Er</a> theme. <br>
-  Copyright © 2024 HexRx
-</footer>
-  
-
-
-
-
-
-
-<script type="text/javascript">
-var prevScrollpos = window.pageYOffset;
-window.onscroll = function() {
-  var currentScrollPos = window.pageYOffset;
-
-  
-  if (document.getElementById("tag-cloud") !== null) { 
-    if (prevScrollpos > currentScrollPos) { 
-      document.getElementById("tag-cloud").style.visibility = "visible";
-      document.getElementById("tag-cloud").style.opacity = "1";
-    } else {
-      document.getElementById("tag-cloud").style.visibility = "hidden";
-      document.getElementById("tag-cloud").style.opacity = "0";
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
     }
-  }
-  
 
-  
-  if (document.body.scrollTop > 1000 || document.documentElement.scrollTop > 1000) {
-      document.getElementById("scroll-to-top").style.display = "inline";
-      document.getElementById("scroll-to-top").style.visibility = "visible";
-      document.getElementById("scroll-to-top").style.opacity = "1";
-  } else {
-      document.getElementById("scroll-to-top").style.visibility = "hidden";
-      document.getElementById("scroll-to-top").style.opacity = "0";
-  }
-  
-  prevScrollpos = currentScrollPos;
-}
-
-
-function topFunction() {
-  document.body.scrollTop = 0; 
-  document.documentElement.scrollTop = 0; 
-}
-
-
-
-
-
-
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
 
 </script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
 
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
 
-
-
+</script>
 </body>
+
 </html>

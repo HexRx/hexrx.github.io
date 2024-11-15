@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>PY32 on HexRx</title>
     <link>https://hexrx.github.io/tags/py32/</link>
     <description>Recent content in PY32 on HexRx</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.138.0</generator>
     <language>en-us</language>
     <copyright>Copyright © 2024 HexRx</copyright>
     <lastBuildDate>Fri, 18 Oct 2024 21:25:46 +0300</lastBuildDate>
@@ -14,14 +14,33 @@
       <link>https://hexrx.github.io/posts/get-dma-pll-with-48mhz-4kb-ram-and-32kb-flash-memory-for-py32f002ax5-chips/</link>
       <pubDate>Fri, 18 Oct 2024 21:25:46 +0300</pubDate>
       <guid>https://hexrx.github.io/posts/get-dma-pll-with-48mhz-4kb-ram-and-32kb-flash-memory-for-py32f002ax5-chips/</guid>
-      <description>It seems that most Chinese chips PUYA PY32F002Ax5 have the core from PY32F030x6 chips inside, which gives undocumented features like DMA support, PLL with the ability to run chip on 48 MHz, additional timers like TIM3, and 4 KB RAM with 32 KB flash.&#xA;How to check if you PY32F002Ax5 has more memory There you have several options:&#xA;Build and flash this code to test RAM and flash https://github.com/IOsetting/py32f0-template/tree/main/Examples/PY32F0xx/HAL/Test/PY32F002A_32KF_4KR Create an empty 32kb binary file in your preferred hex editor (or use the online hex editor https://hexed.</description>
+      <description>&lt;p&gt;It seems that most Chinese chips PUYA PY32F002Ax5 have the core from PY32F030x6 chips inside, which gives undocumented features like DMA support, PLL with the ability to run chip on 48 MHz, additional timers like TIM3, and 4 KB RAM with 32 KB flash.&lt;/p&gt;
+&lt;h3 id=&#34;how-to-check-if-you-py32f002ax5-has-more-memory&#34;&gt;How to check if you PY32F002Ax5 has more memory&lt;/h3&gt;
+&lt;p&gt;There you have several options:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Build and flash this code to test RAM and flash &lt;a href=&#34;https://github.com/IOsetting/py32f0-template/tree/main/Examples/PY32F0xx/HAL/Test/PY32F002A_32KF_4KR&#34;&gt;https://github.com/IOsetting/py32f0-template/tree/main/Examples/PY32F0xx/HAL/Test/PY32F002A_32KF_4KR&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Create an empty 32kb binary file in your preferred hex editor (or use the online hex editor &lt;a href=&#34;https://hexed.it&#34;&gt;https://hexed.it&lt;/a&gt;), put some bytes to the end of the file, flash the file to the chip, then verify those bytes by reading the firmware back.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;how-to-unlock-hidden-features-of-py32f002ax5&#34;&gt;How to unlock hidden features of PY32F002Ax5&lt;/h3&gt;
+&lt;p&gt;If you&amp;rsquo;re using the HAL and LL libraries from the repository &lt;a href=&#34;https://github.com/IOsetting/py32f0-template&#34;&gt;https://github.com/IOsetting/py32f0-template&lt;/a&gt;, you just need to modify Makefile, change:
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;MCU_TYPE &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; PY32F002Ax5&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+to
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;MCU_TYPE &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; PY32F003x6&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+and recompile the entire project.&lt;/p&gt;</description>
     </item>
     <item>
       <title>PY32F002 pyOCD STLink error (22): DP error</title>
       <link>https://hexrx.github.io/posts/py32f002-pyocd-stlink-dp-error/</link>
       <pubDate>Mon, 23 Sep 2024 23:19:03 +0300</pubDate>
       <guid>https://hexrx.github.io/posts/py32f002-pyocd-stlink-dp-error/</guid>
-      <description>After run the command to upload firmware to chip PY32F002AA15M6TU pyocd load app.hex -t PY32F002Ax5&#xA;I got the error 0004908 C STLink error (22): DP error [__main__]&#xA;But if you try to read firmware, it works fine pyocd&amp;gt; savemem 0x08000000 20480 py32f002.bin&#xA;BTW pyOCD and ST-Link V2 work well with the PY32F003xx series.&#xA;The solution is to use CMSIS-DAP based programmer instead of ST-Link V2, but instead of buying a new one you can use STM32 Blue Pill board without adding any extra components, just upload the firmware https://github.</description>
+      <description>&lt;p&gt;After run the command to upload firmware to chip PY32F002AA15M6TU
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;pyocd load app.hex -t PY32F002Ax5&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;I got the error
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0004908&lt;/span&gt; C STLink error &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;22&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;: DP error &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;__main__&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;But if you try to read firmware, it works fine
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;pyocd&amp;gt; savemem 0x08000000 &lt;span style=&#34;color:#ae81ff&#34;&gt;20480&lt;/span&gt; py32f002.bin&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;BTW pyOCD and ST-Link V2 work well with the PY32F003xx series.&lt;/p&gt;
+&lt;p&gt;The solution is to use CMSIS-DAP based programmer instead of ST-Link V2, but instead of buying a new one you can use STM32 Blue Pill board without adding any extra components, just upload the firmware &lt;a href=&#34;https://github.com/RadioOperator/STM32F103C8T6_CMSIS-DAP_SWO/blob/master/build/F103-DAP-SWO-CDC-BLUEPILL-SWD_PB8PB9.hex&#34;&gt;https://github.com/RadioOperator/STM32F103C8T6_CMSIS-DAP_SWO/blob/master/build/F103-DAP-SWO-CDC-BLUEPILL-SWD_PB8PB9.hex&lt;/a&gt; from the repository &lt;a href=&#34;https://github.com/RadioOperator/STM32F103C8T6_CMSIS-DAP_SWO&#34;&gt;https://github.com/RadioOperator/STM32F103C8T6_CMSIS-DAP_SWO&lt;/a&gt; and connect 2 wires.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

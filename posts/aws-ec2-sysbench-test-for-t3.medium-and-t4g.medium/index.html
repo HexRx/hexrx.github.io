@@ -1,86 +1,327 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
 <head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta content='text/html; charset=utf-8' http-equiv='content-type' />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>AWS EC2 sysbench test for t3.medium and t4g.medium | HexRx</title>
+<meta name="keywords" content="AWS, AWS EC2, Sysbench, Notes">
+<meta name="description" content="Sysbench test was run on two types of AWS EC2 instances t3.medium (x86-64) and t4g.medium (ARM). The command was executed with the parameters sysbench --test=cpu run.
+t3.medium:
+sysbench 1.0.18 (using system LuaJIT 2.1.0-beta3)
 
-  <title>AWS EC2 sysbench test for t3.medium and t4g.medium - HexRx</title>
-  <meta content='AWS EC2 sysbench test for t3.medium and t4g.medium - HexRx' property='title' />
-  <meta content='AWS EC2 sysbench test for t3.medium and t4g.medium - HexRx' property='og:title' />
-
-
-<meta property="og:description" content="Sysbench test was run on two types of AWS EC2 instances t3.medium (x86-64) and t4g.medium (ARM). The command was executed with the parameters sysbench --test=cpu run.
-t3.medium: sysbench 1.0.18 (using system LuaJIT 2.1.0-beta3) Running the test with following options: Number of threads: 1 Initializing random number generator from current time Prime numbers limit: 10000 Initializing worker threads... Threads started! CPU speed: events per second: 984.07 General statistics: total time: 10.0008s total number of events: 9843 Latency (ms): min: 0." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://hexrx.github.io/posts/aws-ec2-sysbench-test-for-t3.medium-and-t4g.medium/" />
-
-
-<meta property="article:published_time" content="2023-04-23T23:39:22&#43;03:00"/>
-
-<meta property="article:modified_time" content="2023-04-23T23:39:22&#43;03:00"/>
+Running the test with following options:
+Number of threads: 1
+Initializing random number generator from current time
 
 
+Prime numbers limit: 10000
+
+Initializing worker threads...
+
+Threads started!
+
+CPU speed:
+    events per second:   984.07
+
+General statistics:
+    total time:                          10.0008s
+    total number of events:              9843
+
+Latency (ms):
+         min:                                    0.94
+         avg:                                    1.02
+         max:                                    8.81
+         95th percentile:                        1.06
+         sum:                                 9995.26
+
+Threads fairness:
+    events (avg/stddev):           9843.0000/0.00
+    execution time (avg/stddev):   9.9953/0.00
+t4g.medium:
+sysbench 1.0.20 (using system LuaJIT 2.1.0-beta3)
+
+Running the test with following options:
+Number of threads: 1
+Initializing random number generator from current time
 
 
+Prime numbers limit: 10000
+
+Initializing worker threads...
+
+Threads started!
+
+CPU speed:
+    events per second:  2807.81
+
+General statistics:
+    total time:                          10.0004s
+    total number of events:              28083
+
+Latency (ms):
+         min:                                    0.35
+         avg:                                    0.36
+         max:                                    0.43
+         95th percentile:                        0.36
+         sum:                                 9995.59
+
+Threads fairness:
+    events (avg/stddev):           28083.0000/0.00
+    execution time (avg/stddev):   9.9956/0.00
+">
+<meta name="author" content="">
+<link rel="canonical" href="https://hexrx.github.io/posts/aws-ec2-sysbench-test-for-t3.medium-and-t4g.medium/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.d6fcd20a4fb86efa4dfac8ec95da60244cc8871042183da1ef28e3a762ad79c8.css" integrity="sha256-1vzSCk&#43;4bvpN&#43;sjsldpgJEzIhxBCGD2h7yjjp2Ktecg=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://hexrx.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://hexrx.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://hexrx.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://hexrx.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://hexrx.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://hexrx.github.io/posts/aws-ec2-sysbench-test-for-t3.medium-and-t4g.medium/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-F8HK5X7GEB"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-F8HK5X7GEB');
+        }
+      </script><meta property="og:url" content="https://hexrx.github.io/posts/aws-ec2-sysbench-test-for-t3.medium-and-t4g.medium/">
+  <meta property="og:site_name" content="HexRx">
+  <meta property="og:title" content="AWS EC2 sysbench test for t3.medium and t4g.medium">
+  <meta property="og:description" content="Sysbench test was run on two types of AWS EC2 instances t3.medium (x86-64) and t4g.medium (ARM). The command was executed with the parameters sysbench --test=cpu run.
+t3.medium: sysbench 1.0.18 (using system LuaJIT 2.1.0-beta3) Running the test with following options: Number of threads: 1 Initializing random number generator from current time Prime numbers limit: 10000 Initializing worker threads... Threads started! CPU speed: events per second: 984.07 General statistics: total time: 10.0008s total number of events: 9843 Latency (ms): min: 0.94 avg: 1.02 max: 8.81 95th percentile: 1.06 sum: 9995.26 Threads fairness: events (avg/stddev): 9843.0000/0.00 execution time (avg/stddev): 9.9953/0.00 t4g.medium: sysbench 1.0.20 (using system LuaJIT 2.1.0-beta3) Running the test with following options: Number of threads: 1 Initializing random number generator from current time Prime numbers limit: 10000 Initializing worker threads... Threads started! CPU speed: events per second: 2807.81 General statistics: total time: 10.0004s total number of events: 28083 Latency (ms): min: 0.35 avg: 0.36 max: 0.43 95th percentile: 0.36 sum: 9995.59 Threads fairness: events (avg/stddev): 28083.0000/0.00 execution time (avg/stddev): 9.9956/0.00 ">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-04-23T23:39:22+03:00">
+    <meta property="article:modified_time" content="2023-04-23T23:39:22+03:00">
+    <meta property="article:tag" content="AWS">
+    <meta property="article:tag" content="AWS EC2">
+    <meta property="article:tag" content="Sysbench">
+    <meta property="article:tag" content="Notes">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AWS EC2 sysbench test for t3.medium and t4g.medium">
+<meta name="twitter:description" content="Sysbench test was run on two types of AWS EC2 instances t3.medium (x86-64) and t4g.medium (ARM). The command was executed with the parameters sysbench --test=cpu run.
+t3.medium:
+sysbench 1.0.18 (using system LuaJIT 2.1.0-beta3)
+
+Running the test with following options:
+Number of threads: 1
+Initializing random number generator from current time
 
 
+Prime numbers limit: 10000
+
+Initializing worker threads...
+
+Threads started!
+
+CPU speed:
+    events per second:   984.07
+
+General statistics:
+    total time:                          10.0008s
+    total number of events:              9843
+
+Latency (ms):
+         min:                                    0.94
+         avg:                                    1.02
+         max:                                    8.81
+         95th percentile:                        1.06
+         sum:                                 9995.26
+
+Threads fairness:
+    events (avg/stddev):           9843.0000/0.00
+    execution time (avg/stddev):   9.9953/0.00
+t4g.medium:
+sysbench 1.0.20 (using system LuaJIT 2.1.0-beta3)
+
+Running the test with following options:
+Number of threads: 1
+Initializing random number generator from current time
 
 
-<meta name="generator" content="Hugo 0.121.1">
+Prime numbers limit: 10000
 
-<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600" rel="stylesheet">
-<style type="text/css">/*https://coolors.co/afd5aa-f0f2ef-a69f98-3d3d3d-8c6057*/
-:root {
-  --main-color: #8C6056; 
-  --secondary-color: #AFD5AA;
-  --logo-text-color: #fff;
-  --body-text-color: #3d3d3d;
-  --heading-text-color: #383838;
-  --background-color: #fff;
-}</style>
-<link href='/css/tachyons.min.css' rel="stylesheet">
-<link href='/css/styles.css' rel="stylesheet">
+Initializing worker threads...
+
+Threads started!
+
+CPU speed:
+    events per second:  2807.81
+
+General statistics:
+    total time:                          10.0004s
+    total number of events:              28083
+
+Latency (ms):
+         min:                                    0.35
+         avg:                                    0.36
+         max:                                    0.43
+         95th percentile:                        0.36
+         sum:                                 9995.59
+
+Threads fairness:
+    events (avg/stddev):           28083.0000/0.00
+    execution time (avg/stddev):   9.9956/0.00
+">
 
 
-<link rel="icon" 
- 
-  href='/favicon.ico'
-
-type="image/x-icon"/>
-
-<link href='/feed.xml' rel="alternate" type="application/atom+xml" title="HexRx" />
-
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'G-F8HK5X7GEB', 'auto');
-	
-	ga('send', 'pageview');
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://hexrx.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "AWS EC2 sysbench test for t3.medium and t4g.medium",
+      "item": "https://hexrx.github.io/posts/aws-ec2-sysbench-test-for-t3.medium-and-t4g.medium/"
+    }
+  ]
 }
 </script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "AWS EC2 sysbench test for t3.medium and t4g.medium",
+  "name": "AWS EC2 sysbench test for t3.medium and t4g.medium",
+  "description": "Sysbench test was run on two types of AWS EC2 instances t3.medium (x86-64) and t4g.medium (ARM). The command was executed with the parameters sysbench --test=cpu run.\nt3.medium: sysbench 1.0.18 (using system LuaJIT 2.1.0-beta3) Running the test with following options: Number of threads: 1 Initializing random number generator from current time Prime numbers limit: 10000 Initializing worker threads... Threads started! CPU speed: events per second: 984.07 General statistics: total time: 10.0008s total number of events: 9843 Latency (ms): min: 0.94 avg: 1.02 max: 8.81 95th percentile: 1.06 sum: 9995.26 Threads fairness: events (avg/stddev): 9843.0000/0.00 execution time (avg/stddev): 9.9953/0.00 t4g.medium: sysbench 1.0.20 (using system LuaJIT 2.1.0-beta3) Running the test with following options: Number of threads: 1 Initializing random number generator from current time Prime numbers limit: 10000 Initializing worker threads... Threads started! CPU speed: events per second: 2807.81 General statistics: total time: 10.0004s total number of events: 28083 Latency (ms): min: 0.35 avg: 0.36 max: 0.43 95th percentile: 0.36 sum: 9995.59 Threads fairness: events (avg/stddev): 28083.0000/0.00 execution time (avg/stddev): 9.9956/0.00 ",
+  "keywords": [
+    "AWS", "AWS EC2", "Sysbench", "Notes"
+  ],
+  "articleBody": "Sysbench test was run on two types of AWS EC2 instances t3.medium (x86-64) and t4g.medium (ARM). The command was executed with the parameters sysbench --test=cpu run.\nt3.medium: sysbench 1.0.18 (using system LuaJIT 2.1.0-beta3) Running the test with following options: Number of threads: 1 Initializing random number generator from current time Prime numbers limit: 10000 Initializing worker threads... Threads started! CPU speed: events per second: 984.07 General statistics: total time: 10.0008s total number of events: 9843 Latency (ms): min: 0.94 avg: 1.02 max: 8.81 95th percentile: 1.06 sum: 9995.26 Threads fairness: events (avg/stddev): 9843.0000/0.00 execution time (avg/stddev): 9.9953/0.00 t4g.medium: sysbench 1.0.20 (using system LuaJIT 2.1.0-beta3) Running the test with following options: Number of threads: 1 Initializing random number generator from current time Prime numbers limit: 10000 Initializing worker threads... Threads started! CPU speed: events per second: 2807.81 General statistics: total time: 10.0004s total number of events: 28083 Latency (ms): min: 0.35 avg: 0.36 max: 0.43 95th percentile: 0.36 sum: 9995.59 Threads fairness: events (avg/stddev): 28083.0000/0.00 execution time (avg/stddev): 9.9956/0.00 ",
+  "wordCount" : "168",
+  "inLanguage": "en",
+  "datePublished": "2023-04-23T23:39:22+03:00",
+  "dateModified": "2023-04-23T23:39:22+03:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://hexrx.github.io/posts/aws-ec2-sysbench-test-for-t3.medium-and-t4g.medium/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "HexRx",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://hexrx.github.io/favicon.ico"
+    }
+  }
+}
+</script>
 </head>
-<body class="global-font">
-  <nav class=" justify-between border-box pa3 pl3-l pr2-l mt1 mt0-ns" id="navbar">
-  <div class="flex">
-    <a class="f4 fw6 ttu no-underline dim bg-main-color pv1 ph2 br2" id="site-title" href='/' title="Home">HexRx</a>
-  </div>
-  
-</nav>
-  
-<main class="center mv4 content-width ph3">
-  <div class="f3 fw6 heading-color heading-font post-title">AWS EC2 sysbench test for t3.medium and t4g.medium</div>
-  <p class="silver f6 mt1 mb4 post-meta">
-    <time>23 Apr 2023</time> 
-     | 
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://hexrx.github.io/" accesskey="h" title="HexRx (Alt + H)">HexRx</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
     
-    
-    tags: [ <a href='/tags/aws' class="link silver">AWS</a> <a href='/tags/aws-ec2' class="link silver">AWS EC2</a> <a href='/tags/sysbench' class="link silver">Sysbench</a> <a href='/tags/notes' class="link silver">Notes</a>  ]
-    
-  </p>
-  <div class="lh-copy post-content"><p>Sysbench test was run on two types of AWS EC2 instances t3.medium (x86-64) and t4g.medium (ARM). The command was executed with the parameters <code>sysbench --test=cpu run</code>.</p>
-<h3 id="t3medium">t3.medium:</h3>
+    <h1 class="post-title entry-hint-parent">
+      AWS EC2 sysbench test for t3.medium and t4g.medium
+    </h1>
+    <div class="post-meta"><span title='2023-04-23 23:39:22 +0300 EEST'>April 23, 2023</span>
+
+</div>
+  </header> 
+  <div class="post-content"><p>Sysbench test was run on two types of AWS EC2 instances t3.medium (x86-64) and t4g.medium (ARM). The command was executed with the parameters <code>sysbench --test=cpu run</code>.</p>
+<h3 id="t3medium">t3.medium:<a hidden class="anchor" aria-hidden="true" href="#t3medium">#</a></h3>
 <pre tabindex="0"><code>sysbench 1.0.18 (using system LuaJIT 2.1.0-beta3)
 
 Running the test with following options:
@@ -111,7 +352,7 @@ Latency (ms):
 Threads fairness:
     events (avg/stddev):           9843.0000/0.00
     execution time (avg/stddev):   9.9953/0.00
-</code></pre><h3 id="t4gmedium">t4g.medium:</h3>
+</code></pre><h3 id="t4gmedium">t4g.medium:<a hidden class="anchor" aria-hidden="true" href="#t4gmedium">#</a></h3>
 <pre tabindex="0"><code>sysbench 1.0.20 (using system LuaJIT 2.1.0-beta3)
 
 Running the test with following options:
@@ -142,102 +383,90 @@ Latency (ms):
 Threads fairness:
     events (avg/stddev):           28083.0000/0.00
     execution time (avg/stddev):   9.9956/0.00
-</code></pre></div>
-</main>
- 
+</code></pre>
 
+  </div>
 
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://hexrx.github.io/tags/aws/">AWS</a></li>
+      <li><a href="https://hexrx.github.io/tags/aws-ec2/">AWS EC2</a></li>
+      <li><a href="https://hexrx.github.io/tags/sysbench/">Sysbench</a></li>
+      <li><a href="https://hexrx.github.io/tags/notes/">Notes</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>Copyright © 2024 HexRx</span> · 
 
-
-
-
-<div class="tl fixed list-pages lh-copy" id="contents-list"></div>
-
-
-
-<div class="pagination tc tr-l db fixed-l bottom-2-l right-2-l mb3 mb0-l">
-  
-<a id="scroll-to-top" class="f6 o-0 link br2 ph2 pv1 mb1 bg-main-color pointer" onclick="topFunction()" style="color: #fff; visibility: hidden; display: none; transition: opacity .5s, visibility .5s;" title="back to top">back to top</a>
-<br>
-  <p class="mb0 mt2">
-  <a href="https://hexrx.github.io/posts/aws-ec2-lscpu-for-t3small-t2medium-t3axlarge-m5zn3xlarge-c6alarge/">prev post</a>
-  <a href="https://hexrx.github.io/posts/unlocking-ebyte-e104-bt5005a-module-using-pyocd/">next post</a>
-  </p>
-</div>
-
-  <footer class="content-width mt0 mt5-l mb4 f6 center ph3 gray tc tl-l">
-  <hr class="dn db-l ml0-l gray w3"><br>
-  Powered by <a href="https://gohugo.io/" target="_blank" class="link gray dim">Hugo</a>, based on the <a href="https://github.com/lingxz/er" target="_blank" class="link gray dim">Er</a> theme. <br>
-  Copyright © 2024 HexRx
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
 </footer>
-  
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
 
-
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
-<style>.is-active-link::before { background-color: var(--secondary-color); }</style>
-
-
-
-
-<script type="text/javascript">
-var prevScrollpos = window.pageYOffset;
-window.onscroll = function() {
-  var currentScrollPos = window.pageYOffset;
-
-  
-  if (document.getElementById("tag-cloud") !== null) { 
-    if (prevScrollpos > currentScrollPos) { 
-      document.getElementById("tag-cloud").style.visibility = "visible";
-      document.getElementById("tag-cloud").style.opacity = "1";
-    } else {
-      document.getElementById("tag-cloud").style.visibility = "hidden";
-      document.getElementById("tag-cloud").style.opacity = "0";
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
     }
-  }
-  
 
-  
-  if (document.body.scrollTop > 1000 || document.documentElement.scrollTop > 1000) {
-      document.getElementById("scroll-to-top").style.display = "inline";
-      document.getElementById("scroll-to-top").style.visibility = "visible";
-      document.getElementById("scroll-to-top").style.opacity = "1";
-  } else {
-      document.getElementById("scroll-to-top").style.visibility = "hidden";
-      document.getElementById("scroll-to-top").style.opacity = "0";
-  }
-  
-  prevScrollpos = currentScrollPos;
-}
-
-
-function topFunction() {
-  document.body.scrollTop = 0; 
-  document.documentElement.scrollTop = 0; 
-}
-
-
-
-
-
-
-if (document.getElementById("contents-list") !== null && document.getElementsByClassName("post-content").length !== 0) { 
-  tocbot.init({
-    
-    tocSelector: '#contents-list',
-    
-    contentSelector: '.post-content',
-    
-    headingSelector: 'h1, h2, h3',
-  });
-}
-
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
 
 </script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
 
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
 
-
-
+</script>
 </body>
+
 </html>
