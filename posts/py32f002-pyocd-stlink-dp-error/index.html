@@ -133,8 +133,8 @@ The solution is to use CMSIS-DAP based programmer instead of ST-Link V2, but ins
   "keywords": [
     "PY32", "Notes"
   ],
-  "articleBody": "After run the command to upload firmware to chip PY32F002AA15M6TU pyocd load app.hex -t PY32F002Ax5\nI got the error 0004908 C STLink error (22): DP error [__main__]\nBut if you try to read firmware, it works fine pyocd\u003e savemem 0x08000000 20480 py32f002.bin\nBTW pyOCD and ST-Link V2 work well with the PY32F003xx series.\nThe solution is to use CMSIS-DAP based programmer instead of ST-Link V2, but instead of buying a new one you can use STM32 Blue Pill board without adding any extra components, just upload the firmware https://github.com/RadioOperator/STM32F103C8T6_CMSIS-DAP_SWO/blob/master/build/F103-DAP-SWO-CDC-BLUEPILL-SWD_PB8PB9.hex from the repository https://github.com/RadioOperator/STM32F103C8T6_CMSIS-DAP_SWO and connect 2 wires.\nAfter flashing Blue Pill, connect Blue Pill to your computer and connect PY32F002xx target as described below\nSTM32 Blue Pull PY32F002xx PB8 SWDIO PB9 SWCLK The original source of the image is http://reblag.dk/stm32\nAfter running the command you will see a new device CMSIS-DAP by ARM CMSIS-DAP pyocd list\nNow you can use a new Blue Pill based programmer to programm PY32F002 chips with pyOCD.\n",
-  "wordCount" : "162",
+  "articleBody": "After run the command to upload firmware to chip PY32F002AA15M6TU pyocd load app.hex -t PY32F002Ax5\nI got the error 0004908 C STLink error (22): DP error [__main__]\nBut if you try to read firmware, it works fine pyocd\u003e savemem 0x08000000 20480 py32f002.bin\nBTW pyOCD and ST-Link V2 work well with the PY32F003xx series.\nThe solution is to use CMSIS-DAP based programmer instead of ST-Link V2, but instead of buying a new one you can use STM32 Blue Pill board without adding any extra components, just upload the firmware https://github.com/RadioOperator/STM32F103C8T6_CMSIS-DAP_SWO/blob/master/build/F103-DAP-SWO-CDC-BLUEPILL-SWD_PB8PB9.hex from the repository https://github.com/RadioOperator/STM32F103C8T6_CMSIS-DAP_SWO and connect 2 wires.\nAfter flashing Blue Pill, connect Blue Pill to your computer and connect PY32F002xx target as described below\nSTM32 Blue Pull PY32F002xx PB8 SWCLK (PA14) PB9 SWDIO (PA13) The original source of the image is http://reblag.dk/stm32\nAfter running the command you will see a new device CMSIS-DAP by ARM CMSIS-DAP pyocd list\nNow you can use a new Blue Pill based programmer to programm PY32F002 chips with pyOCD.\n",
+  "wordCount" : "164",
   "inLanguage": "en",
   "datePublished": "2024-09-23T23:19:03+03:00",
   "dateModified": "2024-09-23T23:19:03+03:00",
@@ -228,11 +228,11 @@ The solution is to use CMSIS-DAP based programmer instead of ST-Link V2, but ins
   <tbody>
       <tr>
           <td>PB8</td>
-          <td>SWDIO</td>
+          <td>SWCLK (PA14)</td>
       </tr>
       <tr>
           <td>PB9</td>
-          <td>SWCLK</td>
+          <td>SWDIO (PA13)</td>
       </tr>
   </tbody>
 </table>
