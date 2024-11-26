@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://hexrx.github.io/sitemap.xml
