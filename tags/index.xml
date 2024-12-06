@@ -7,12 +7,19 @@
     <generator>Hugo -- 0.138.0</generator>
     <language>en-us</language>
     <copyright>Copyright © 2024 HexRx</copyright>
-    <lastBuildDate>Fri, 18 Oct 2024 21:25:46 +0300</lastBuildDate>
+    <lastBuildDate>Fri, 06 Dec 2024 15:55:05 +0200</lastBuildDate>
     <atom:link href="https://hexrx.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ESP32</title>
+      <link>https://hexrx.github.io/tags/esp32/</link>
+      <pubDate>Fri, 06 Dec 2024 15:55:05 +0200</pubDate>
+      <guid>https://hexrx.github.io/tags/esp32/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Notes</title>
       <link>https://hexrx.github.io/tags/notes/</link>
-      <pubDate>Fri, 18 Oct 2024 21:25:46 +0300</pubDate>
+      <pubDate>Fri, 06 Dec 2024 15:55:05 +0200</pubDate>
       <guid>https://hexrx.github.io/tags/notes/</guid>
       <description></description>
     </item>
