@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>SSC338Q &#43; IMX415 IP camera, first launch | Blog | HexRx</title>
+<meta name="keywords" content="IP camera, SSC338Q, IMX415, Linux">
+<meta name="description" content="Introduction
+The camera is powered by dual-core ARM Cortex-A7 1.2Ghz CPU SigmaStar SSC338Q and is equipped with H.264 and H.265 hardware encoders.
+
+The main board has the label SSC338Q_38M_2.0
+
+Pinout
+TODO: add screen with numbers
+UART access
+TODO
+ISP access by I2C
+You can use CH341A programmer with a tool https://github.com/OpenIPC/snander-mstar to download and upload firmware.">
+<meta name="author" content="">
+<link rel="canonical" href="https://hexrx.github.io/posts/ssc338q-imx415-ip-camera-first-launch/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.d6fcd20a4fb86efa4dfac8ec95da60244cc8871042183da1ef28e3a762ad79c8.css" integrity="sha256-1vzSCk&#43;4bvpN&#43;sjsldpgJEzIhxBCGD2h7yjjp2Ktecg=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://hexrx.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://hexrx.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://hexrx.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://hexrx.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://hexrx.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://hexrx.github.io/posts/ssc338q-imx415-ip-camera-first-launch/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-F8HK5X7GEB"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-F8HK5X7GEB');
+        }
+      </script><meta property="og:url" content="https://hexrx.github.io/posts/ssc338q-imx415-ip-camera-first-launch/">
+  <meta property="og:site_name" content="Blog | HexRx">
+  <meta property="og:title" content="SSC338Q &#43; IMX415 IP camera, first launch">
+  <meta property="og:description" content="Introduction The camera is powered by dual-core ARM Cortex-A7 1.2Ghz CPU SigmaStar SSC338Q and is equipped with H.264 and H.265 hardware encoders. The main board has the label SSC338Q_38M_2.0 Pinout TODO: add screen with numbers
+UART access TODO
+ISP access by I2C You can use CH341A programmer with a tool https://github.com/OpenIPC/snander-mstar to download and upload firmware.">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-12-10T21:54:26+03:00">
+    <meta property="article:modified_time" content="2024-12-10T21:54:26+03:00">
+    <meta property="article:tag" content="IP Camera">
+    <meta property="article:tag" content="SSC338Q">
+    <meta property="article:tag" content="IMX415">
+    <meta property="article:tag" content="Linux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SSC338Q &#43; IMX415 IP camera, first launch">
+<meta name="twitter:description" content="Introduction
+The camera is powered by dual-core ARM Cortex-A7 1.2Ghz CPU SigmaStar SSC338Q and is equipped with H.264 and H.265 hardware encoders.
+
+The main board has the label SSC338Q_38M_2.0
+
+Pinout
+TODO: add screen with numbers
+UART access
+TODO
+ISP access by I2C
+You can use CH341A programmer with a tool https://github.com/OpenIPC/snander-mstar to download and upload firmware.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://hexrx.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "SSC338Q + IMX415 IP camera, first launch",
+      "item": "https://hexrx.github.io/posts/ssc338q-imx415-ip-camera-first-launch/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "SSC338Q + IMX415 IP camera, first launch",
+  "name": "SSC338Q \u002b IMX415 IP camera, first launch",
+  "description": "Introduction The camera is powered by dual-core ARM Cortex-A7 1.2Ghz CPU SigmaStar SSC338Q and is equipped with H.264 and H.265 hardware encoders. The main board has the label SSC338Q_38M_2.0 Pinout TODO: add screen with numbers\nUART access TODO\nISP access by I2C You can use CH341A programmer with a tool https://github.com/OpenIPC/snander-mstar to download and upload firmware.\n",
+  "keywords": [
+    "IP camera", "SSC338Q", "IMX415", "Linux"
+  ],
+  "articleBody": "Introduction The camera is powered by dual-core ARM Cortex-A7 1.2Ghz CPU SigmaStar SSC338Q and is equipped with H.264 and H.265 hardware encoders. The main board has the label SSC338Q_38M_2.0 Pinout TODO: add screen with numbers\nUART access TODO\nISP access by I2C You can use CH341A programmer with a tool https://github.com/OpenIPC/snander-mstar to download and upload firmware.\nOr use\nAVR based i2c-tiny-usb https://github.com/harbaum/I2C-Tiny-USB STM32 Blue Pill based https://github.com/daniel-thompson/i2c-star with a tool https://github.com/fifteenhex/snander_electricboogaloo\nFor more details check the link https://linux-chenxing.org/isp/\nIf you have SPI NOR memory, check this https://boeglin.org/blog/index.php?entry=Flashing-a-BenQ-Z-series-for-free\nU-Boot To get U-Boot shell during the first boot seconds of the boot (when you have UART string like U-Boot 2015.01 (Nov 08 2021 - 23:14:14)) press the ENTER key several times.\nprintenv output Mstarbin=20150709 bootargs=ubi.mtd=UBI,2048 root=/dev/mtdblock8 rootfstype=squashfs ro init=/linuxrc LX_MEM=0xffe0000 mma_heap=mma_heap_name0,miu=0,sz=0x949C000 mma_heap=mma_heap_ipu,miu=0,sz=0x164000 cma=2M mtdparts=nand0:768k@) bootcmd=nand read.e 0x22000000 KERNEL 0x500000; bootm 0x22000000;nand read.e 0x22000000 RECOVERY 0x500000; bootm 0x22000000 ethact=sstar_emac ethaddr= fileaddr=21000000 filesize=1A28000 mtddevname=IPL0 mtddevnum=0 mtdids=nand0=nand0 mtdparts=mtdparts=nand0:768k@0x140000(IPL0),384k(IPL_CUST0),384k(IPL_CUST1),384k(UBOOT0),384k(UBOOT1),256k(ENV0),5m(KERNEL),5m(RECOVERY),6m(rootfs),384k(MISC),-(UBI) partition=nand0,0 stderr=serial stdin=serial stdout=serial Environment size: 871/131068 bytes Hot to restore U-Boot with I2C (ISP) and CH341A programmer https://github.com/OpenIPC/wiki/blob/master/en/sigmastar-unbrick.md\nSPI flash partitions 0x000000140000-0x000000200000 : \"IPL0\" 0x000000200000-0x000000260000 : \"IPL_CUST0\" 0x000000260000-0x0000002c0000 : \"IPL_CUST1\" 0x0000002c0000-0x000000320000 : \"UBOOT0\" 0x000000320000-0x000000380000 : \"UBOOT1\" 0x000000380000-0x0000003c0000 : \"ENV0\" 0x0000003c0000-0x0000008c0000 : \"KERNEL\" 0x0000008c0000-0x000000dc0000 : \"RECOVERY\" 0x000000dc0000-0x0000013c0000 : \"rootfs\" 0x0000013c0000-0x000001420000 : \"MISC\" 0x000001420000-0x000008000000 : \"UBI\" For more details about IPL (Initial Program Loader) partitions, see here https://wx.comake.online/doc/doc/SigmaStarDocs-SSC9381G_9351_Pudding-ULS00V040-20210913/customer/faq/securityboot/OTP-Key.html\nRTSP stream urls rtsp://CAMERA_IP/11 - Frame size 3840x2160\nrtsp://CAMERA_IP/111 - Frame size 3840x2160\nrtsp://CAMERA_IP/101 - Frame size 1280x720\nOpenIPC alternative firmware This chip supports open-source OpenIPC firmware https://openipc.org/cameras/vendors/sigmastar/socs/ssc338q\nBoot log from UART Some IDs were replaced by IPL 1ab38bf D-11 HW Reset MCP1866_4X miupll_400MHz 256MB BIST0_0001-OK HS on [SDMMC] NO SD! Load IPL_CUST from SPINAND BlSize 00006850 Checksum OK JMP+++ IPL_CUST 1ab38bf [SDMMC] NO SD! _IPLCustSNandOp Load BL from SPINAND decomp_size=0x000703fc U-Boot 2015.01 (Nov 08 2021 - 23:14:14) Version: I6E#g####### I2C: ready DRAM: WARNING: Caches not enabled SPINAND_I: SPINAND: _MDrv_SPINAND_GET_INFO: Found SPINAND INFO (0xC8) (0x51) SPINAND: board_nand_init: CIS contains part info 128 MiB MMC: MStar SD/MMC: 0 In: serial Out: serial Err: serial Net: MAC Address Auto-Negotiation... AN failLink Status Speed:10 Full-duplex:0 Status Error! sstar_emac Warning: sstar_emac using MAC address from net device NAND read: device 0 offset 0x3c0000, size 0x500000 Time:980103 us, speed:5349 KB/s 5242880 bytes read: OK ## Booting kernel from Legacy Image at 22000000 ... Image Name: MVX4##I6E#g#######KL_LX409##[BR: Image Type: ARM Linux Kernel Image (lzma compressed) Data Size: 1896356 Bytes = 1.8 MiB Load Address: 20008000 Entry Point: 20008000 Verifying Checksum ... OK Uncompressing Kernel Image ... [XZ] !!!reserved 0x21000000 length=0x 1000000 for xz!! XZ: uncompressed size=0x3c8000, ret=7 OK atags:0x20000000 Starting kernel ... Booting Linux on physical CPU 0x0 Linux version 4.9.84 (super@super-virtual-machine) (gcc version 9.1.0 (GCC) ) #6 SMP PREEMPT Mon Jul 19 19:28:50 HKT 2021 CPU: ARMv7 Processor [410fc075] revision 5 (ARMv7), cr=50c5387d CPU: div instructions available: patching division code CPU: PIPT / VIPT nonaliasing data cache, VIPT aliasing instruction cache early_atags_to_fdt() success OF: fdt:Machine model: INFINITY6E SSC012B-S01A LXmem is 0xffe0000 PHYS_OFFSET is 0x20000000 Add mem start 0x20000000 size 0xffe0000!!!! LX_MEM = 0x20000000, 0xffe0000 LX_MEM2 = 0x0, 0x0 LX_MEM3 = 0x0, 0x0 EMAC_LEN= 0x0 DRAM_LEN= 0x0 deal_with_reserve_mma_heap memblock_reserve success mma_config[0].reserved_start= 0x26b44000 deal_with_reserve_mma_heap memblock_reserve success mma_config[1].reserved_start= 0x269e0000 cma: Reserved 2 MiB at 0x26600000 Memory policy: Data cache writealloc [infinity6e_smp_init_cpus] percpu: Embedded 13 pages/cpu @c699c000 s21272 r8192 d23784 u53248 Built 1 zonelists in Zone order, mobility grouping on. Total pages: 64992 Kernel command line: ubi.mtd=UBI,2048 root=/dev/mtdblock8 rootfstype=squashfs ro init=/linuxrc LX_MEM=0xffe0000 mma_heap=mma_heap_name0,miu=0,sz=0x949C000 mma_heap=mma_heap_ipu,miu=0,sz=0x164000 cma=2M mtdparts=nand0:768k@0x140000(IPL0),384k(IPL_CUST0),384k(IPL_CUST1),384k(UBOOT0),384k(UBOOT1),256k(ENV0),5m(KERNEL),5m(RECOVERY),6m(rootfs),384k(MISC),-(UBI) PID hash table entries: 1024 (order: 0, 4096 bytes) Dentry cache hash table entries: 32768 (order: 5, 131072 bytes) Inode-cache hash table entries: 16384 (order: 4, 65536 bytes) Memory: 99816K/262016K available (2252K kernel code, 186K rwdata, 1140K rodata, 156K init, 148K bss, 160152K reserved, 2048K cma-reserved) Virtual kernel memory layout: vector : 0xffff0000 - 0xffff1000 ( 4 kB) fixmap : 0xffc00000 - 0xfff00000 (3072 kB) vmalloc : 0xd0000000 - 0xff800000 ( 760 MB) lowmem : 0xc0000000 - 0xcffe0000 ( 255 MB) modules : 0xbf800000 - 0xc0000000 ( 8 MB) .text : 0xc0008000 - 0xc023b424 (2254 kB) .init : 0xc0379000 - 0xc03a0000 ( 156 kB) .data : 0xc03a0000 - 0xc03ce8e8 ( 187 kB) .bss : 0xc03d0000 - 0xc03f50f8 ( 149 kB) SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=2, Nodes=1 Preemptible hierarchical RCU implementation. Build-time adjustment of leaf fanout to 32. RCU restricting CPUs from NR_CPUS=4 to nr_cpu_ids=2. RCU: Adjusting geometry for rcu_fanout_leaf=32, nr_cpu_ids=2 NR_IRQS:16 nr_irqs:16 16 ms_init_main_intc: np-\u003ename=ms_main_intc, parent=gic ms_init_pm_intc: np-\u003ename=ms_pm_intc, parent=ms_main_intc ss_init_gpi_intc: np-\u003ename=ms_gpi_intc, parent=ms_main_intc Find CLK_ven_pll, hook ms_venpll_ops Find CLK_cpupll_clk, hook ms_cpuclk_ops arm_arch_timer: Architected cp15 timer(s) running at 6.00MHz (virt). clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x1623fa770, max_idle_ns: 440795202238 ns sched_clock: 56 bits at 6MHz, resolution 166ns, wraps every 4398046511055ns Switching to timer-based delay loop, resolution 166ns console [ttyS0] enabled Calibrating delay loop (skipped), value calculated using timer frequency.. 12.00 BogoMIPS (lpj=60000) pid_max: default: 4096 minimum: 301 Mount-cache hash table entries: 1024 (order: 0, 4096 bytes) Mountpoint-cache hash table entries: 1024 (order: 0, 4096 bytes) CPU: Testing write buffer coherency: ok CPU0: update cpu_capacity 1024 CPU0: thread -1, cpu 0, socket 0, mpidr 80000000 Setting up static identity map for 0x20008240 - 0x2000828c [infinity6e_boot_secondary] CPU1: update cpu_capacity 1024 CPU1: thread -1, cpu 1, socket 0, mpidr 80000001 Brought up 2 CPUs SMP: Total of 2 processors activated (24.00 BogoMIPS). CPU: All CPU(s) started in SVC mode. devtmpfs: initialized VFP support v0.3: implementor 41 architecture 2 part 30 variant 7 rev 5 clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns futex hash table entries: 16 (order: -2, 1024 bytes) NET: Registered protocol family 16 DMA: preallocated 256 KiB pool for atomic coherent allocations Version : MVX4##I6E#g#######KL_LX409##[BR:g]#XVM GPIO: probe end[Padmux]reset PAD42(reg 0x103c00:6f; mask0x7) t0 SD1_MODE_2 (org: I2C0_MODE_1) [Padmux]reset PAD49(reg 0x103c00:60; mask0x180) t0 GPIO (org: EJ_MODE_1) hw-breakpoint: found 5 (+1 reserved) breakpoint and 4 watchpoint registers. hw-breakpoint: maximum watchpoint size is 8 bytes. clocksource: Switched to clocksource arch_sys_counter NET: Registered protocol family 2 TCP established hash table entries: 2048 (order: 1, 8192 bytes) TCP bind hash table entries: 2048 (order: 3, 40960 bytes) TCP: Hash tables configured (established 2048 bind 2048) UDP hash table entries: 128 (order: 0, 6144 bytes) UDP-Lite hash table entries: 128 (order: 0, 6144 bytes) NET: Registered protocol family 1 hw perfevents: enabled with armv7_cortex_a7 PMU driver, 5 counters available workingset: timestamp_bits=30 max_order=15 bucket_order=0 squashfs: version 4.0 (2009/01/31) Phillip Lougher jffs2: version 2.2. © 2001-2006 Red Hat, Inc. io scheduler noop registered io scheduler deadline registered (default) Infinity6e PHY probe, base:fd2a4600 libphy: Fixed MDIO Bus: probed i2c /dev entries driver 1f221000.uart0: ttyS0 at MMIO 0x0 (irq = 45, base_baud = 10800000) is a unknown 1f221200.uart1: ttyS1 at MMIO 0x0 (irq = 46, base_baud = 10800000) is a unknown 1f220400.uart2: ttyS2 at MMIO 0x0 (irq = 49, base_baud = 10800000) is a unknown [MS_PM_INTC] hw:9 -\u003e v:72 [MS_PM_INTC] hw:10 -\u003e v:73 MSYS: DMEM request: [emac0_buff]:0x00000812 MSYS: DMEM request: [emac0_buff]:0x00000812 success, CPU phy:@0x26645000, virt:@0xC6645000 libphy: mdio: probed mdio_bus mdio-bus@emac0: /soc/emac0/mdio-bus/ethernet-phy@0 has invalid PHY address mdio_bus mdio-bus@emac0: scan phy ethernet-phy at address 0 mdio_bus mdio-bus@emac0: scan phy ethernet-phy at address 1 mdio_bus mdio-bus@emac0: scan phy ethernet-phy at address 2 mdio_bus mdio-bus@emac0: scan phy ethernet-phy at address 3 mdio_bus mdio-bus@emac0: scan phy ethernet-phy at address 4 mdio_bus mdio-bus@emac0: scan phy ethernet-phy at address 5 mdio_bus mdio-bus@emac0: scan phy ethernet-phy at address 6 mdio_bus mdio-bus@emac0: scan phy ethernet-phy at address 7 mdio_bus mdio-bus@emac0: scan phy ethernet-phy at address 8 mdio_bus mdio-bus@emac0: scan phy ethernet-phy at address 9 mdio_bus mdio-bus@emac0: scan phy ethernet-phy at address 10 mdio_bus mdio-bus@emac0: scan phy ethernet-phy at address 11 mdio_bus mdio-bus@emac0: scan phy ethernet-phy at address 12 mdio_bus mdio-bus@emac0: scan phy ethernet-phy at address 13 mdio_bus mdio-bus@emac0: scan phy ethernet-phy at address 14 mdio_bus mdio-bus@emac0: scan phy ethernet-phy at address 15 mdio_bus mdio-bus@emac0: scan phy ethernet-phy at address 16 mdio_bus mdio-bus@emac0: scan phy ethernet-phy at address 17 mdio_bus mdio-bus@emac0: scan phy ethernet-phy at address 18 mdio_bus mdio-bus@emac0: scan phy ethernet-phy at address 19 mdio_bus mdio-bus@emac0: scan phy ethernet-phy at address 20 mdio_bus mdio-bus@emac0: scan phy ethernet-phy at address 21 mdio_bus mdio-bus@emac0: scan phy ethernet-phy at address 22 mdio_bus mdio-bus@emac0: scan phy ethernet-phy at address 23 mdio_bus mdio-bus@emac0: scan phy ethernet-phy at address 24 mdio_bus mdio-bus@emac0: scan phy ethernet-phy at address 25 mdio_bus mdio-bus@emac0: scan phy ethernet-phy at address 26 mdio_bus mdio-bus@emac0: scan phy ethernet-phy at address 27 mdio_bus mdio-bus@emac0: scan phy ethernet-phy at address 28 mdio_bus mdio-bus@emac0: scan phy ethernet-phy at address 29 mdio_bus mdio-bus@emac0: scan phy ethernet-phy at address 30 mdio_bus mdio-bus@emac0: scan phy ethernet-phy at address 31 [emac_phy_connect][3328] connected mac emac0 to PHY at mdio-bus@emac0:00 [uid=11112222, driver=SStar 10/100 Ethernet Phy] ms_rtcpwc 1f006800.rtcpwc: rtc core: registered 1f006800.rtcpwc as rtc0 MSYS: DMEM request: [AESDMA_ENG]:0x00001000 MSYS: DMEM request: [AESDMA_ENG]:0x00001000 success, CPU phy:@0x26646000, virt:@0xC6646000 MSYS: DMEM request: [AESDMA_ENG1]:0x00001000 MSYS: DMEM request: [AESDMA_ENG1]:0x00001000 success, CPU phy:@0x26647000, virt:@0xC6647000 [ms_cpufreq_init] Current clk=796917760 [i6e][pwm] use ms_pwm-\u003egroup_data [NOTICE]pwm-isr(62) success. If not i6e or i6b0, pls confirm it on .dtsi mstar_spinand_probe: mstar_spinand enableClock MSYS: DMEM request: [BDMA]:0x00000840 MSYS: DMEM request: [BDMA]:0x00000840 success, CPU phy:@0x26648000, virt:@0xC6648000 MDrv_SPINAND_Init: Detected ID: MID =c8, DID =51 _dumpNandInformation:warning, Bytes / Page : 2048 _dumpNandInformation:warning, Pages / Block: 64 _dumpNandInformation:warning, Sector/ Page : 512 _dumpNandInformation:warning, Spare / Page : 64 _dumpNandInformation:warning, Current config r:1 w:1 drv:1 mstar_spinand_probe: Magic memcmp pass mstar_spinand_probe: Get partition (Block 0 : page 1) mstar_spinand_probe: CIS contains part info mstar_spinand_probe: Before nand_scan()... 11 cmdlinepart partitions found on MTD device nand0 mstar_spinand_probe: Mtd parts parse Creating 11 MTD partitions on \"nand0\": 0x000000140000-0x000000200000 : \"IPL0\" 0x000000200000-0x000000260000 : \"IPL_CUST0\" 0x000000260000-0x0000002c0000 : \"IPL_CUST1\" 0x0000002c0000-0x000000320000 : \"UBOOT0\" 0x000000320000-0x000000380000 : \"UBOOT1\" 0x000000380000-0x0000003c0000 : \"ENV0\" 0x0000003c0000-0x0000008c0000 : \"KERNEL\" 0x0000008c0000-0x000000dc0000 : \"RECOVERY\" 0x000000dc0000-0x0000013c0000 : \"rootfs\" 0x0000013c0000-0x000001420000 : \"MISC\" 0x000001420000-0x000008000000 : \"UBI\" mstar notify driver install successfully NET: Registered protocol family 17 lib80211: common routines for IEEE802.11 drivers [mstar_pm_init] resume_pbase=0x200114B5, suspend_imi_vbase=0xD0057000 ThumbEE CPU extension supported. Registering SWP/SWPB emulation handler ubi0: attaching mtd10 [emac_phy_link_adjust] EMAC Link Down ubi0: scanning is finished ubi0: attached mtd10 (name \"UBI\", size 107 MiB) ubi0: PEB size: 131072 bytes (128 KiB), LEB size: 126976 bytes ubi0: min./max. I/O unit sizes: 2048/2048, sub-page size 2048 ubi0: VID header offset: 2048 (aligned 2048), data offset: 4096 ubi0: good PEBs: 863, bad PEBs: 0, corrupted PEBs: 0 ubi0: user volume: 2, internal volumes: 1, max. volumes count: 128 ubi0: max/mean erase counter: 4/2, WL threshold: 4096, image sequence number: 0 ubi0: available PEBs: 95, total reserved PEBs: 768, PEBs reserved for bad PEB handling: 20 ubi0: background thread \"ubi_bgt0d\" started, PID 437 Please set rtc timer (hwclock -w) ms_rtcpwc 1f006800.rtcpwc: setting system clock to 1970-01-01 00:00:01 UTC (1) OF: fdt:not creating '/sys/firmware/fdt': CRC check failed VFS: Mounted root (squashfs filesystem) readonly on device 31:8. devtmpfs: mounted This architecture does not have kernel memory protection. mount: can't find devpts in /etc/fstab net.core.rmem_default = 163840 net.core.rmem_max = 163840 net.core.wmem_default = 524288 net.core.wmem_max = 1048576 net.ipv4.tcp_mem = 924 1232 1848 net.ipv4.tcp_rmem = 4096 87380 325120 net.ipv4.tcp_wmem = 4096 131072 393216 /etc/init.d/rcS: line 14: telnetd: not found mount: mounting none on /sys failed: Device or resource busy mount: mounting none on /sys/kernel/debug/ failed: Device or resource busy UBIFS (ubi0:0): background thread \"ubifs_bgt0_0\" started, PID 454 UBIFS (ubi0:0): recovery needed UBIFS (ubi0:0): recovery completed UBIFS (ubi0:0): UBIFS: mounted UBI device 0, volume 0, name \"miservice\" UBIFS (ubi0:0): LEB size: 126976 bytes (124 KiB), min./max. I/O unit sizes: 2048 bytes/2048 bytes UBIFS (ubi0:0): FS size: 9269248 bytes (8 MiB, 73 LEBs), journal size 1650688 bytes (1 MiB, 13 LEBs) UBIFS (ubi0:0): reserved for root: 0 bytes (0 KiB) UBIFS (ubi0:0): media format: w4/r0 (latest is w4/r0), UUID 07BD1086-29CE-46A8-9259-7D10FE6561FF, small LPT model UBIFS (ubi0:1): background thread \"ubifs_bgt0_1\" started, PID 458 UBIFS (ubi0:1): recovery needed UBIFS (ubi0:1): recovery completed UBIFS (ubi0:1): UBIFS: mounted UBI device 0, volume 1, name \"customer\" UBIFS (ubi0:1): LEB size: 126976 bytes (124 KiB), min./max. I/O unit sizes: 2048 bytes/2048 bytes UBIFS (ubi0:1): FS size: 79740928 bytes (76 MiB, 628 LEBs), journal size 9023488 bytes (8 MiB, 72 LEBs) UBIFS (ubi0:1): reserved for root: 0 bytes (0 KiB) UBIFS (ubi0:1): media format: w4/r0 (latest is w4/r0), UUID 52410A3A-3D27-4DB8-9A6A-7159F66772B6, small LPT model fuse: device not found, try 'modprobe fuse' first rled: loading out-of-tree module taints kernel. rled driver init successful! BANK:0x111B 16bit-offset 0x06 0x0000 wifien driver init successful! \u003e\u003e [sdmmc] ms_sdmmc_probe \u003e\u003e [sdmmc_0] Probe Platform Devices \u003e\u003e [sdmmc_1] Probe Platform Devices sd sd /mnt/mtd/ipc/web/ClientPlus_Setup.exe /mnt/mtd/ipc/web/js/libffmpeg.wasm watchdog: watchdog0: watchdog did not stop! Mstar_ehc_init version:20180309 Sstar-ehci-1 H.W init Get power-enable-pad from DTS GPIO(107) Titania3_series_start_ehc start [USB] config miu select [70] [e8] [ef] [ef] [USB] enable miu lower bound address subtraction [USB] init squelch level 0x2 BC disable ==20180309==\u003e hub_port_init 1 #0 Plug in USB Port1 insmod: can't insert '/config/modules/4.9.84/ms_notify.ko': No such file or directory [CSI] probe Request CSI IRQ[0]#30 CSI interrupt registered vif driver probe Create device file. vif_ints,0 jpe driver probed [Isp_Driver_Init] [s32CurClkIdx] = 0 [ISP] Request IRQ: 29, 57 [IspMid_Driver_Init] ispsclttl:0 DivpProcInit 526 module [sys] init config...... cmdpath:/config/config_tool, argv0:load_config config...... cmdpath:/config/config_tool, argv1:/misc/config.ini config...... cmdpath:/config/config_tool, argv2:/misc/PQConfig.ini config...... cmdpath:/config/config_tool, argv3:(null) [emac_phy_link_adjust] EMAC Link Down module [sensor] init module [mipitx] init module [ao] init module [rgn] init module [ldc] init module [vpe] init module [shadow] init module [gyro] init module [vif] init module [venc] init Jan 20 2021 16:08:47 module [panel] init module [disp] init module [ipu] init module [divp] init module [ai] init module [vdisp] init CamOsMutexInit already inited, LR:0xBF98D297 CamOsMutexInit already inited, LR:0xBF98D297 audioout driver init successful! extalarm driver init successful ! ircut driver init successful! relay driver init successful! reset driver init successful! rs485 driver init successful! wled driver init successful! start_addr=(0x0), end_addr=(0x20000), buffer_size=(0x20000), smp_number_max=(16384) Successfully initialized wpa_supplicant OK RTC time 1970-01-01 00:00:06 Set system time as date -s 2023.04.01-14:10:11 Sat Apr 1 14:10:11 STD 2023 BusyBox v1.20.2 (2021-07-15 10:39:39 HKT) multi-call binary. Usage: route [{add|del|delete}] Edit kernel routing tables -n Don't resolve names -e Display other/more information -A inet{6} Select address family 8731 8731 Selected interface 'wlan0' OK Selected interface 'wlan0' 'TERMINATE' command timed out. Configuration file: /mnt/mtd/ipc/tmpfs/hostapd.conf Using interface wlan0 with hwaddr 70:3a:2d:72:3f:15 and ssid \"IPCAM-444725\" wlan0: interface state UNINITIALIZED-\u003eENABLED wlan0: AP-ENABLED route: SIOCADDRT: File exists udhcpd (v1.20.2) started udhcpd: max_leases=235 is too big, setting to 101 killall: gerddns: no process killed killall: upnp_map: no process killed killall: upnp_map: no process killed killall: ddns_update: no process killed IPCamera login: workthread: log init succeed. workthread: timer init succeed. timer: proc start. libs_initnettype(WiFi): succeed. macaddr: 70:3A:2D:72:3F:15 macflag: 1 videocomm(0): 18(18) 3840 2160 videocomm(1): 6(6) 1280 720 TimeZone: -8 DevType(ini): product old(C6F0SpZ3N0P0L2) DevType(ini): product new(C6F0SpZ3N0PmL2) ini: open gcardinit2014.dat failed! workthread: init ini succeed. workthread: ntpsvr init succeed. cloud: domestic cloud: hx cloud: cloudenable=0 ntp: enable=1, svr=ntp.main, interval=1 cloud: tmall: enable=0 cloud: tmallsvr proc start. cloud: amazon: enable=0 cloud: amazonudpsvr proc start. cloud: amazontcpsvr proc start. cloud: update_usrpwd=0, update_timezone=0 workthread: cloud start. cloud: cloudsvr proc start. ircut: switch, imagetype=0. ircut: switch, imagetype=1. HI_Media_LiveStreamInit: mdalarm_type=1, smd_enable=1, md_enable=1 HI_Media_LiveStreamInit: sound_enable=0, sound_type=0, sound_time=10 sdkmgr: alarm mask enable. HI_Media_SDKInit: SDKInitStart(uptime=35)... sdkmgr: maxchn=2,profile=3 HI_Media_SDKInit: efreq=50,maxchn=2,wdr=0,mdresh=80,resolution=122,maxresolution=18,maxwidth=3840,maxheight=2160 HI_Media_SDKInit: maxchannel=2 HI_Media_SDKInit: maxresolution[0]=18 HI_Media_SDKInit: maxresolution[1]=6 u8Sensor: 201 index 0, Crop(0,0,3840,2160), outputsize(3860,2250), maxfps 20, minfps 3, ResDesc 3840x2160@20fps index 1, Crop(0,0,3072,2048), outputsize(3096,2190), maxfps 30, minfps 3, ResDesc 3072x2048@30fps index 2, Crop(0,0,3072,1728), outputsize(3096,1758), maxfps 30, minfps 3, ResDesc 3072x1728@30fps index 3, Crop(0,0,2592,1944), outputsize(2616,1974), maxfps 30, minfps 3, ResDesc 2592x1944@30fps index 4, Crop(0,0,2944,1656), outputsize(2976,1686), maxfps 30, minfps 3, ResDesc 2944x1656@30fps index 5, Crop(0,0,2560,1440), outputsize(2592,1470), maxfps 30, minfps 3, ResDesc 2560x1440@30fps index 6, Crop(0,0,1920,1080), outputsize(1920,1080), maxfps 60, minfps 3, ResDesc 1920x1080@60fps index 7, Crop(0,0,3840,2160), outputsize(3864,2192), maxfps 30, minfps 3, ResDesc 3840x2160@30fps --------------------------------------------- stSnrPlane0Info.s8SensorName: IMX415_MIPI stSnrPlane0Info.u32ShutterUs: 99947 stSnrPlane0Info.u32SensorGainX1024: 0 stSnrPlane0Info.stCapRect.u16Width: 3840 stSnrPlane0Info.stCapRect.u16Height: 2160 ePixPrecision: 1, eBayerId: 3 u8DevId=0 u8DevId=1 u8DevId=2 HDN_sample 0, extheight 0 chipidx 3, revision 2 CmdqProcInit 821 CmdQ Free ID = 0, IspLocalCmdQHnd = 0xbfa8d138 ioc eRunningMode=24 CamOsMutexInit already inited, LR:0xBF9A05F5 CUS3A ver : Sigm[0] AE=1, AWB=0, AF=0, nFlagCus3A = 0x02 astar Module misc_cus3a version: project_commit.e06ed406 sdk_commit.ef2f530 build_time.20210120160917 [MI_ISP_CUS3A_Enable] AE = 1, AWB = 0, AF = 0 change isp[0] AE=1, AWB=1, AF=0, nFlagCus3A = 0x0A root : /config/i[0] AE=1, AWB=1, AF=1, nFlagCus3A = 0x1A qfile Load iq file /config/iqfile/iqfile0.bin [DIP] Virtual IRQ: 27 [MI_ISP_CUS3A_Enable] AE = 1, AWB = 1, AF = 0 [MI_ISP_CUS3A_Enable] AE = 1, AWB = 1, AF = 1 [iqserver_net_fun.c][mst_Sock_Listen] ListenSock=15 ======================== ===== [MhalCameraOpen] begin ===== VifMask : 0 Ch= 0, SNR ID: 0x0, VifCh = 0x0, PreOpen = 0 3DNR = 2, Rotation = 0, AckTie : 0 (W, H): (3840, 2160) PixelFmt: 1, BayerID: 3, YuvOrder: 0 Mode: 0, HdrType: 0 GroupID: 0, Sync3A Type: 0 ================[CameraReadIqData] isp root is /config/iqfile, nCh = 0 ============================ [ALGO_MSG_MSG] MI_MD_Init [ALGO_MSG_MSG] IC version check pass, MD Lib ver 20200210 [ALGO_MSG_MSG] MD_working_buf=0x1a4c30, length=3692 ldc: enable=1 ldc: 4k_720p init. [sstar ae_init] isp_gain_max = 0x3fff, sgl_min = 0x400, sgl_max = 0x3e3400, sgs_min 0x400, sgs_max = 0x3e3400 [sstar ae_init], shl_min = 17 us, shl_max = 333333 us, shl_step = 17778 us, shs_min = 17 us, shs_max = 333333 us, shs_step = 17778 us [sstar ae_init], FNum = 18, fps = 30 change isproot : /config/iqfile Load iq file /config/iqfile/iqfile0.bin ************ af_init ********** [AF_InitParameters-1763] Error!! Initial motor parameters got from motor driver are unreasonable. [AF_InitParameters-1764] InitPos = 0, MinMotorPos = 16711680, MaxMotorPos = 0, MinMotorStep = 1, MaxMotorStep = -16711680 [MI WRN ]: MI_LDC_UpdateViewRes[1828]: LDC Output should be aligned to (viewId: 0 width:3840 heighm:[MI WRN ]: MI_LDC_UpdateViewRes[1828]: LDC Output should be aligned to (viewId: 0 width:1280 height:736, cur: w1280 h720) HI_SDK_Init: TH_flag=0,temp=0.000000,hum=0 HI_Media_SDKInit: sensor: 201 extalarm: off open cCamOsTsemInit already inited, LR:0xBF9B3D43 olor(ini): b=0x008000, c=0x00ffff, trans=64 HI_SDK_InitOSD [AUDIO ERROR]DrvAudApiDtsInit, Failed to gpio_request amp-gpio ! initaudio: inputtype=1, input=75, output=70, aec=0 [_MI_AI_IMPL_AllocTmpBuffer:3844] tmp buffer addr[c4a7f000]. _MI_AI_OpenAecLib: success _MI_AI_OpenVqeLib: success _MI_AI_OpenSrcLib: success _MI_AI_OpenG711Lib: success _MI_AI_OpenG726Lib: success _MI_AI_OpenAedLib: success _MI_AI_OpenSslLib: success _MI_AI_OpenBfLi[_MI_AO_Init:1248] Init Ao Gain. b: success _MI_AO_OpenVqeLib: success _MI_AO_OpenSrcLib: success _MI_AO_OpenG711Lib: success _MI_AO_Create mi dev0 OpenG726Lib: sucCreate mi dev0 [MI WRN ]: _MI_VENC_CreateMiDevice[7850]: mi device:0 has been inited cess [_MI_AI_ApCreate mi dev1 cInit:2122] Dev0Create mhal DEV0. Chn0 Vqe buffer size:114684. [[ven-w][wrap] illegal width and height. will use default value (3840 2176) ALGO_MSG_MSG] Ch[ven-m][wrap] venc_dev_preset:1406 GetMMaHeapName s32Ret=0xa009201f, u8MMAHeapName=. ecking IC.... [ven-m][wrap] fw_path /config/venc_fw/chagall.bin [ALGO_MSG_MSG] [APC] APC IC check pass. ver.2019.1119.0000 [ALGO_MSG_MSG] [APC] FFT mode: floating point mode [ALGO_MSG_MSG] [APC] Point Number: 128 [ALGO_MSG_MSG] [APC] Channel: 1 [ALGO_MSG_MSG] [APC] Sample rate: 8000 �z--------------------------------------------------------------------------------�{ �x �x �x NEON ENABLE Create mhal DEV1. [ven-w][wrap] venc MMA callback function duplicate registration Force OverWrite!! [ven-w][wrap] venc dev created, not support set E_MHAL_VENC_MAX_ENCODE_RESOLUTION, pls set before createdev Create mhal DEV2. �x �x �x �|--------------------------------------------------------------------------------�} [ALGO_MSG_MSG] [NR] Converge mode: Normal [ALGO_MSG_MSG] [AGC] The AudioAgcProcessStruct initial succeed [ALGO_MSG_MSG] [AGC] AGC IC check pass. ver.2019.1119.0000 [FFT] Please assigned the begining address about FFT workingbuffer in Init. �z--------------------------------------------------------------------------------�{ �x �x �x NEON ENABLE �x �x �x �|--------------------------------------------------------------------------------�} [ALGO_MSG_MSG] [AGC] The AudioAgcProcessStruct initial succeed [ALGO_MSG_MSG] [AGC] AGC IC check pass. ver.2019.1119.0000 [FFT] Please assigned the begining address about FFT workingbuffer in Init. �z--------------------------------------------------------------------------------�{ �x �x �x NEON ENABLE �x �x �x �|--------------------------------------------------------------------------------�} [ALGO_MSG_MSG] [APC] APC internal initialize succeed HI_Media_SDKInit: vctrl: enable=1, recchn=0 video(chn=0): profile=3, resolution=18, cbclient [891] connected, module:ipu r=0, bitrate=800, frame=10, iframe=80, quality=0, minq=23, maxq=43 audio(chn=0): enable=1, type=1 video(chn=1): profile=3, resolution=6, cbr=0, bitrate=370, frame=10, iframe=80, quality=0, minq=23, maxq=43 audio(chn=1): enable=1, type=1 OSD(area=0): show=1, place=1, x=3536, y=0, str=YYYY-MM-DD hh:mm:ss OSD(area=1): show=1, place=0, x=0, y=0, str=IP Camera x=3194,y=0, w=628,h=112 x=1032,y=0, w=242,h=36 audio: denoise=1 audiovol: 1 75 70 HI_Media_SDKInit: vctrl: mdvalue=50 MD(area=1): enable=1, x=0, y=96, w=3840, h=2064, s=35 HI_neit: HI_SDK_StartEnuocceed. video(chn=0): cbr=0, bitrate=800, frame=10, iframe=80, quality=0, minq=23, maxq=43 [MI WRN ]: MI_AI_GetFrame[7284]: Dev0 Chn0 Buffer(s) is lost due to slow fetching!!! [MI WRN ]: MI_AI_GetFrame[7285]: Current buf index[8], recording buf index[0]. HI_SDK_StartMDChannel OK HI_Media_SDKInit: HI_SDK_StartEncode(chn=1) succeed. video(chn=1): cbr=0, bitrate=370, frame=10, iframe=80, quality=0, minq=23, maxq=43 HI_Media_SDKInit: display mode: color [MAJOR]: ispversion(1) in sdk, ispversion(1) in binfile. [MINOR]: ispversion(6) in sdk, ispversion(6) in binfile. ******************** Load api bin Success - /mnt/mtd/ipc/sensor/IMX415_day.bin ******************** HI_Media_SDKDisplayConfig: load sensor.bin succeed. display(mode=1): brightness=50, contrast=50, saturation=50, sharpness=50, ae=2, targetY=70, night=0, mirror=0, flip=0, imgmode=1, noise=0, shutterau8SetProId[0]:0x71 miu_number:0,start:0x269e0000,end:0x26b44000,flag:1 =1000 display(mode=1): wdr=0, w_hal_to_cpu_isr invalid isr 1 drvalue=30 -----what is the a_manager------ IPU SDK version: 1.1.2_verified_21010811 client [891] Create IPU device, reference=1 Model version: 1.1.3_verified_21030809 VPS[0]=AAAAAUABDAH//wFgAAADAAADAAADAAADAJasCQ== SPS[0]=AAAAAUIBAQFgAAADAAADAAADAAADAJagAeAgAhxY2uSTJrlnAIAAAfSAABONBA== PLI[0]=000001 PPS[0]=AAAAAUQB4HawJkA= VPS[1]=AAAAAUABDAH//wFgAAADAAADAAADAAADAJasCQ== SPS[1]=AAAAAUIBAQFgAAADAAADAAADAAADAJagAoCALRY2uSTJrlnAIAAAfSAABONB PLI[1]=000001 PPS[1]=AAAAAUQB4HawJkA= sdkmgr: build vps/sps/pps succeed. sdkmgr: alarm mask disable. vctrl: alarm_push_recv. [MI WRN ]: MI_SYS_IMPL_ConfigPrivateMMAPool[5594]: The current project supports MMU, and the private pool is disabled by default client [891] Cre[0] AE=1, AWB=1, AF=1, nFlagCus3A = 0x1A ate IPU channel 0 smd: threshold=60 setThreshold s32Ret = 0 smd: global_rect=1 smd: resolution=0(640x352) smd: enable=1, threshold=43, x=0, y=0, w=3840, h=2160, multiflag=1 CUS3A ver : Sigmastar Module misc_cus3a version: project_commit.e06ed406 sdk_commit.ef2f530 build_time.20210120160917 [MI_ISP_CUS3A_Enable] AE = 1, AWB = 1, AF = 1 record: recchn=0, rectype=1, snapchn=0, snapnum=1 cloud: RecInit: cloudenable=1, recchn=0, mdrectime=30 cloudrec: ossloginflag=0, ossendtimeflag=0 [CLOUDREC SERVER] Rec_Chn=0, RB_Total_Size=5120k cloud: recrb proc start. cloud: recupload proc start. cloud: recsvr proc start. ************ HI_SDK_AF_Start ********** record: relay_interval=5 cloudrec: rec_enable=0, rec_interval=5 ALARM_SERVER: HI_Record_Stop succeed. [RECORD SERVER] RB_PreRecTime=10s, RB_Total_Size=5120k cloudrec: profile=3, width=3840, height=2160, aformat=0 HI_Media_RecInit: sd_chn=0, cloud_chn=0 succeed. HI_Websvr_Init: init media succeed. HI_Websvr_Init: PBServer start. acl: enable=0, errnum=10 websvr: enable=1 HI_Websvr_Init: enable=1, httpport=80, snapchn=1 Interrupts_Proc: start. g4: 4g module not exist! workthread: init 4g succeed. timerreboot: rndm=2120 workthread: timerreboot init succeed. smdtrack: init succeed. ptz type: rs485 rs485: flip=0, mirror=0 rs485: pandir=0, tiltdir=0 rs485: open fd(37) succeed. motor: alarm_preset_enable=0, alarm_preset_index=0, alarm_preset_interval=2 workthread: ptz init succeed. workthread: infrared init succeed. rs485: MoveProc start. ircut: freq=50 ircut: c2b_value=500, b2c_value=300 ircut: lamp_flag=2, lamp_mode=0, lamp_timeout=30 ircut: rled_status=2 ircut: lamp_status=2 infra: light_state=0 rled: open. livestream: total_alarm_enable=1 timerreboot: enable=1, day=5, rand=2120, time=02:35:20 workthread: ircut init succeed. ADC: proc start. HI_Reset_Init: smart: enable=-1 HI_Reset_Init: light: enable=1 HI_Reset_Init: apmode: status=1 workthread: reset init succeed. workthread: wifikey init succeed. netdetect: wifi_flag=yes netdetect: 4g_flag=no workthread: netdetect init succeed. netdetect: WiFi (Enable). netdetect: netflag(WiFi). workthread: search start. ircut: proc start, lamp_mode=0 workthread: p2p start. workthread: wdt init succeed. =================================================== ipc_server start : 2023-04-01 14:10:40 ipc_server version: V22.1.11.26.3-20231121 =================================================== wdt: default timeout: 60 sec. wdt: default timeout: 5 sec. rs485: read failed! rs485: query hxv2 failed! rs485: read failed! rs485: query hxv2 failed! SDKInitMonitorProc: exit! infra: light_state=1 rled: open. rs485: read failed! rs485: query hxv2 failed! timesvr: connect failed! rs485: read failed! rs485: query hxv2 failed! /mnt/mtd/ipc/tmpfs/ipc.ok rs485: read failed! rs485: query hxv2 failed! rs485: read failed! rs485: query hxv2 failed! rs485: not support hxv2 protocol! rs485: read failed! rs485: read failed! rs485: read failed! rs485: read failed! rs485: read failed! rs485: read failed! rs485: not support hxv1 protocol! rs485: ------ chk_ptz_ver=0 ------ rs485: pan_range=574, pan_home=287, tilt_range=114, tilt_home=23 umount: can't forcibly umount /mnt/mtd/ipc/tmpfs/sd: Invalid argument rs485: MoveStatusProc start. upgrade(sd): check start... hichip: start: 2023-04-01 14:10:45 Platfrom Pram: szUID= szServerID=EJLXSWPJLKEPPGHUIBEEARHYSTIHLUAOEIPDEGSQLNPAHXLTIDERLQENLKIEEOHUEHIAEEELEK-$$ szPushIp=47.242.178.139 szCrcKey= u32StreamCtrl=1 pHichipID-\u003easzPushIp HI_HichipLink_Svr_Start szUID = , szCrcKet=nocrckey, u32StreamCtrl=1, aszPushIp=47.242.178.139 login dev success! handle[0]=-1268568352 login dev success! handle[1]=-1268566200 login dev success! handle[alarm]=-1268564048 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ HI_Media_LiveStreamRegisterMediaLink: index=0,ip=127.0.0.1,type=http,avchn=0,ringbuflen=10k,onlinenum=0 HI_Media_LiveStreamParseStreamEx: cntindex=0,cntip=127.0.0.1,websocket=0,sock=46,avchn=0,mediatype=4 SendMediaDataThread(entry): cntindex=0,cntip=127.0.0.1,websocket=0,avchn=0,af=1,sock=46,maxframelen=1k start stream succeed(ret=0x0)! handle(alarm)=-1268564048 netlib:threadID -2025569200 ReceiveStreamData entry max frame len 16KB login dev success! handle[alarm_2]=-1268545504 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ HI_Media_LiveStreamRegisterMediaLink: index=1,ip=127.0.0.1,type=http,avchn=1,ringbuflen=10k,onlinenum=0 start stream succeed(ret=0x0)! handle(alarm_2)=-1268545504 netlib:threadID -2059140016 ReceiveStreamData entry max frame len 16KB HI_Media_LiveStreamParseStreamEx: cntindex=1,cntip=127.0.0.1,websocket=0,sock=48,avchn=1,mediatype=4 u32CodeType = 265 SendMediaDataThread(entry): cntindex=1,cntip=127.0.0.1,websocket=0,avchn=1,af=1,sock=48,maxframelen=1k it is fl (-1) it is smarttrack (1) First1: HTTP/1.1 200 OK Server: Hipcam Cache-Control: no-cache Content-Type:text/html Connection: close Content-Length: 232 var smd_enable=\"1\"; var smd_threshold=\"43\"; var smd_x=\"0\"; var smd_y=\"0\"; var smd_w=\"1280\"; var smd_h=\"720\"; var smd_type=\"0\"; var smd_default_gthresh=\"60\"; var smd_gthresh=\"60\"; var smd_rect=\"1\"; var md_alarm_type=\"on\"; p2p_all_info.haveu32DrawRect 1 p2p_all_info.haveHsr 1 p2p_all_info.haveCloud 1 Mobile Net 0 CloudNation 1 it is CH(1) it is EN(1) Ver: V1.0.0.1 API V: 14071101 1- Session[6] Channel[6] Buffer[1024] Packet[1024] 2- Session[6] Channel[6] Buffer[1024] Packet[1024] AF: rs485_auto_detec stop. Unable to send data: Connection timed out ChkSDUpgrade: sd detect ok. Unable to send data: Connection timed out Unable to send data: Connection timed out no ms32006 AF HI_AF_I2cInit error AF: init failed! AF: status proc exit. rs485: af_auto_detec stop. rs485: goto preset(0)... rs485: SMDTrack: enable=0, htimems=700, vtimems=300, timeout=60, type=3, preset=30, width=640, height=352, aftype=99, mirror=0, flip=0 rs485: MoveProc exit! HI_P2P_SessionProcess listen start UID: CRC:nocrckey 47.242.178.139 Hi_PushAlarm_GetServerAddr connect 47.242.178.139 failed uAlarmPushHandle=-1268571136, sAlarmExitFlag=1 vctrl: svr start. vctrl: enable=1, debug=0, mode=normal vctrl: planrecenable=1, recchn=0, maxmdrectime=30 ChkSDUpgrade: not sd_flag file. upgrade(sd): check end. SmartWIFI: proc exit! superDev_thread sucessfully!! ircut: switch status off. onvif: TZ: STD-8:0:0 onvif: TZInterval: 28800 onvif: login dev success! handle=555648 onvif: login dev success! handle[alarm]=557800 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ HI_Media_LiveStreamRegisterMediaLink: index=2,ip=127.0.0.1,type=http,avchn=0,ringbuflen=10k,onlinenum=0 onvif: start stream succeed(ret=0x0)! handle(alarm)=557800 netlib:threadID -1235856288 ReceiveStreamData entry max frame len 16KB HI_Media_LiveStreamParseStreamEx: cntindex=2,cntip=127.0.0.1,websocket=0,sock=50,avchn=0,mediatype=4 SendMediaDataThread(entry): cntindex=2,cntip=127.0.0.1,websocket=0,avchn=0,af=1,sock=50,maxframelen=1k [ONVIF INFOR] FILE: src/onvif_media.c, LINE: 2945: Video configuration options use exterior. onvif: timg: productid=C6F0SpZ3N0PmL2 [ONVIF INFOR] FILE: src/onvif_priv.c, LINE: 620: Success to start UDP service in ONVIF. p_srv-\u003esport 8080 onvif: V2.04-20211112 onvif: start: 2023-04-01 14:10:52 [ONVIF INFOR] FILE: src/onvif_priv.c, LINE: 1441: Success to add eth0 ip[192.168.1.88] to multicast[239.255.255.250](new fd) timesvr: connect failed! vctrl: switch to ---\u003e lowrate mode. video(chn=0): cbr=0, bitrate=288, frame=2, iframe=16, quality=1, minq=24, maxq=44 timesvr: connect failed! timesvr: connect failed! timesvr: get svrtime failed! ntp: update failed! rs485: move count/home stop. rs485: move stop. timesvr: connect failed! IPCamera login:\n",
+  "wordCount" : "4056",
+  "inLanguage": "en",
+  "datePublished": "2024-12-10T21:54:26+03:00",
+  "dateModified": "2024-12-10T21:54:26+03:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://hexrx.github.io/posts/ssc338q-imx415-ip-camera-first-launch/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Blog | HexRx",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://hexrx.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://hexrx.github.io/" accesskey="h" title="Blog | HexRx (Alt + H)">Blog | HexRx</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      SSC338Q &#43; IMX415 IP camera, first launch
+    </h1>
+    <div class="post-meta"><span title='2024-12-10 21:54:26 +0300 +0300'>December 10, 2024</span>
+
+</div>
+  </header> 
+  <div class="post-content"><h2 id="introduction">Introduction<a hidden class="anchor" aria-hidden="true" href="#introduction">#</a></h2>
+<p>The camera is powered by dual-core ARM Cortex-A7 1.2Ghz CPU <a href="https://www.sigmastarsemi.com/uploadfile/file/20220419/20220419031720_62035.pdf">SigmaStar SSC338Q</a> and is equipped with H.264 and H.265 hardware encoders.
+<img alt="ssc338q main board layer 1" loading="lazy" src="/posts/ssc338q-imx415-ip-camera-first-launch/images/ssc338q_main_board_top.avif" title="Top side of the main board">
+The main board has the label <code>SSC338Q_38M_2.0</code>
+<img alt="ssc338q main board layer 2" loading="lazy" src="/posts/ssc338q-imx415-ip-camera-first-launch/images/ssc338q_main_board_bottom.avif" title="Bottom side of the main board"></p>
+<h2 id="pinout">Pinout<a hidden class="anchor" aria-hidden="true" href="#pinout">#</a></h2>
+<p>TODO: add screen with numbers</p>
+<h2 id="uart-access">UART access<a hidden class="anchor" aria-hidden="true" href="#uart-access">#</a></h2>
+<p>TODO</p>
+<h2 id="isp-access-by-i2c">ISP access by I2C<a hidden class="anchor" aria-hidden="true" href="#isp-access-by-i2c">#</a></h2>
+<p>You can use CH341A programmer with a tool <a href="https://github.com/OpenIPC/snander-mstar">https://github.com/OpenIPC/snander-mstar</a> to download and upload firmware.</p>
+<p>Or use</p>
+<ul>
+<li>AVR based i2c-tiny-usb <a href="https://github.com/harbaum/I2C-Tiny-USB">https://github.com/harbaum/I2C-Tiny-USB</a></li>
+<li>STM32 Blue Pill based <a href="https://github.com/daniel-thompson/i2c-star">https://github.com/daniel-thompson/i2c-star</a></li>
+</ul>
+<p>with a tool <a href="https://github.com/fifteenhex/snander_electricboogaloo">https://github.com/fifteenhex/snander_electricboogaloo</a></p>
+<p>For more details check the link <a href="https://linux-chenxing.org/isp/">https://linux-chenxing.org/isp/</a></p>
+<p>If you have SPI NOR memory, check this <a href="https://boeglin.org/blog/index.php?entry=Flashing-a-BenQ-Z-series-for-free">https://boeglin.org/blog/index.php?entry=Flashing-a-BenQ-Z-series-for-free</a></p>
+<h2 id="u-boot">U-Boot<a hidden class="anchor" aria-hidden="true" href="#u-boot">#</a></h2>
+<p>To get U-Boot shell during the first boot seconds of the boot (when you have UART string like <code>U-Boot 2015.01 (Nov 08 2021 - 23:14:14)</code>) press the ENTER key several times.</p>
+<h3 id="printenv-output">printenv output<a hidden class="anchor" aria-hidden="true" href="#printenv-output">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>Mstarbin<span style="color:#f92672">=</span><span style="color:#ae81ff">20150709</span>
+</span></span><span style="display:flex;"><span>bootargs<span style="color:#f92672">=</span>ubi.mtd<span style="color:#f92672">=</span>UBI,2048 root<span style="color:#f92672">=</span>/dev/mtdblock8 rootfstype<span style="color:#f92672">=</span>squashfs ro init<span style="color:#f92672">=</span>/linuxrc LX_MEM<span style="color:#f92672">=</span>0xffe0000 mma_heap<span style="color:#f92672">=</span>mma_heap_name0,miu<span style="color:#f92672">=</span>0,sz<span style="color:#f92672">=</span>0x949C000 mma_heap<span style="color:#f92672">=</span>mma_heap_ipu,miu<span style="color:#f92672">=</span>0,sz<span style="color:#f92672">=</span>0x164000 cma<span style="color:#f92672">=</span>2M mtdparts<span style="color:#f92672">=</span>nand0:768k@<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>bootcmd<span style="color:#f92672">=</span>nand read.e 0x22000000 KERNEL 0x500000; bootm 0x22000000;nand read.e 0x22000000 RECOVERY 0x500000; bootm 0x22000000
+</span></span><span style="display:flex;"><span>ethact<span style="color:#f92672">=</span>sstar_emac
+</span></span><span style="display:flex;"><span>ethaddr<span style="color:#f92672">=</span>&lt;REMOVED&gt;
+</span></span><span style="display:flex;"><span>fileaddr<span style="color:#f92672">=</span><span style="color:#ae81ff">21000000</span>
+</span></span><span style="display:flex;"><span>filesize<span style="color:#f92672">=</span>1A28000
+</span></span><span style="display:flex;"><span>mtddevname<span style="color:#f92672">=</span>IPL0
+</span></span><span style="display:flex;"><span>mtddevnum<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>mtdids<span style="color:#f92672">=</span>nand0<span style="color:#f92672">=</span>nand0
+</span></span><span style="display:flex;"><span>mtdparts<span style="color:#f92672">=</span>mtdparts<span style="color:#f92672">=</span>nand0:768k@0x140000<span style="color:#f92672">(</span>IPL0<span style="color:#f92672">)</span>,384k<span style="color:#f92672">(</span>IPL_CUST0<span style="color:#f92672">)</span>,384k<span style="color:#f92672">(</span>IPL_CUST1<span style="color:#f92672">)</span>,384k<span style="color:#f92672">(</span>UBOOT0<span style="color:#f92672">)</span>,384k<span style="color:#f92672">(</span>UBOOT1<span style="color:#f92672">)</span>,256k<span style="color:#f92672">(</span>ENV0<span style="color:#f92672">)</span>,5m<span style="color:#f92672">(</span>KERNEL<span style="color:#f92672">)</span>,5m<span style="color:#f92672">(</span>RECOVERY<span style="color:#f92672">)</span>,6m<span style="color:#f92672">(</span>rootfs<span style="color:#f92672">)</span>,384k<span style="color:#f92672">(</span>MISC<span style="color:#f92672">)</span>,-<span style="color:#f92672">(</span>UBI<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>partition<span style="color:#f92672">=</span>nand0,0
+</span></span><span style="display:flex;"><span>stderr<span style="color:#f92672">=</span>serial
+</span></span><span style="display:flex;"><span>stdin<span style="color:#f92672">=</span>serial
+</span></span><span style="display:flex;"><span>stdout<span style="color:#f92672">=</span>serial
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Environment size: 871/131068 bytes</span></span></code></pre></div>
+<h3 id="hot-to-restore-u-boot-with-i2c-isp-and-ch341a-programmer">Hot to restore U-Boot with I2C (ISP) and CH341A programmer<a hidden class="anchor" aria-hidden="true" href="#hot-to-restore-u-boot-with-i2c-isp-and-ch341a-programmer">#</a></h3>
+<p><a href="https://github.com/OpenIPC/wiki/blob/master/en/sigmastar-unbrick.md">https://github.com/OpenIPC/wiki/blob/master/en/sigmastar-unbrick.md</a></p>
+<h2 id="spi-flash-partitions">SPI flash partitions<a hidden class="anchor" aria-hidden="true" href="#spi-flash-partitions">#</a></h2>
+<pre tabindex="0"><code>0x000000140000-0x000000200000 : &#34;IPL0&#34;
+0x000000200000-0x000000260000 : &#34;IPL_CUST0&#34;
+0x000000260000-0x0000002c0000 : &#34;IPL_CUST1&#34;
+0x0000002c0000-0x000000320000 : &#34;UBOOT0&#34;
+0x000000320000-0x000000380000 : &#34;UBOOT1&#34;
+0x000000380000-0x0000003c0000 : &#34;ENV0&#34;
+0x0000003c0000-0x0000008c0000 : &#34;KERNEL&#34;
+0x0000008c0000-0x000000dc0000 : &#34;RECOVERY&#34;
+0x000000dc0000-0x0000013c0000 : &#34;rootfs&#34;
+0x0000013c0000-0x000001420000 : &#34;MISC&#34;
+0x000001420000-0x000008000000 : &#34;UBI&#34;
+</code></pre><p>For more details about IPL (Initial Program Loader) partitions, see here <a href="https://wx.comake.online/doc/doc/SigmaStarDocs-SSC9381G_9351_Pudding-ULS00V040-20210913/customer/faq/securityboot/OTP-Key.html">https://wx.comake.online/doc/doc/SigmaStarDocs-SSC9381G_9351_Pudding-ULS00V040-20210913/customer/faq/securityboot/OTP-Key.html</a></p>
+<h2 id="rtsp-stream-urls">RTSP stream urls<a hidden class="anchor" aria-hidden="true" href="#rtsp-stream-urls">#</a></h2>
+<p><code>rtsp://CAMERA_IP/11</code> - Frame size 3840x2160</p>
+<p><code>rtsp://CAMERA_IP/111</code> - Frame size 3840x2160</p>
+<p><code>rtsp://CAMERA_IP/101</code> - Frame size 1280x720</p>
+<h2 id="openipc-alternative-firmware">OpenIPC alternative firmware<a hidden class="anchor" aria-hidden="true" href="#openipc-alternative-firmware">#</a></h2>
+<p>This chip supports open-source OpenIPC firmware
+<a href="https://openipc.org/cameras/vendors/sigmastar/socs/ssc338q">https://openipc.org/cameras/vendors/sigmastar/socs/ssc338q</a></p>
+<h2 id="boot-log-from-uart">Boot log from UART<a hidden class="anchor" aria-hidden="true" href="#boot-log-from-uart">#</a></h2>
+<p><em>Some IDs were replaced by <code>&lt;REMOVED&gt;</code></em>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>IPL 1ab38bf
+</span></span><span style="display:flex;"><span>D-11
+</span></span><span style="display:flex;"><span>HW Reset
+</span></span><span style="display:flex;"><span>MCP1866_4X
+</span></span><span style="display:flex;"><span>miupll_400MHz
+</span></span><span style="display:flex;"><span>256MB
+</span></span><span style="display:flex;"><span>BIST0_0001-OK
+</span></span><span style="display:flex;"><span>HS on
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>SDMMC<span style="color:#f92672">]</span> NO SD!
+</span></span><span style="display:flex;"><span>Load IPL_CUST from SPINAND
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span> BlSize <span style="color:#ae81ff">00006850</span>
+</span></span><span style="display:flex;"><span>Checksum OK
+</span></span><span style="display:flex;"><span>JMP+++
+</span></span><span style="display:flex;"><span>IPL_CUST 1ab38bf
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>SDMMC<span style="color:#f92672">]</span> NO SD!
+</span></span><span style="display:flex;"><span>_IPLCustSNandOp
+</span></span><span style="display:flex;"><span>Load BL from SPINAND
+</span></span><span style="display:flex;"><span>  decomp_size<span style="color:#f92672">=</span>0x000703fc
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>U-Boot 2015.01 <span style="color:#f92672">(</span>Nov <span style="color:#ae81ff">08</span> <span style="color:#ae81ff">2021</span> - 23:14:14<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Version: I6E#g#######
+</span></span><span style="display:flex;"><span>I2C:   ready
+</span></span><span style="display:flex;"><span>DRAM:
+</span></span><span style="display:flex;"><span>WARNING: Caches not enabled
+</span></span><span style="display:flex;"><span>SPINAND_I:  SPINAND: _MDrv_SPINAND_GET_INFO: Found SPINAND INFO
+</span></span><span style="display:flex;"><span><span style="color:#f92672">(</span>0xC8<span style="color:#f92672">)</span> <span style="color:#f92672">(</span>0x51<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>SPINAND: board_nand_init: CIS contains part info
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">128</span> MiB
+</span></span><span style="display:flex;"><span>MMC:   MStar SD/MMC: <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>In:    serial
+</span></span><span style="display:flex;"><span>Out:   serial
+</span></span><span style="display:flex;"><span>Err:   serial
+</span></span><span style="display:flex;"><span>Net:   MAC Address &lt;REMOVED&gt;
+</span></span><span style="display:flex;"><span>Auto-Negotiation...
+</span></span><span style="display:flex;"><span>AN failLink Status Speed:10 Full-duplex:0
+</span></span><span style="display:flex;"><span>Status Error!
+</span></span><span style="display:flex;"><span>sstar_emac
+</span></span><span style="display:flex;"><span>Warning: sstar_emac using MAC address from net device
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>NAND read: device <span style="color:#ae81ff">0</span> offset 0x3c0000, size 0x500000
+</span></span><span style="display:flex;"><span>Time:980103 us, speed:5349 KB/s
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">5242880</span> bytes read: OK
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##  Booting kernel from Legacy Image at 22000000 ...</span>
+</span></span><span style="display:flex;"><span>   Image Name:   MVX4##I6E#g#######KL_LX409##<span style="color:#f92672">[</span>BR:
+</span></span><span style="display:flex;"><span>   Image Type:   ARM Linux Kernel Image <span style="color:#f92672">(</span>lzma compressed<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>   Data Size:    <span style="color:#ae81ff">1896356</span> Bytes <span style="color:#f92672">=</span> 1.8 MiB
+</span></span><span style="display:flex;"><span>   Load Address: <span style="color:#ae81ff">20008000</span>
+</span></span><span style="display:flex;"><span>   Entry Point:  <span style="color:#ae81ff">20008000</span>
+</span></span><span style="display:flex;"><span>   Verifying Checksum ... OK
+</span></span><span style="display:flex;"><span>   Uncompressing Kernel Image ...
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>XZ<span style="color:#f92672">]</span> !!!reserved 0x21000000 length<span style="color:#f92672">=</span>0x <span style="color:#ae81ff">1000000</span> <span style="color:#66d9ef">for</span> xz!!
+</span></span><span style="display:flex;"><span>   XZ: uncompressed size<span style="color:#f92672">=</span>0x3c8000, ret<span style="color:#f92672">=</span><span style="color:#ae81ff">7</span>
+</span></span><span style="display:flex;"><span>OK
+</span></span><span style="display:flex;"><span>atags:0x20000000
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Starting kernel ...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Booting Linux on physical CPU 0x0
+</span></span><span style="display:flex;"><span>Linux version 4.9.84 <span style="color:#f92672">(</span>super@super-virtual-machine<span style="color:#f92672">)</span> <span style="color:#f92672">(</span>gcc version 9.1.0 <span style="color:#f92672">(</span>GCC<span style="color:#f92672">)</span> <span style="color:#f92672">)</span> <span style="color:#75715e">#6 SMP PREEMPT Mon Jul 19 19:28:50 HKT 2021</span>
+</span></span><span style="display:flex;"><span>CPU: ARMv7 Processor <span style="color:#f92672">[</span>410fc075<span style="color:#f92672">]</span> revision <span style="color:#ae81ff">5</span> <span style="color:#f92672">(</span>ARMv7<span style="color:#f92672">)</span>, cr<span style="color:#f92672">=</span>50c5387d
+</span></span><span style="display:flex;"><span>CPU: div instructions available: patching division code
+</span></span><span style="display:flex;"><span>CPU: PIPT / VIPT nonaliasing data cache, VIPT aliasing instruction cache
+</span></span><span style="display:flex;"><span>early_atags_to_fdt<span style="color:#f92672">()</span> success
+</span></span><span style="display:flex;"><span>OF: fdt:Machine model: INFINITY6E SSC012B-S01A
+</span></span><span style="display:flex;"><span>LXmem is 0xffe0000 PHYS_OFFSET is 0x20000000
+</span></span><span style="display:flex;"><span>Add mem start 0x20000000 size 0xffe0000!!!!
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>LX_MEM  <span style="color:#f92672">=</span> 0x20000000, 0xffe0000
+</span></span><span style="display:flex;"><span>LX_MEM2 <span style="color:#f92672">=</span> 0x0, 0x0
+</span></span><span style="display:flex;"><span>LX_MEM3 <span style="color:#f92672">=</span> 0x0, 0x0
+</span></span><span style="display:flex;"><span>EMAC_LEN<span style="color:#f92672">=</span> 0x0
+</span></span><span style="display:flex;"><span>DRAM_LEN<span style="color:#f92672">=</span> 0x0
+</span></span><span style="display:flex;"><span>deal_with_reserve_mma_heap memblock_reserve success mma_config<span style="color:#f92672">[</span>0<span style="color:#f92672">]</span>.reserved_start<span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span>0x26b44000
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>deal_with_reserve_mma_heap memblock_reserve success mma_config<span style="color:#f92672">[</span>1<span style="color:#f92672">]</span>.reserved_start<span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span>0x269e0000
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>cma: Reserved <span style="color:#ae81ff">2</span> MiB at 0x26600000
+</span></span><span style="display:flex;"><span>Memory policy: Data cache writealloc
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>infinity6e_smp_init_cpus<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>percpu: Embedded <span style="color:#ae81ff">13</span> pages/cpu @c699c000 s21272 r8192 d23784 u53248
+</span></span><span style="display:flex;"><span>Built <span style="color:#ae81ff">1</span> zonelists in Zone order, mobility grouping on.  Total pages: <span style="color:#ae81ff">64992</span>
+</span></span><span style="display:flex;"><span>Kernel command line: ubi.mtd<span style="color:#f92672">=</span>UBI,2048 root<span style="color:#f92672">=</span>/dev/mtdblock8 rootfstype<span style="color:#f92672">=</span>squashfs ro init<span style="color:#f92672">=</span>/linuxrc LX_MEM<span style="color:#f92672">=</span>0xffe0000 mma_heap<span style="color:#f92672">=</span>mma_heap_name0,miu<span style="color:#f92672">=</span>0,sz<span style="color:#f92672">=</span>0x949C000 mma_heap<span style="color:#f92672">=</span>mma_heap_ipu,miu<span style="color:#f92672">=</span>0,sz<span style="color:#f92672">=</span>0x164000 cma<span style="color:#f92672">=</span>2M mtdparts<span style="color:#f92672">=</span>nand0:768k@0x140000<span style="color:#f92672">(</span>IPL0<span style="color:#f92672">)</span>,384k<span style="color:#f92672">(</span>IPL_CUST0<span style="color:#f92672">)</span>,384k<span style="color:#f92672">(</span>IPL_CUST1<span style="color:#f92672">)</span>,384k<span style="color:#f92672">(</span>UBOOT0<span style="color:#f92672">)</span>,384k<span style="color:#f92672">(</span>UBOOT1<span style="color:#f92672">)</span>,256k<span style="color:#f92672">(</span>ENV0<span style="color:#f92672">)</span>,5m<span style="color:#f92672">(</span>KERNEL<span style="color:#f92672">)</span>,5m<span style="color:#f92672">(</span>RECOVERY<span style="color:#f92672">)</span>,6m<span style="color:#f92672">(</span>rootfs<span style="color:#f92672">)</span>,384k<span style="color:#f92672">(</span>MISC<span style="color:#f92672">)</span>,-<span style="color:#f92672">(</span>UBI<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>PID hash table entries: <span style="color:#ae81ff">1024</span> <span style="color:#f92672">(</span>order: 0, <span style="color:#ae81ff">4096</span> bytes<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>Dentry cache hash table entries: <span style="color:#ae81ff">32768</span> <span style="color:#f92672">(</span>order: 5, <span style="color:#ae81ff">131072</span> bytes<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>Inode-cache hash table entries: <span style="color:#ae81ff">16384</span> <span style="color:#f92672">(</span>order: 4, <span style="color:#ae81ff">65536</span> bytes<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>Memory: 99816K/262016K available <span style="color:#f92672">(</span>2252K kernel code, 186K rwdata, 1140K rodata, 156K init, 148K bss, 160152K reserved, 2048K cma-reserved<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>Virtual kernel memory layout:
+</span></span><span style="display:flex;"><span>    vector  : 0xffff0000 - 0xffff1000   <span style="color:#f92672">(</span>   <span style="color:#ae81ff">4</span> kB<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    fixmap  : 0xffc00000 - 0xfff00000   <span style="color:#f92672">(</span><span style="color:#ae81ff">3072</span> kB<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    vmalloc : 0xd0000000 - 0xff800000   <span style="color:#f92672">(</span> <span style="color:#ae81ff">760</span> MB<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    lowmem  : 0xc0000000 - 0xcffe0000   <span style="color:#f92672">(</span> <span style="color:#ae81ff">255</span> MB<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    modules : 0xbf800000 - 0xc0000000   <span style="color:#f92672">(</span>   <span style="color:#ae81ff">8</span> MB<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>      .text : 0xc0008000 - 0xc023b424   <span style="color:#f92672">(</span><span style="color:#ae81ff">2254</span> kB<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>      .init : 0xc0379000 - 0xc03a0000   <span style="color:#f92672">(</span> <span style="color:#ae81ff">156</span> kB<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>      .data : 0xc03a0000 - 0xc03ce8e8   <span style="color:#f92672">(</span> <span style="color:#ae81ff">187</span> kB<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>       .bss : 0xc03d0000 - 0xc03f50f8   <span style="color:#f92672">(</span> <span style="color:#ae81ff">149</span> kB<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>SLUB: HWalign<span style="color:#f92672">=</span>64, Order<span style="color:#f92672">=</span>0-3, MinObjects<span style="color:#f92672">=</span>0, CPUs<span style="color:#f92672">=</span>2, Nodes<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>Preemptible hierarchical RCU implementation.
+</span></span><span style="display:flex;"><span>        Build-time adjustment of leaf fanout to 32.
+</span></span><span style="display:flex;"><span>        RCU restricting CPUs from NR_CPUS<span style="color:#f92672">=</span><span style="color:#ae81ff">4</span> to nr_cpu_ids<span style="color:#f92672">=</span>2.
+</span></span><span style="display:flex;"><span>RCU: Adjusting geometry <span style="color:#66d9ef">for</span> rcu_fanout_leaf<span style="color:#f92672">=</span>32, nr_cpu_ids<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>NR_IRQS:16 nr_irqs:16 <span style="color:#ae81ff">16</span>
+</span></span><span style="display:flex;"><span>ms_init_main_intc: np-&gt;name<span style="color:#f92672">=</span>ms_main_intc, parent<span style="color:#f92672">=</span>gic
+</span></span><span style="display:flex;"><span>ms_init_pm_intc: np-&gt;name<span style="color:#f92672">=</span>ms_pm_intc, parent<span style="color:#f92672">=</span>ms_main_intc
+</span></span><span style="display:flex;"><span>ss_init_gpi_intc: np-&gt;name<span style="color:#f92672">=</span>ms_gpi_intc, parent<span style="color:#f92672">=</span>ms_main_intc
+</span></span><span style="display:flex;"><span>Find CLK_ven_pll, hook ms_venpll_ops
+</span></span><span style="display:flex;"><span>Find CLK_cpupll_clk, hook ms_cpuclk_ops
+</span></span><span style="display:flex;"><span>arm_arch_timer: Architected cp15 timer<span style="color:#f92672">(</span>s<span style="color:#f92672">)</span> running at 6.00MHz <span style="color:#f92672">(</span>virt<span style="color:#f92672">)</span>.
+</span></span><span style="display:flex;"><span>clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x1623fa770, max_idle_ns: <span style="color:#ae81ff">440795202238</span> ns
+</span></span><span style="display:flex;"><span>sched_clock: <span style="color:#ae81ff">56</span> bits at 6MHz, resolution 166ns, wraps every 4398046511055ns
+</span></span><span style="display:flex;"><span>Switching to timer-based delay loop, resolution 166ns
+</span></span><span style="display:flex;"><span>console <span style="color:#f92672">[</span>ttyS0<span style="color:#f92672">]</span> enabled
+</span></span><span style="display:flex;"><span>Calibrating delay loop <span style="color:#f92672">(</span>skipped<span style="color:#f92672">)</span>, value calculated using timer frequency.. 12.00 BogoMIPS <span style="color:#f92672">(</span>lpj<span style="color:#f92672">=</span>60000<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>pid_max: default: <span style="color:#ae81ff">4096</span> minimum: <span style="color:#ae81ff">301</span>
+</span></span><span style="display:flex;"><span>Mount-cache hash table entries: <span style="color:#ae81ff">1024</span> <span style="color:#f92672">(</span>order: 0, <span style="color:#ae81ff">4096</span> bytes<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>Mountpoint-cache hash table entries: <span style="color:#ae81ff">1024</span> <span style="color:#f92672">(</span>order: 0, <span style="color:#ae81ff">4096</span> bytes<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>CPU: Testing write buffer coherency: ok
+</span></span><span style="display:flex;"><span>CPU0: update cpu_capacity <span style="color:#ae81ff">1024</span>
+</span></span><span style="display:flex;"><span>CPU0: thread -1, cpu 0, socket 0, mpidr <span style="color:#ae81ff">80000000</span>
+</span></span><span style="display:flex;"><span>Setting up static identity map <span style="color:#66d9ef">for</span> 0x20008240 - 0x2000828c
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>infinity6e_boot_secondary<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>CPU1: update cpu_capacity <span style="color:#ae81ff">1024</span>
+</span></span><span style="display:flex;"><span>CPU1: thread -1, cpu 1, socket 0, mpidr <span style="color:#ae81ff">80000001</span>
+</span></span><span style="display:flex;"><span>Brought up <span style="color:#ae81ff">2</span> CPUs
+</span></span><span style="display:flex;"><span>SMP: Total of <span style="color:#ae81ff">2</span> processors activated <span style="color:#f92672">(</span>24.00 BogoMIPS<span style="color:#f92672">)</span>.
+</span></span><span style="display:flex;"><span>CPU: All CPU<span style="color:#f92672">(</span>s<span style="color:#f92672">)</span> started in SVC mode.
+</span></span><span style="display:flex;"><span>devtmpfs: initialized
+</span></span><span style="display:flex;"><span>VFP support v0.3: implementor <span style="color:#ae81ff">41</span> architecture <span style="color:#ae81ff">2</span> part <span style="color:#ae81ff">30</span> variant <span style="color:#ae81ff">7</span> rev <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span>clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: <span style="color:#ae81ff">19112604462750000</span> ns
+</span></span><span style="display:flex;"><span>futex hash table entries: <span style="color:#ae81ff">16</span> <span style="color:#f92672">(</span>order: -2, <span style="color:#ae81ff">1024</span> bytes<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>NET: Registered protocol family <span style="color:#ae81ff">16</span>
+</span></span><span style="display:flex;"><span>DMA: preallocated <span style="color:#ae81ff">256</span> KiB pool <span style="color:#66d9ef">for</span> atomic coherent allocations
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Version : MVX4##I6E#g#######KL_LX409##<span style="color:#f92672">[</span>BR:g<span style="color:#f92672">]</span><span style="color:#75715e">#XVM</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>GPIO: probe end<span style="color:#f92672">[</span>Padmux<span style="color:#f92672">]</span>reset PAD42<span style="color:#f92672">(</span>reg 0x103c00:6f; mask0x7<span style="color:#f92672">)</span> t0 SD1_MODE_2 <span style="color:#f92672">(</span>org: I2C0_MODE_1<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>Padmux<span style="color:#f92672">]</span>reset PAD49<span style="color:#f92672">(</span>reg 0x103c00:60; mask0x180<span style="color:#f92672">)</span> t0 GPIO <span style="color:#f92672">(</span>org: EJ_MODE_1<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>hw-breakpoint: found <span style="color:#ae81ff">5</span> <span style="color:#f92672">(</span>+1 reserved<span style="color:#f92672">)</span> breakpoint and <span style="color:#ae81ff">4</span> watchpoint registers.
+</span></span><span style="display:flex;"><span>hw-breakpoint: maximum watchpoint size is <span style="color:#ae81ff">8</span> bytes.
+</span></span><span style="display:flex;"><span>clocksource: Switched to clocksource arch_sys_counter
+</span></span><span style="display:flex;"><span>NET: Registered protocol family <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>TCP established hash table entries: <span style="color:#ae81ff">2048</span> <span style="color:#f92672">(</span>order: 1, <span style="color:#ae81ff">8192</span> bytes<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>TCP bind hash table entries: <span style="color:#ae81ff">2048</span> <span style="color:#f92672">(</span>order: 3, <span style="color:#ae81ff">40960</span> bytes<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>TCP: Hash tables configured <span style="color:#f92672">(</span>established <span style="color:#ae81ff">2048</span> bind 2048<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>UDP hash table entries: <span style="color:#ae81ff">128</span> <span style="color:#f92672">(</span>order: 0, <span style="color:#ae81ff">6144</span> bytes<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>UDP-Lite hash table entries: <span style="color:#ae81ff">128</span> <span style="color:#f92672">(</span>order: 0, <span style="color:#ae81ff">6144</span> bytes<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>NET: Registered protocol family <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>hw perfevents: enabled with armv7_cortex_a7 PMU driver, <span style="color:#ae81ff">5</span> counters available
+</span></span><span style="display:flex;"><span>workingset: timestamp_bits<span style="color:#f92672">=</span><span style="color:#ae81ff">30</span> max_order<span style="color:#f92672">=</span><span style="color:#ae81ff">15</span> bucket_order<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>squashfs: version 4.0 <span style="color:#f92672">(</span>2009/01/31<span style="color:#f92672">)</span> Phillip Lougher
+</span></span><span style="display:flex;"><span>jffs2: version 2.2. © 2001-2006 Red Hat, Inc.
+</span></span><span style="display:flex;"><span>io scheduler noop registered
+</span></span><span style="display:flex;"><span>io scheduler deadline registered <span style="color:#f92672">(</span>default<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>Infinity6e PHY probe, base:fd2a4600
+</span></span><span style="display:flex;"><span>libphy: Fixed MDIO Bus: probed
+</span></span><span style="display:flex;"><span>i2c /dev entries driver
+</span></span><span style="display:flex;"><span>1f221000.uart0: ttyS0 at MMIO 0x0 <span style="color:#f92672">(</span>irq <span style="color:#f92672">=</span> 45, base_baud <span style="color:#f92672">=</span> 10800000<span style="color:#f92672">)</span> is a unknown
+</span></span><span style="display:flex;"><span>1f221200.uart1: ttyS1 at MMIO 0x0 <span style="color:#f92672">(</span>irq <span style="color:#f92672">=</span> 46, base_baud <span style="color:#f92672">=</span> 10800000<span style="color:#f92672">)</span> is a unknown
+</span></span><span style="display:flex;"><span>1f220400.uart2: ttyS2 at MMIO 0x0 <span style="color:#f92672">(</span>irq <span style="color:#f92672">=</span> 49, base_baud <span style="color:#f92672">=</span> 10800000<span style="color:#f92672">)</span> is a unknown
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>MS_PM_INTC<span style="color:#f92672">]</span> hw:9 -&gt; v:72
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>MS_PM_INTC<span style="color:#f92672">]</span> hw:10 -&gt; v:73
+</span></span><span style="display:flex;"><span>MSYS: DMEM request: <span style="color:#f92672">[</span>emac0_buff<span style="color:#f92672">]</span>:0x00000812
+</span></span><span style="display:flex;"><span>MSYS: DMEM request: <span style="color:#f92672">[</span>emac0_buff<span style="color:#f92672">]</span>:0x00000812 success, CPU phy:@0x26645000, virt:@0xC6645000
+</span></span><span style="display:flex;"><span>libphy: mdio: probed
+</span></span><span style="display:flex;"><span>mdio_bus mdio-bus@emac0: /soc/emac0/mdio-bus/ethernet-phy@0 has invalid PHY address
+</span></span><span style="display:flex;"><span>mdio_bus mdio-bus@emac0: scan phy ethernet-phy at address <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>mdio_bus mdio-bus@emac0: scan phy ethernet-phy at address <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>mdio_bus mdio-bus@emac0: scan phy ethernet-phy at address <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>mdio_bus mdio-bus@emac0: scan phy ethernet-phy at address <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>mdio_bus mdio-bus@emac0: scan phy ethernet-phy at address <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span>mdio_bus mdio-bus@emac0: scan phy ethernet-phy at address <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span>mdio_bus mdio-bus@emac0: scan phy ethernet-phy at address <span style="color:#ae81ff">6</span>
+</span></span><span style="display:flex;"><span>mdio_bus mdio-bus@emac0: scan phy ethernet-phy at address <span style="color:#ae81ff">7</span>
+</span></span><span style="display:flex;"><span>mdio_bus mdio-bus@emac0: scan phy ethernet-phy at address <span style="color:#ae81ff">8</span>
+</span></span><span style="display:flex;"><span>mdio_bus mdio-bus@emac0: scan phy ethernet-phy at address <span style="color:#ae81ff">9</span>
+</span></span><span style="display:flex;"><span>mdio_bus mdio-bus@emac0: scan phy ethernet-phy at address <span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span>mdio_bus mdio-bus@emac0: scan phy ethernet-phy at address <span style="color:#ae81ff">11</span>
+</span></span><span style="display:flex;"><span>mdio_bus mdio-bus@emac0: scan phy ethernet-phy at address <span style="color:#ae81ff">12</span>
+</span></span><span style="display:flex;"><span>mdio_bus mdio-bus@emac0: scan phy ethernet-phy at address <span style="color:#ae81ff">13</span>
+</span></span><span style="display:flex;"><span>mdio_bus mdio-bus@emac0: scan phy ethernet-phy at address <span style="color:#ae81ff">14</span>
+</span></span><span style="display:flex;"><span>mdio_bus mdio-bus@emac0: scan phy ethernet-phy at address <span style="color:#ae81ff">15</span>
+</span></span><span style="display:flex;"><span>mdio_bus mdio-bus@emac0: scan phy ethernet-phy at address <span style="color:#ae81ff">16</span>
+</span></span><span style="display:flex;"><span>mdio_bus mdio-bus@emac0: scan phy ethernet-phy at address <span style="color:#ae81ff">17</span>
+</span></span><span style="display:flex;"><span>mdio_bus mdio-bus@emac0: scan phy ethernet-phy at address <span style="color:#ae81ff">18</span>
+</span></span><span style="display:flex;"><span>mdio_bus mdio-bus@emac0: scan phy ethernet-phy at address <span style="color:#ae81ff">19</span>
+</span></span><span style="display:flex;"><span>mdio_bus mdio-bus@emac0: scan phy ethernet-phy at address <span style="color:#ae81ff">20</span>
+</span></span><span style="display:flex;"><span>mdio_bus mdio-bus@emac0: scan phy ethernet-phy at address <span style="color:#ae81ff">21</span>
+</span></span><span style="display:flex;"><span>mdio_bus mdio-bus@emac0: scan phy ethernet-phy at address <span style="color:#ae81ff">22</span>
+</span></span><span style="display:flex;"><span>mdio_bus mdio-bus@emac0: scan phy ethernet-phy at address <span style="color:#ae81ff">23</span>
+</span></span><span style="display:flex;"><span>mdio_bus mdio-bus@emac0: scan phy ethernet-phy at address <span style="color:#ae81ff">24</span>
+</span></span><span style="display:flex;"><span>mdio_bus mdio-bus@emac0: scan phy ethernet-phy at address <span style="color:#ae81ff">25</span>
+</span></span><span style="display:flex;"><span>mdio_bus mdio-bus@emac0: scan phy ethernet-phy at address <span style="color:#ae81ff">26</span>
+</span></span><span style="display:flex;"><span>mdio_bus mdio-bus@emac0: scan phy ethernet-phy at address <span style="color:#ae81ff">27</span>
+</span></span><span style="display:flex;"><span>mdio_bus mdio-bus@emac0: scan phy ethernet-phy at address <span style="color:#ae81ff">28</span>
+</span></span><span style="display:flex;"><span>mdio_bus mdio-bus@emac0: scan phy ethernet-phy at address <span style="color:#ae81ff">29</span>
+</span></span><span style="display:flex;"><span>mdio_bus mdio-bus@emac0: scan phy ethernet-phy at address <span style="color:#ae81ff">30</span>
+</span></span><span style="display:flex;"><span>mdio_bus mdio-bus@emac0: scan phy ethernet-phy at address <span style="color:#ae81ff">31</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>emac_phy_connect<span style="color:#f92672">][</span>3328<span style="color:#f92672">]</span> connected mac emac0 to PHY at mdio-bus@emac0:00 <span style="color:#f92672">[</span>uid<span style="color:#f92672">=</span>11112222, driver<span style="color:#f92672">=</span>SStar 10/100 Ethernet Phy<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>ms_rtcpwc 1f006800.rtcpwc: rtc core: registered 1f006800.rtcpwc as rtc0
+</span></span><span style="display:flex;"><span>MSYS: DMEM request: <span style="color:#f92672">[</span>AESDMA_ENG<span style="color:#f92672">]</span>:0x00001000
+</span></span><span style="display:flex;"><span>MSYS: DMEM request: <span style="color:#f92672">[</span>AESDMA_ENG<span style="color:#f92672">]</span>:0x00001000 success, CPU phy:@0x26646000, virt:@0xC6646000
+</span></span><span style="display:flex;"><span>MSYS: DMEM request: <span style="color:#f92672">[</span>AESDMA_ENG1<span style="color:#f92672">]</span>:0x00001000
+</span></span><span style="display:flex;"><span>MSYS: DMEM request: <span style="color:#f92672">[</span>AESDMA_ENG1<span style="color:#f92672">]</span>:0x00001000 success, CPU phy:@0x26647000, virt:@0xC6647000
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>ms_cpufreq_init<span style="color:#f92672">]</span> Current clk<span style="color:#f92672">=</span><span style="color:#ae81ff">796917760</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>i6e<span style="color:#f92672">][</span>pwm<span style="color:#f92672">]</span> use ms_pwm-&gt;group_data
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>NOTICE<span style="color:#f92672">]</span>pwm-isr<span style="color:#f92672">(</span>62<span style="color:#f92672">)</span> success. If not i6e or i6b0, pls confirm it on .dtsi
+</span></span><span style="display:flex;"><span>mstar_spinand_probe: mstar_spinand enableClock
+</span></span><span style="display:flex;"><span>MSYS: DMEM request: <span style="color:#f92672">[</span>BDMA<span style="color:#f92672">]</span>:0x00000840
+</span></span><span style="display:flex;"><span>MSYS: DMEM request: <span style="color:#f92672">[</span>BDMA<span style="color:#f92672">]</span>:0x00000840 success, CPU phy:@0x26648000, virt:@0xC6648000
+</span></span><span style="display:flex;"><span>MDrv_SPINAND_Init: Detected ID: MID <span style="color:#f92672">=</span>c8, DID <span style="color:#f92672">=</span><span style="color:#ae81ff">51</span>
+</span></span><span style="display:flex;"><span>_dumpNandInformation:warning, Bytes / Page :  <span style="color:#ae81ff">2048</span>
+</span></span><span style="display:flex;"><span>_dumpNandInformation:warning, Pages / Block:  <span style="color:#ae81ff">64</span>
+</span></span><span style="display:flex;"><span>_dumpNandInformation:warning, Sector/ Page :  <span style="color:#ae81ff">512</span>
+</span></span><span style="display:flex;"><span>_dumpNandInformation:warning, Spare / Page :  <span style="color:#ae81ff">64</span>
+</span></span><span style="display:flex;"><span>_dumpNandInformation:warning, Current config r:1 w:1 drv:1
+</span></span><span style="display:flex;"><span>mstar_spinand_probe: Magic memcmp pass
+</span></span><span style="display:flex;"><span>mstar_spinand_probe: Get partition <span style="color:#f92672">(</span>Block <span style="color:#ae81ff">0</span> : page 1<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>mstar_spinand_probe: CIS contains part info
+</span></span><span style="display:flex;"><span>mstar_spinand_probe: Before nand_scan<span style="color:#f92672">()</span>...
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">11</span> cmdlinepart partitions found on MTD device nand0
+</span></span><span style="display:flex;"><span>mstar_spinand_probe: Mtd parts parse
+</span></span><span style="display:flex;"><span>Creating <span style="color:#ae81ff">11</span> MTD partitions on <span style="color:#e6db74">&#34;nand0&#34;</span>:
+</span></span><span style="display:flex;"><span>0x000000140000-0x000000200000 : <span style="color:#e6db74">&#34;IPL0&#34;</span>
+</span></span><span style="display:flex;"><span>0x000000200000-0x000000260000 : <span style="color:#e6db74">&#34;IPL_CUST0&#34;</span>
+</span></span><span style="display:flex;"><span>0x000000260000-0x0000002c0000 : <span style="color:#e6db74">&#34;IPL_CUST1&#34;</span>
+</span></span><span style="display:flex;"><span>0x0000002c0000-0x000000320000 : <span style="color:#e6db74">&#34;UBOOT0&#34;</span>
+</span></span><span style="display:flex;"><span>0x000000320000-0x000000380000 : <span style="color:#e6db74">&#34;UBOOT1&#34;</span>
+</span></span><span style="display:flex;"><span>0x000000380000-0x0000003c0000 : <span style="color:#e6db74">&#34;ENV0&#34;</span>
+</span></span><span style="display:flex;"><span>0x0000003c0000-0x0000008c0000 : <span style="color:#e6db74">&#34;KERNEL&#34;</span>
+</span></span><span style="display:flex;"><span>0x0000008c0000-0x000000dc0000 : <span style="color:#e6db74">&#34;RECOVERY&#34;</span>
+</span></span><span style="display:flex;"><span>0x000000dc0000-0x0000013c0000 : <span style="color:#e6db74">&#34;rootfs&#34;</span>
+</span></span><span style="display:flex;"><span>0x0000013c0000-0x000001420000 : <span style="color:#e6db74">&#34;MISC&#34;</span>
+</span></span><span style="display:flex;"><span>0x000001420000-0x000008000000 : <span style="color:#e6db74">&#34;UBI&#34;</span>
+</span></span><span style="display:flex;"><span>mstar notify driver install successfully
+</span></span><span style="display:flex;"><span>NET: Registered protocol family <span style="color:#ae81ff">17</span>
+</span></span><span style="display:flex;"><span>lib80211: common routines <span style="color:#66d9ef">for</span> IEEE802.11 drivers
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>mstar_pm_init<span style="color:#f92672">]</span> resume_pbase<span style="color:#f92672">=</span>0x200114B5, suspend_imi_vbase<span style="color:#f92672">=</span>0xD0057000
+</span></span><span style="display:flex;"><span>ThumbEE CPU extension supported.
+</span></span><span style="display:flex;"><span>Registering SWP/SWPB emulation handler
+</span></span><span style="display:flex;"><span>ubi0: attaching mtd10
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>emac_phy_link_adjust<span style="color:#f92672">]</span> EMAC Link Down
+</span></span><span style="display:flex;"><span>ubi0: scanning is finished
+</span></span><span style="display:flex;"><span>ubi0: attached mtd10 <span style="color:#f92672">(</span>name <span style="color:#e6db74">&#34;UBI&#34;</span>, size <span style="color:#ae81ff">107</span> MiB<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>ubi0: PEB size: <span style="color:#ae81ff">131072</span> bytes <span style="color:#f92672">(</span><span style="color:#ae81ff">128</span> KiB<span style="color:#f92672">)</span>, LEB size: <span style="color:#ae81ff">126976</span> bytes
+</span></span><span style="display:flex;"><span>ubi0: min./max. I/O unit sizes: 2048/2048, sub-page size <span style="color:#ae81ff">2048</span>
+</span></span><span style="display:flex;"><span>ubi0: VID header offset: <span style="color:#ae81ff">2048</span> <span style="color:#f92672">(</span>aligned 2048<span style="color:#f92672">)</span>, data offset: <span style="color:#ae81ff">4096</span>
+</span></span><span style="display:flex;"><span>ubi0: good PEBs: 863, bad PEBs: 0, corrupted PEBs: <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>ubi0: user volume: 2, internal volumes: 1, max. volumes count: <span style="color:#ae81ff">128</span>
+</span></span><span style="display:flex;"><span>ubi0: max/mean erase counter: 4/2, WL threshold: 4096, image sequence number: <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>ubi0: available PEBs: 95, total reserved PEBs: 768, PEBs reserved <span style="color:#66d9ef">for</span> bad PEB handling: <span style="color:#ae81ff">20</span>
+</span></span><span style="display:flex;"><span>ubi0: background thread <span style="color:#e6db74">&#34;ubi_bgt0d&#34;</span> started, PID <span style="color:#ae81ff">437</span>
+</span></span><span style="display:flex;"><span>Please set rtc timer <span style="color:#f92672">(</span>hwclock -w<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>ms_rtcpwc 1f006800.rtcpwc: setting system clock to 1970-01-01 00:00:01 UTC <span style="color:#f92672">(</span>1<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>OF: fdt:not creating <span style="color:#e6db74">&#39;/sys/firmware/fdt&#39;</span>: CRC check failed
+</span></span><span style="display:flex;"><span>VFS: Mounted root <span style="color:#f92672">(</span>squashfs filesystem<span style="color:#f92672">)</span> readonly on device 31:8.
+</span></span><span style="display:flex;"><span>devtmpfs: mounted
+</span></span><span style="display:flex;"><span>This architecture does not have kernel memory protection.
+</span></span><span style="display:flex;"><span>mount: can<span style="color:#e6db74">&#39;t find devpts in /etc/fstab
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">net.core.rmem_default = 163840
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">net.core.rmem_max = 163840
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">net.core.wmem_default = 524288
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">net.core.wmem_max = 1048576
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">net.ipv4.tcp_mem = 924  1232  1848
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">net.ipv4.tcp_rmem = 4096  87380  325120
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">net.ipv4.tcp_wmem = 4096  131072  393216
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">/etc/init.d/rcS: line 14: telnetd: not found
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">mount: mounting none on /sys failed: Device or resource busy
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">mount: mounting none on /sys/kernel/debug/ failed: Device or resource busy
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">UBIFS (ubi0:0): background thread &#34;ubifs_bgt0_0&#34; started, PID 454
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">UBIFS (ubi0:0): recovery needed
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">UBIFS (ubi0:0): recovery completed
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">UBIFS (ubi0:0): UBIFS: mounted UBI device 0, volume 0, name &#34;miservice&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">UBIFS (ubi0:0): LEB size: 126976 bytes (124 KiB), min./max. I/O unit sizes: 2048 bytes/2048 bytes
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">UBIFS (ubi0:0): FS size: 9269248 bytes (8 MiB, 73 LEBs), journal size 1650688 bytes (1 MiB, 13 LEBs)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">UBIFS (ubi0:0): reserved for root: 0 bytes (0 KiB)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">UBIFS (ubi0:0): media format: w4/r0 (latest is w4/r0), UUID 07BD1086-29CE-46A8-9259-7D10FE6561FF, small LPT model
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">UBIFS (ubi0:1): background thread &#34;ubifs_bgt0_1&#34; started, PID 458
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">UBIFS (ubi0:1): recovery needed
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">UBIFS (ubi0:1): recovery completed
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">UBIFS (ubi0:1): UBIFS: mounted UBI device 0, volume 1, name &#34;customer&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">UBIFS (ubi0:1): LEB size: 126976 bytes (124 KiB), min./max. I/O unit sizes: 2048 bytes/2048 bytes
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">UBIFS (ubi0:1): FS size: 79740928 bytes (76 MiB, 628 LEBs), journal size 9023488 bytes (8 MiB, 72 LEBs)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">UBIFS (ubi0:1): reserved for root: 0 bytes (0 KiB)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">UBIFS (ubi0:1): media format: w4/r0 (latest is w4/r0), UUID 52410A3A-3D27-4DB8-9A6A-7159F66772B6, small LPT model
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">fuse: device not found, try &#39;</span>modprobe fuse<span style="color:#e6db74">&#39; first
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">rled: loading out-of-tree module taints kernel.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">rled driver init successful!
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">BANK:0x111B 16bit-offset 0x06
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">0x0000
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">wifien driver init successful!
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&gt;&gt; [sdmmc] ms_sdmmc_probe
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&gt;&gt; [sdmmc_0] Probe Platform Devices
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&gt;&gt; [sdmmc_1] Probe Platform Devices
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">sd
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">sd
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">/mnt/mtd/ipc/web/ClientPlus_Setup.exe
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">/mnt/mtd/ipc/web/js/libffmpeg.wasm
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">watchdog: watchdog0: watchdog did not stop!
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Mstar_ehc_init version:20180309
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Sstar-ehci-1 H.W init
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Get power-enable-pad from DTS GPIO(107)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Titania3_series_start_ehc start
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">[USB] config miu select [70] [e8] [ef] [ef]
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">[USB] enable miu lower bound address subtraction
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">[USB] init squelch level 0x2
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">BC disable
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">==20180309==&gt; hub_port_init 1 #0
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Plug in USB Port1
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">insmod: can&#39;</span>t insert <span style="color:#e6db74">&#39;/config/modules/4.9.84/ms_notify.ko&#39;</span>: No such file or directory
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>CSI<span style="color:#f92672">]</span> probe
+</span></span><span style="display:flex;"><span>Request CSI IRQ<span style="color:#f92672">[</span>0<span style="color:#f92672">]</span><span style="color:#75715e">#30</span>
+</span></span><span style="display:flex;"><span>CSI interrupt registered
+</span></span><span style="display:flex;"><span>vif driver probe
+</span></span><span style="display:flex;"><span>Create device file. vif_ints,0
+</span></span><span style="display:flex;"><span>jpe driver probed
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>Isp_Driver_Init<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>s32CurClkIdx<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>ISP<span style="color:#f92672">]</span> Request IRQ: 29, <span style="color:#ae81ff">57</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>IspMid_Driver_Init<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>ispsclttl:0
+</span></span><span style="display:flex;"><span>DivpProcInit <span style="color:#ae81ff">526</span>
+</span></span><span style="display:flex;"><span>module <span style="color:#f92672">[</span>sys<span style="color:#f92672">]</span> init
+</span></span><span style="display:flex;"><span>config...... cmdpath:/config/config_tool, argv0:load_config
+</span></span><span style="display:flex;"><span>config...... cmdpath:/config/config_tool, argv1:/misc/config.ini
+</span></span><span style="display:flex;"><span>config...... cmdpath:/config/config_tool, argv2:/misc/PQConfig.ini
+</span></span><span style="display:flex;"><span>config...... cmdpath:/config/config_tool, argv3:<span style="color:#f92672">(</span>null<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>emac_phy_link_adjust<span style="color:#f92672">]</span> EMAC Link Down
+</span></span><span style="display:flex;"><span>module <span style="color:#f92672">[</span>sensor<span style="color:#f92672">]</span> init
+</span></span><span style="display:flex;"><span>module <span style="color:#f92672">[</span>mipitx<span style="color:#f92672">]</span> init
+</span></span><span style="display:flex;"><span>module <span style="color:#f92672">[</span>ao<span style="color:#f92672">]</span> init
+</span></span><span style="display:flex;"><span>module <span style="color:#f92672">[</span>rgn<span style="color:#f92672">]</span> init
+</span></span><span style="display:flex;"><span>module <span style="color:#f92672">[</span>ldc<span style="color:#f92672">]</span> init
+</span></span><span style="display:flex;"><span>module <span style="color:#f92672">[</span>vpe<span style="color:#f92672">]</span> init
+</span></span><span style="display:flex;"><span>module <span style="color:#f92672">[</span>shadow<span style="color:#f92672">]</span> init
+</span></span><span style="display:flex;"><span>module <span style="color:#f92672">[</span>gyro<span style="color:#f92672">]</span> init
+</span></span><span style="display:flex;"><span>module <span style="color:#f92672">[</span>vif<span style="color:#f92672">]</span> init
+</span></span><span style="display:flex;"><span>module <span style="color:#f92672">[</span>venc<span style="color:#f92672">]</span> init Jan <span style="color:#ae81ff">20</span> <span style="color:#ae81ff">2021</span> 16:08:47
+</span></span><span style="display:flex;"><span>module <span style="color:#f92672">[</span>panel<span style="color:#f92672">]</span> init
+</span></span><span style="display:flex;"><span>module <span style="color:#f92672">[</span>disp<span style="color:#f92672">]</span> init
+</span></span><span style="display:flex;"><span>module <span style="color:#f92672">[</span>ipu<span style="color:#f92672">]</span> init
+</span></span><span style="display:flex;"><span>module <span style="color:#f92672">[</span>divp<span style="color:#f92672">]</span> init
+</span></span><span style="display:flex;"><span>module <span style="color:#f92672">[</span>ai<span style="color:#f92672">]</span> init
+</span></span><span style="display:flex;"><span>module <span style="color:#f92672">[</span>vdisp<span style="color:#f92672">]</span> init
+</span></span><span style="display:flex;"><span>CamOsMutexInit already inited, LR:0xBF98D297
+</span></span><span style="display:flex;"><span>CamOsMutexInit already inited, LR:0xBF98D297
+</span></span><span style="display:flex;"><span>audioout driver init successful!
+</span></span><span style="display:flex;"><span>extalarm driver init successful  !
+</span></span><span style="display:flex;"><span>ircut driver init successful!
+</span></span><span style="display:flex;"><span>relay driver init successful!
+</span></span><span style="display:flex;"><span>reset driver init successful!
+</span></span><span style="display:flex;"><span>rs485 driver init successful!
+</span></span><span style="display:flex;"><span>wled driver init successful!
+</span></span><span style="display:flex;"><span>start_addr<span style="color:#f92672">=(</span>0x0<span style="color:#f92672">)</span>, end_addr<span style="color:#f92672">=(</span>0x20000<span style="color:#f92672">)</span>, buffer_size<span style="color:#f92672">=(</span>0x20000<span style="color:#f92672">)</span>, smp_number_max<span style="color:#f92672">=(</span>16384<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>Successfully initialized wpa_supplicant
+</span></span><span style="display:flex;"><span>OK
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span> RTC time 1970-01-01 00:00:06
+</span></span><span style="display:flex;"><span>Set system time as date -s 2023.04.01-14:10:11
+</span></span><span style="display:flex;"><span>Sat Apr  <span style="color:#ae81ff">1</span> 14:10:11 STD <span style="color:#ae81ff">2023</span>
+</span></span><span style="display:flex;"><span>BusyBox v1.20.2 <span style="color:#f92672">(</span>2021-07-15 10:39:39 HKT<span style="color:#f92672">)</span> multi-call binary.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Usage: route <span style="color:#f92672">[{</span>add|del|delete<span style="color:#f92672">}]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Edit kernel routing tables
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        -n      Don<span style="color:#e6db74">&#39;t resolve names
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        -e      Display other/more information
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        -A inet{6}      Select address family
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">8731
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">8731
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Selected interface &#39;</span>wlan0<span style="color:#e6db74">&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">OK
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Selected interface &#39;</span>wlan0<span style="color:#e6db74">&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;</span>TERMINATE<span style="color:#e6db74">&#39; command timed out.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Configuration file: /mnt/mtd/ipc/tmpfs/hostapd.conf
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Using interface wlan0 with hwaddr 70:3a:2d:72:3f:15 and ssid &#34;IPCAM-444725&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">wlan0: interface state UNINITIALIZED-&gt;ENABLED
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">wlan0: AP-ENABLED
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">route: SIOCADDRT: File exists
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">udhcpd (v1.20.2) started
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">udhcpd: max_leases=235 is too big, setting to 101
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">killall: gerddns: no process killed
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">killall: upnp_map: no process killed
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">killall: upnp_map: no process killed
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">killall: ddns_update: no process killed
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">IPCamera login: workthread: log init succeed.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">workthread: timer init succeed.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">timer: proc start.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">libs_initnettype(WiFi): succeed.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">macaddr: 70:3A:2D:72:3F:15
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">macflag: 1
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">videocomm(0): 18(18) 3840 2160
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">videocomm(1): 6(6) 1280 720
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">TimeZone: -8
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">DevType(ini): product old(C6F0SpZ3N0P0L2)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">DevType(ini): product new(C6F0SpZ3N0PmL2)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">ini: open gcardinit2014.dat failed!
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">workthread: init ini succeed.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">workthread: ntpsvr init succeed.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">cloud: domestic
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">cloud: hx
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">cloud: cloudenable=0
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">ntp: enable=1, svr=ntp.main, interval=1
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">cloud: tmall: enable=0
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">cloud: tmallsvr proc start.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">cloud: amazon: enable=0
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">cloud: amazonudpsvr proc start.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">cloud: amazontcpsvr proc start.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">cloud: update_usrpwd=0, update_timezone=0
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">workthread: cloud start.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">cloud: cloudsvr proc start.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">ircut: switch, imagetype=0.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">ircut: switch, imagetype=1.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">HI_Media_LiveStreamInit: mdalarm_type=1, smd_enable=1, md_enable=1
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">HI_Media_LiveStreamInit: sound_enable=0, sound_type=0, sound_time=10
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">sdkmgr: alarm mask enable.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">HI_Media_SDKInit: SDKInitStart(uptime=35)...
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">sdkmgr: maxchn=2,profile=3
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">HI_Media_SDKInit: efreq=50,maxchn=2,wdr=0,mdresh=80,resolution=122,maxresolution=18,maxwidth=3840,maxheight=2160
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">HI_Media_SDKInit: maxchannel=2
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">HI_Media_SDKInit: maxresolution[0]=18
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">HI_Media_SDKInit: maxresolution[1]=6
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">u8Sensor: 201
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">index 0, Crop(0,0,3840,2160), outputsize(3860,2250), maxfps 20, minfps 3, ResDesc 3840x2160@20fps
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">index 1, Crop(0,0,3072,2048), outputsize(3096,2190), maxfps 30, minfps 3, ResDesc 3072x2048@30fps
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">index 2, Crop(0,0,3072,1728), outputsize(3096,1758), maxfps 30, minfps 3, ResDesc 3072x1728@30fps
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">index 3, Crop(0,0,2592,1944), outputsize(2616,1974), maxfps 30, minfps 3, ResDesc 2592x1944@30fps
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">index 4, Crop(0,0,2944,1656), outputsize(2976,1686), maxfps 30, minfps 3, ResDesc 2944x1656@30fps
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">index 5, Crop(0,0,2560,1440), outputsize(2592,1470), maxfps 30, minfps 3, ResDesc 2560x1440@30fps
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">index 6, Crop(0,0,1920,1080), outputsize(1920,1080), maxfps 60, minfps 3, ResDesc 1920x1080@60fps
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">index 7, Crop(0,0,3840,2160), outputsize(3864,2192), maxfps 30, minfps 3, ResDesc 3840x2160@30fps
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">---------------------------------------------
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">stSnrPlane0Info.s8SensorName: IMX415_MIPI
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">stSnrPlane0Info.u32ShutterUs: 99947
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">stSnrPlane0Info.u32SensorGainX1024: 0
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">stSnrPlane0Info.stCapRect.u16Width: 3840
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">stSnrPlane0Info.stCapRect.u16Height: 2160
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">ePixPrecision: 1, eBayerId: 3
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">u8DevId=0
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">u8DevId=1
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">u8DevId=2
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">HDN_sample 0, extheight 0
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">chipidx 3, revision 2
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">CmdqProcInit 821
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">CmdQ Free ID = 0, IspLocalCmdQHnd = 0xbfa8d138
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">ioc eRunningMode=24
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">CamOsMutexInit already inited, LR:0xBF9A05F5
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">CUS3A ver : Sigm[0] AE=1, AWB=0, AF=0, nFlagCus3A = 0x02
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">astar Module misc_cus3a version: project_commit.e06ed406 sdk_commit.ef2f530 build_time.20210120160917
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">[MI_ISP_CUS3A_Enable] AE = 1, AWB = 0, AF = 0
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">change isp[0] AE=1, AWB=1, AF=0, nFlagCus3A = 0x0A
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">root : /config/i[0] AE=1, AWB=1, AF=1, nFlagCus3A = 0x1A
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">qfile
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Load iq file /config/iqfile/iqfile0.bin
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">[DIP] Virtual IRQ: 27
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">[MI_ISP_CUS3A_Enable] AE = 1, AWB = 1, AF = 0
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">[MI_ISP_CUS3A_Enable] AE = 1, AWB = 1, AF = 1
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">[iqserver_net_fun.c][mst_Sock_Listen] ListenSock=15
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">========================
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74"> ===== [MhalCameraOpen] begin ===== VifMask : 0
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Ch= 0, SNR ID: 0x0, VifCh = 0x0, PreOpen = 0
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">3DNR = 2, Rotation = 0, AckTie : 0
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">(W, H): (3840, 2160)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">PixelFmt: 1, BayerID: 3, YuvOrder: 0
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Mode: 0, HdrType: 0
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">GroupID: 0, Sync3A Type: 0
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">================[CameraReadIqData] isp root is /config/iqfile, nCh = 0
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">============================
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">[ALGO_MSG_MSG] MI_MD_Init
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">[ALGO_MSG_MSG] IC version check pass, MD Lib ver 20200210
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">[ALGO_MSG_MSG] MD_working_buf=0x1a4c30, length=3692
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">ldc: enable=1
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">ldc: 4k_720p init.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">[sstar ae_init] isp_gain_max = 0x3fff, sgl_min = 0x400, sgl_max = 0x3e3400, sgs_min  0x400, sgs_max = 0x3e3400
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">[sstar ae_init], shl_min = 17 us, shl_max = 333333 us, shl_step = 17778 us, shs_min = 17 us, shs_max = 333333 us, shs_step = 17778 us
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">[sstar ae_init], FNum = 18, fps = 30
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">change isproot : /config/iqfile
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Load iq file /config/iqfile/iqfile0.bin
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">************ af_init **********
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">[AF_InitParameters-1763] Error!! Initial motor parameters got from motor driver are unreasonable.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">[AF_InitParameters-1764] InitPos = 0, MinMotorPos = 16711680, MaxMotorPos = 0, MinMotorStep = 1, MaxMotorStep = -16711680
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">[MI WRN ]: MI_LDC_UpdateViewRes[1828]: LDC Output should be aligned to (viewId: 0 width:3840 heighm:[MI WRN ]: MI_LDC_UpdateViewRes[1828]: LDC Output should be aligned to (viewId: 0 width:1280 height:736, cur: w1280 h720)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">HI_SDK_Init: TH_flag=0,temp=0.000000,hum=0
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">HI_Media_SDKInit: sensor: 201
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">extalarm: off open
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">cCamOsTsemInit already inited, LR:0xBF9B3D43
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">olor(ini): b=0x008000, c=0x00ffff, trans=64
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">HI_SDK_InitOSD [AUDIO ERROR]DrvAudApiDtsInit, Failed to gpio_request amp-gpio !
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">initaudio: inputtype=1, input=75, output=70, aec=0
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">[_MI_AI_IMPL_AllocTmpBuffer:3844] tmp buffer addr[c4a7f000].
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74"> _MI_AI_OpenAecLib: success
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74"> _MI_AI_OpenVqeLib: success
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74"> _MI_AI_OpenSrcLib: success
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74"> _MI_AI_OpenG711Lib: success
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74"> _MI_AI_OpenG726Lib: success
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74"> _MI_AI_OpenAedLib: success
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74"> _MI_AI_OpenSslLib: success
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74"> _MI_AI_OpenBfLi[_MI_AO_Init:1248] Init Ao Gain.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">b: success
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74"> _MI_AO_OpenVqeLib: success
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74"> _MI_AO_OpenSrcLib: success
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74"> _MI_AO_OpenG711Lib: success
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74"> _MI_AO_Create mi dev0
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">OpenG726Lib: sucCreate mi dev0
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">[MI WRN ]: _MI_VENC_CreateMiDevice[7850]: mi device:0 has been inited
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">cess
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">[_MI_AI_ApCreate mi dev1
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">cInit:2122] Dev0Create mhal DEV0.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74"> Chn0 Vqe buffer size:114684.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">[[ven-w][wrap] illegal width and height. will use default value (3840 2176)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">ALGO_MSG_MSG] Ch[ven-m][wrap] venc_dev_preset:1406 GetMMaHeapName s32Ret=0xa009201f, u8MMAHeapName=.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">ecking IC....
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">[ven-m][wrap] fw_path /config/venc_fw/chagall.bin
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">[ALGO_MSG_MSG] [APC] APC IC check pass. ver.2019.1119.0000
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">[ALGO_MSG_MSG] [APC] FFT mode: floating point mode
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">[ALGO_MSG_MSG] [APC] Point Number: 128
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">[ALGO_MSG_MSG] [APC] Channel: 1
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">[ALGO_MSG_MSG] [APC] Sample rate: 8000
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">�z--------------------------------------------------------------------------------�{
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">�x                                                                                �x
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">�x                                   NEON ENABLE              Create mhal DEV1.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">[ven-w][wrap] venc MMA callback function duplicate registration Force OverWrite!!
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">[ven-w][wrap] venc dev created, not support set E_MHAL_VENC_MAX_ENCODE_RESOLUTION, pls set before createdev
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                Create mhal DEV2.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    �x
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">�x                                                                                �x
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">�|--------------------------------------------------------------------------------�}
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">[ALGO_MSG_MSG] [NR] Converge mode: Normal
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">[ALGO_MSG_MSG] [AGC] The AudioAgcProcessStruct initial succeed
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">[ALGO_MSG_MSG] [AGC] AGC IC check pass. ver.2019.1119.0000
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">[FFT] Please assigned the begining address about FFT workingbuffer in Init.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">�z--------------------------------------------------------------------------------�{
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">�x                                                                                �x
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">�x                                   NEON ENABLE                                  �x
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">�x                                                                                �x
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">�|--------------------------------------------------------------------------------�}
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">[ALGO_MSG_MSG] [AGC] The AudioAgcProcessStruct initial succeed
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">[ALGO_MSG_MSG] [AGC] AGC IC check pass. ver.2019.1119.0000
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">[FFT] Please assigned the begining address about FFT workingbuffer in Init.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">�z--------------------------------------------------------------------------------�{
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">�x                                                                                �x
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">�x                                   NEON ENABLE                                  �x
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">�x                                                                                �x
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">�|--------------------------------------------------------------------------------�}
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">[ALGO_MSG_MSG] [APC] APC internal initialize succeed
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">HI_Media_SDKInit: vctrl: enable=1, recchn=0
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">video(chn=0): profile=3, resolution=18, cbclient [891] connected, module:ipu
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">r=0, bitrate=800, frame=10, iframe=80, quality=0, minq=23, maxq=43
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">audio(chn=0): enable=1, type=1
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">video(chn=1): profile=3, resolution=6, cbr=0, bitrate=370, frame=10, iframe=80, quality=0, minq=23, maxq=43
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">audio(chn=1): enable=1, type=1
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">OSD(area=0): show=1, place=1, x=3536, y=0, str=YYYY-MM-DD hh:mm:ss
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">OSD(area=1): show=1, place=0, x=0, y=0, str=IP Camera
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">x=3194,y=0, w=628,h=112
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">x=1032,y=0, w=242,h=36
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">audio: denoise=1
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">audiovol: 1 75 70
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">HI_Media_SDKInit: vctrl: mdvalue=50
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">MD(area=1): enable=1, x=0, y=96, w=3840, h=2064, s=35
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">HI_neit: HI_SDK_StartEnuocceed.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">video(chn=0): cbr=0, bitrate=800, frame=10, iframe=80, quality=0, minq=23, maxq=43
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">[MI WRN ]: MI_AI_GetFrame[7284]: Dev0 Chn0 Buffer(s) is lost due to slow fetching!!!
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">[MI WRN ]: MI_AI_GetFrame[7285]: Current buf index[8], recording buf index[0].
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">HI_SDK_StartMDChannel OK
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">HI_Media_SDKInit: HI_SDK_StartEncode(chn=1) succeed.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">video(chn=1): cbr=0, bitrate=370, frame=10, iframe=80, quality=0, minq=23, maxq=43
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">HI_Media_SDKInit: display mode: color
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">[MAJOR]: ispversion(1) in sdk, ispversion(1) in binfile.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">[MINOR]: ispversion(6) in sdk, ispversion(6) in binfile.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">******************** Load api bin Success - /mnt/mtd/ipc/sensor/IMX415_day.bin ********************
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">HI_Media_SDKDisplayConfig: load sensor.bin succeed.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">display(mode=1): brightness=50, contrast=50, saturation=50, sharpness=50, ae=2, targetY=70, night=0, mirror=0, flip=0, imgmode=1, noise=0, shutterau8SetProId[0]:0x71
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">miu_number:0,start:0x269e0000,end:0x26b44000,flag:1
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">=1000
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">display(mode=1): wdr=0, w_hal_to_cpu_isr invalid isr 1
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">drvalue=30
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">-----what is the a_manager------
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">IPU SDK version: 1.1.2_verified_21010811
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">client [891] Create IPU device, reference=1
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Model version: 1.1.3_verified_21030809
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">VPS[0]=AAAAAUABDAH//wFgAAADAAADAAADAAADAJasCQ==
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">SPS[0]=AAAAAUIBAQFgAAADAAADAAADAAADAJagAeAgAhxY2uSTJrlnAIAAAfSAABONBA==
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">PLI[0]=000001
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">PPS[0]=AAAAAUQB4HawJkA=
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">VPS[1]=AAAAAUABDAH//wFgAAADAAADAAADAAADAJasCQ==
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">SPS[1]=AAAAAUIBAQFgAAADAAADAAADAAADAJagAoCALRY2uSTJrlnAIAAAfSAABONB
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">PLI[1]=000001
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">PPS[1]=AAAAAUQB4HawJkA=
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">sdkmgr: build vps/sps/pps succeed.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">sdkmgr: alarm mask disable.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">vctrl: alarm_push_recv.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">[MI WRN ]: MI_SYS_IMPL_ConfigPrivateMMAPool[5594]: The current project supports MMU, and the private pool is disabled by default
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">client [891] Cre[0] AE=1, AWB=1, AF=1, nFlagCus3A = 0x1A
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">ate IPU channel 0
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">smd: threshold=60
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">setThreshold s32Ret = 0
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">smd: global_rect=1
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">smd: resolution=0(640x352)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">smd: enable=1, threshold=43, x=0, y=0, w=3840, h=2160, multiflag=1
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">CUS3A ver : Sigmastar Module misc_cus3a version: project_commit.e06ed406 sdk_commit.ef2f530 build_time.20210120160917
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">[MI_ISP_CUS3A_Enable] AE = 1, AWB = 1, AF = 1
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">record: recchn=0, rectype=1, snapchn=0, snapnum=1
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">cloud: RecInit: cloudenable=1, recchn=0, mdrectime=30
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">cloudrec: ossloginflag=0, ossendtimeflag=0
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">[CLOUDREC SERVER] Rec_Chn=0, RB_Total_Size=5120k
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">cloud: recrb proc start.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">cloud: recupload proc start.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">cloud: recsvr proc start.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">************ HI_SDK_AF_Start **********
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">record: relay_interval=5
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">cloudrec: rec_enable=0, rec_interval=5
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">ALARM_SERVER:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">HI_Record_Stop succeed.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">[RECORD SERVER] RB_PreRecTime=10s, RB_Total_Size=5120k
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">cloudrec: profile=3, width=3840, height=2160, aformat=0
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">HI_Media_RecInit: sd_chn=0, cloud_chn=0 succeed.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">HI_Websvr_Init: init media succeed.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">HI_Websvr_Init: PBServer start.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">acl: enable=0, errnum=10
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">websvr: enable=1
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">HI_Websvr_Init: enable=1, httpport=80, snapchn=1
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Interrupts_Proc: start.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">g4: 4g module not exist!
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">workthread: init 4g succeed.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">timerreboot: rndm=2120
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">workthread: timerreboot init succeed.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">smdtrack: init succeed.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">ptz type: rs485
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">rs485: flip=0, mirror=0
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">rs485: pandir=0, tiltdir=0
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">rs485: open fd(37) succeed.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">motor: alarm_preset_enable=0, alarm_preset_index=0, alarm_preset_interval=2
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">workthread: ptz init succeed.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">workthread: infrared init succeed.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">rs485: MoveProc start.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">ircut: freq=50
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">ircut: c2b_value=500, b2c_value=300
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">ircut: lamp_flag=2, lamp_mode=0, lamp_timeout=30
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">ircut: rled_status=2
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">ircut: lamp_status=2
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">infra: light_state=0
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">rled: open.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">livestream: total_alarm_enable=1
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">timerreboot: enable=1, day=5, rand=2120, time=02:35:20
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">workthread: ircut init succeed.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">ADC: proc start.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">HI_Reset_Init: smart: enable=-1
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">HI_Reset_Init: light: enable=1
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">HI_Reset_Init: apmode: status=1
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">workthread: reset init succeed.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">workthread: wifikey init succeed.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">netdetect: wifi_flag=yes
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">netdetect: 4g_flag=no
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">workthread: netdetect init succeed.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">netdetect: WiFi (Enable).
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">netdetect: netflag(WiFi).
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">workthread: search start.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">ircut: proc start, lamp_mode=0
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">workthread: p2p start.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">workthread: wdt init succeed.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">===================================================
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">ipc_server start  : 2023-04-01 14:10:40
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">ipc_server version: V22.1.11.26.3-20231121
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">===================================================
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">wdt: default timeout: 60 sec.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">wdt: default timeout: 5 sec.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">rs485: read failed!
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">rs485: query hxv2 failed!
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">rs485: read failed!
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">rs485: query hxv2 failed!
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">SDKInitMonitorProc: exit!
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">infra: light_state=1
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">rled: open.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">rs485: read failed!
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">rs485: query hxv2 failed!
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">timesvr: connect failed!
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">rs485: read failed!
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">rs485: query hxv2 failed!
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">/mnt/mtd/ipc/tmpfs/ipc.ok
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">rs485: read failed!
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">rs485: query hxv2 failed!
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">rs485: read failed!
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">rs485: query hxv2 failed!
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">rs485: not support hxv2 protocol!
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">rs485: read failed!
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">rs485: read failed!
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">rs485: read failed!
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">rs485: read failed!
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">rs485: read failed!
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">rs485: read failed!
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">rs485: not support hxv1 protocol!
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">rs485: ------ chk_ptz_ver=0 ------
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">rs485: pan_range=574, pan_home=287, tilt_range=114, tilt_home=23
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">umount: can&#39;</span>t forcibly umount /mnt/mtd/ipc/tmpfs/sd: Invalid argument
+</span></span><span style="display:flex;"><span>rs485: MoveStatusProc start.
+</span></span><span style="display:flex;"><span>upgrade<span style="color:#f92672">(</span>sd<span style="color:#f92672">)</span>: check start...
+</span></span><span style="display:flex;"><span>hichip: start: 2023-04-01 14:10:45
+</span></span><span style="display:flex;"><span>Platfrom Pram:
+</span></span><span style="display:flex;"><span>szUID<span style="color:#f92672">=</span>&lt;REMOVED&gt;
+</span></span><span style="display:flex;"><span>szServerID<span style="color:#f92672">=</span>EJLXSWPJLKEPPGHUIBEEARHYSTIHLUAOEIPDEGSQLNPAHXLTIDERLQENLKIEEOHUEHIAEEELEK-$$
+</span></span><span style="display:flex;"><span>szPushIp<span style="color:#f92672">=</span>47.242.178.139
+</span></span><span style="display:flex;"><span>szCrcKey<span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span>u32StreamCtrl<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>pHichipID-&gt;aszPushIp
+</span></span><span style="display:flex;"><span>HI_HichipLink_Svr_Start
+</span></span><span style="display:flex;"><span>szUID <span style="color:#f92672">=</span> &lt;REMOVED&gt;, szCrcKet<span style="color:#f92672">=</span>nocrckey, u32StreamCtrl<span style="color:#f92672">=</span>1, aszPushIp<span style="color:#f92672">=</span>47.242.178.139
+</span></span><span style="display:flex;"><span>login dev success! handle<span style="color:#f92672">[</span>0<span style="color:#f92672">]=</span>-1268568352
+</span></span><span style="display:flex;"><span>login dev success! handle<span style="color:#f92672">[</span>1<span style="color:#f92672">]=</span>-1268566200
+</span></span><span style="display:flex;"><span>login dev success! handle<span style="color:#f92672">[</span>alarm<span style="color:#f92672">]=</span>-1268564048
+</span></span><span style="display:flex;"><span>++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+</span></span><span style="display:flex;"><span>HI_Media_LiveStreamRegisterMediaLink: index<span style="color:#f92672">=</span>0,ip<span style="color:#f92672">=</span>127.0.0.1,type<span style="color:#f92672">=</span>http,avchn<span style="color:#f92672">=</span>0,ringbuflen<span style="color:#f92672">=</span>10k,onlinenum<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>HI_Media_LiveStreamParseStreamEx: cntindex<span style="color:#f92672">=</span>0,cntip<span style="color:#f92672">=</span>127.0.0.1,websocket<span style="color:#f92672">=</span>0,sock<span style="color:#f92672">=</span>46,avchn<span style="color:#f92672">=</span>0,mediatype<span style="color:#f92672">=</span><span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span>SendMediaDataThread<span style="color:#f92672">(</span>entry<span style="color:#f92672">)</span>: cntindex<span style="color:#f92672">=</span>0,cntip<span style="color:#f92672">=</span>127.0.0.1,websocket<span style="color:#f92672">=</span>0,avchn<span style="color:#f92672">=</span>0,af<span style="color:#f92672">=</span>1,sock<span style="color:#f92672">=</span>46,maxframelen<span style="color:#f92672">=</span>1k
+</span></span><span style="display:flex;"><span> start stream succeed<span style="color:#f92672">(</span>ret<span style="color:#f92672">=</span>0x0<span style="color:#f92672">)</span>! handle<span style="color:#f92672">(</span>alarm<span style="color:#f92672">)=</span>-1268564048
+</span></span><span style="display:flex;"><span>netlib:threadID -2025569200 ReceiveStreamData entry max frame len 16KB
+</span></span><span style="display:flex;"><span>login dev success! handle<span style="color:#f92672">[</span>alarm_2<span style="color:#f92672">]=</span>-1268545504
+</span></span><span style="display:flex;"><span>++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+</span></span><span style="display:flex;"><span>HI_Media_LiveStreamRegisterMediaLink: index<span style="color:#f92672">=</span>1,ip<span style="color:#f92672">=</span>127.0.0.1,type<span style="color:#f92672">=</span>http,avchn<span style="color:#f92672">=</span>1,ringbuflen<span style="color:#f92672">=</span>10k,onlinenum<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span> start stream succeed<span style="color:#f92672">(</span>ret<span style="color:#f92672">=</span>0x0<span style="color:#f92672">)</span>! handle<span style="color:#f92672">(</span>alarm_2<span style="color:#f92672">)=</span>-1268545504
+</span></span><span style="display:flex;"><span>netlib:threadID -2059140016 ReceiveStreamData entry max frame len 16KB
+</span></span><span style="display:flex;"><span>HI_Media_LiveStreamParseStreamEx: cntindex<span style="color:#f92672">=</span>1,cntip<span style="color:#f92672">=</span>127.0.0.1,websocket<span style="color:#f92672">=</span>0,sock<span style="color:#f92672">=</span>48,avchn<span style="color:#f92672">=</span>1,mediatype<span style="color:#f92672">=</span><span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span>u32CodeType <span style="color:#f92672">=</span> <span style="color:#ae81ff">265</span>
+</span></span><span style="display:flex;"><span>SendMediaDataThread<span style="color:#f92672">(</span>entry<span style="color:#f92672">)</span>: cntindex<span style="color:#f92672">=</span>1,cntip<span style="color:#f92672">=</span>127.0.0.1,websocket<span style="color:#f92672">=</span>0,avchn<span style="color:#f92672">=</span>1,af<span style="color:#f92672">=</span>1,sock<span style="color:#f92672">=</span>48,maxframelen<span style="color:#f92672">=</span>1k
+</span></span><span style="display:flex;"><span>it is fl <span style="color:#f92672">(</span>-1<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>it is smarttrack <span style="color:#f92672">(</span>1<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>First1:
+</span></span><span style="display:flex;"><span> HTTP/1.1 <span style="color:#ae81ff">200</span> OK
+</span></span><span style="display:flex;"><span>Server: Hipcam
+</span></span><span style="display:flex;"><span>Cache-Control: no-cache
+</span></span><span style="display:flex;"><span>Content-Type:text/html
+</span></span><span style="display:flex;"><span>Connection: close
+</span></span><span style="display:flex;"><span>Content-Length: <span style="color:#ae81ff">232</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>var smd_enable<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;1&#34;</span>;
+</span></span><span style="display:flex;"><span>var smd_threshold<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;43&#34;</span>;
+</span></span><span style="display:flex;"><span>var smd_x<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;0&#34;</span>;
+</span></span><span style="display:flex;"><span>var smd_y<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;0&#34;</span>;
+</span></span><span style="display:flex;"><span>var smd_w<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;1280&#34;</span>;
+</span></span><span style="display:flex;"><span>var smd_h<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;720&#34;</span>;
+</span></span><span style="display:flex;"><span>var smd_type<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;0&#34;</span>;
+</span></span><span style="display:flex;"><span>var smd_default_gthresh<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;60&#34;</span>;
+</span></span><span style="display:flex;"><span>var smd_gthresh<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;60&#34;</span>;
+</span></span><span style="display:flex;"><span>var smd_rect<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;1&#34;</span>;
+</span></span><span style="display:flex;"><span>var md_alarm_type<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;on&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>p2p_all_info.haveu32DrawRect <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>p2p_all_info.haveHsr <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>p2p_all_info.haveCloud <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>Mobile Net <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>CloudNation <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>it is CH<span style="color:#f92672">(</span>1<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>it is EN<span style="color:#f92672">(</span>1<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>Ver: V1.0.0.1
+</span></span><span style="display:flex;"><span>API V: <span style="color:#ae81ff">14071101</span>
+</span></span><span style="display:flex;"><span>1-
+</span></span><span style="display:flex;"><span>Session<span style="color:#f92672">[</span>6<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>Channel<span style="color:#f92672">[</span>6<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>Buffer<span style="color:#f92672">[</span>1024<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>Packet<span style="color:#f92672">[</span>1024<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>2-
+</span></span><span style="display:flex;"><span>Session<span style="color:#f92672">[</span>6<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>Channel<span style="color:#f92672">[</span>6<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>Buffer<span style="color:#f92672">[</span>1024<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>Packet<span style="color:#f92672">[</span>1024<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>AF: rs485_auto_detec stop.
+</span></span><span style="display:flex;"><span>Unable to send data: Connection timed out
+</span></span><span style="display:flex;"><span>ChkSDUpgrade: sd detect ok.
+</span></span><span style="display:flex;"><span>Unable to send data: Connection timed out
+</span></span><span style="display:flex;"><span>Unable to send data: Connection timed out
+</span></span><span style="display:flex;"><span>no ms32006
+</span></span><span style="display:flex;"><span>AF HI_AF_I2cInit error
+</span></span><span style="display:flex;"><span>AF: init failed!
+</span></span><span style="display:flex;"><span>AF: status proc exit.
+</span></span><span style="display:flex;"><span>rs485: af_auto_detec stop.
+</span></span><span style="display:flex;"><span>rs485: goto preset<span style="color:#f92672">(</span>0<span style="color:#f92672">)</span>...
+</span></span><span style="display:flex;"><span>rs485: SMDTrack: enable<span style="color:#f92672">=</span>0, htimems<span style="color:#f92672">=</span>700, vtimems<span style="color:#f92672">=</span>300, timeout<span style="color:#f92672">=</span>60, type<span style="color:#f92672">=</span>3, preset<span style="color:#f92672">=</span>30, width<span style="color:#f92672">=</span>640, height<span style="color:#f92672">=</span>352, aftype<span style="color:#f92672">=</span>99, mirror<span style="color:#f92672">=</span>0, flip<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>rs485: MoveProc exit!
+</span></span><span style="display:flex;"><span>HI_P2P_SessionProcess listen start
+</span></span><span style="display:flex;"><span>UID:&lt;REMOVED&gt;
+</span></span><span style="display:flex;"><span>CRC:nocrckey
+</span></span><span style="display:flex;"><span>&lt;REMOVED&gt; 47.242.178.139
+</span></span><span style="display:flex;"><span>Hi_PushAlarm_GetServerAddr connect 47.242.178.139 failed
+</span></span><span style="display:flex;"><span>uAlarmPushHandle<span style="color:#f92672">=</span>-1268571136, sAlarmExitFlag<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>vctrl: svr start.
+</span></span><span style="display:flex;"><span>vctrl: enable<span style="color:#f92672">=</span>1, debug<span style="color:#f92672">=</span>0, mode<span style="color:#f92672">=</span>normal
+</span></span><span style="display:flex;"><span>vctrl: planrecenable<span style="color:#f92672">=</span>1, recchn<span style="color:#f92672">=</span>0, maxmdrectime<span style="color:#f92672">=</span><span style="color:#ae81ff">30</span>
+</span></span><span style="display:flex;"><span>ChkSDUpgrade: not sd_flag file.
+</span></span><span style="display:flex;"><span>upgrade<span style="color:#f92672">(</span>sd<span style="color:#f92672">)</span>: check end.
+</span></span><span style="display:flex;"><span>SmartWIFI: proc exit!
+</span></span><span style="display:flex;"><span>superDev_thread sucessfully!!
+</span></span><span style="display:flex;"><span>ircut: switch status off.
+</span></span><span style="display:flex;"><span>onvif: TZ: STD-8:0:0
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>onvif: TZInterval: <span style="color:#ae81ff">28800</span>
+</span></span><span style="display:flex;"><span>onvif: login dev success! handle<span style="color:#f92672">=</span><span style="color:#ae81ff">555648</span>
+</span></span><span style="display:flex;"><span>onvif: login dev success! handle<span style="color:#f92672">[</span>alarm<span style="color:#f92672">]=</span><span style="color:#ae81ff">557800</span>
+</span></span><span style="display:flex;"><span>++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+</span></span><span style="display:flex;"><span>HI_Media_LiveStreamRegisterMediaLink: index<span style="color:#f92672">=</span>2,ip<span style="color:#f92672">=</span>127.0.0.1,type<span style="color:#f92672">=</span>http,avchn<span style="color:#f92672">=</span>0,ringbuflen<span style="color:#f92672">=</span>10k,onlinenum<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>onvif: start stream succeed<span style="color:#f92672">(</span>ret<span style="color:#f92672">=</span>0x0<span style="color:#f92672">)</span>! handle<span style="color:#f92672">(</span>alarm<span style="color:#f92672">)=</span><span style="color:#ae81ff">557800</span>
+</span></span><span style="display:flex;"><span>netlib:threadID -1235856288 ReceiveStreamData entry max frame len 16KB
+</span></span><span style="display:flex;"><span>HI_Media_LiveStreamParseStreamEx: cntindex<span style="color:#f92672">=</span>2,cntip<span style="color:#f92672">=</span>127.0.0.1,websocket<span style="color:#f92672">=</span>0,sock<span style="color:#f92672">=</span>50,avchn<span style="color:#f92672">=</span>0,mediatype<span style="color:#f92672">=</span><span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span>SendMediaDataThread<span style="color:#f92672">(</span>entry<span style="color:#f92672">)</span>: cntindex<span style="color:#f92672">=</span>2,cntip<span style="color:#f92672">=</span>127.0.0.1,websocket<span style="color:#f92672">=</span>0,avchn<span style="color:#f92672">=</span>0,af<span style="color:#f92672">=</span>1,sock<span style="color:#f92672">=</span>50,maxframelen<span style="color:#f92672">=</span>1k
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>ONVIF INFOR<span style="color:#f92672">]</span> FILE: src/onvif_media.c, LINE: 2945: Video configuration options use exterior.
+</span></span><span style="display:flex;"><span>onvif: timg: productid<span style="color:#f92672">=</span>C6F0SpZ3N0PmL2
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>ONVIF INFOR<span style="color:#f92672">]</span> FILE: src/onvif_priv.c, LINE: 620: Success to start UDP service in ONVIF.
+</span></span><span style="display:flex;"><span>p_srv-&gt;sport  <span style="color:#ae81ff">8080</span>
+</span></span><span style="display:flex;"><span>onvif: V2.04-20211112
+</span></span><span style="display:flex;"><span>onvif: start: 2023-04-01 14:10:52
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>ONVIF INFOR<span style="color:#f92672">]</span> FILE: src/onvif_priv.c, LINE: 1441: Success to add eth0 ip<span style="color:#f92672">[</span>192.168.1.88<span style="color:#f92672">]</span> to multicast<span style="color:#f92672">[</span>239.255.255.250<span style="color:#f92672">](</span>new fd<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>timesvr: connect failed!
+</span></span><span style="display:flex;"><span>vctrl: switch to ---&gt; lowrate mode.
+</span></span><span style="display:flex;"><span>video<span style="color:#f92672">(</span>chn<span style="color:#f92672">=</span>0<span style="color:#f92672">)</span>: cbr<span style="color:#f92672">=</span>0, bitrate<span style="color:#f92672">=</span>288, frame<span style="color:#f92672">=</span>2, iframe<span style="color:#f92672">=</span>16, quality<span style="color:#f92672">=</span>1, minq<span style="color:#f92672">=</span>24, maxq<span style="color:#f92672">=</span><span style="color:#ae81ff">44</span>
+</span></span><span style="display:flex;"><span>timesvr: connect failed!
+</span></span><span style="display:flex;"><span>timesvr: connect failed!
+</span></span><span style="display:flex;"><span>timesvr: get svrtime failed!
+</span></span><span style="display:flex;"><span>ntp: update failed!
+</span></span><span style="display:flex;"><span>rs485: move count/home stop.
+</span></span><span style="display:flex;"><span>rs485: move stop.
+</span></span><span style="display:flex;"><span>timesvr: connect failed!
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>IPCamera login:</span></span></code></pre></div></p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://hexrx.github.io/tags/ip-camera/">IP Camera</a></li>
+      <li><a href="https://hexrx.github.io/tags/ssc338q/">SSC338Q</a></li>
+      <li><a href="https://hexrx.github.io/tags/imx415/">IMX415</a></li>
+      <li><a href="https://hexrx.github.io/tags/linux/">Linux</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>Copyright © 2024 HexRx</span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

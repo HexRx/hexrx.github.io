@@ -1,14 +1,42 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Tags on HexRx</title>
+    <title>Tags on Blog | HexRx</title>
     <link>https://hexrx.github.io/tags/</link>
-    <description>Recent content in Tags on HexRx</description>
+    <description>Recent content in Tags on Blog | HexRx</description>
     <generator>Hugo -- 0.138.0</generator>
     <language>en-us</language>
     <copyright>Copyright © 2024 HexRx</copyright>
-    <lastBuildDate>Fri, 06 Dec 2024 15:55:05 +0200</lastBuildDate>
+    <lastBuildDate>Tue, 10 Dec 2024 21:54:26 +0300</lastBuildDate>
     <atom:link href="https://hexrx.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>IMX415</title>
+      <link>https://hexrx.github.io/tags/imx415/</link>
+      <pubDate>Tue, 10 Dec 2024 21:54:26 +0300</pubDate>
+      <guid>https://hexrx.github.io/tags/imx415/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>IP Camera</title>
+      <link>https://hexrx.github.io/tags/ip-camera/</link>
+      <pubDate>Tue, 10 Dec 2024 21:54:26 +0300</pubDate>
+      <guid>https://hexrx.github.io/tags/ip-camera/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Linux</title>
+      <link>https://hexrx.github.io/tags/linux/</link>
+      <pubDate>Tue, 10 Dec 2024 21:54:26 +0300</pubDate>
+      <guid>https://hexrx.github.io/tags/linux/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>SSC338Q</title>
+      <link>https://hexrx.github.io/tags/ssc338q/</link>
+      <pubDate>Tue, 10 Dec 2024 21:54:26 +0300</pubDate>
+      <guid>https://hexrx.github.io/tags/ssc338q/</guid>
+      <description></description>
+    </item>
     <item>
       <title>ESP32</title>
       <link>https://hexrx.github.io/tags/esp32/</link>
