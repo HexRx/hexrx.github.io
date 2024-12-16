@@ -24,7 +24,7 @@ The main board has the label &lt;code&gt;SSC338Q_38M_2.0&lt;/code&gt;
 &lt;h2 id=&#34;uart-access&#34;&gt;UART access&lt;/h2&gt;
 &lt;p&gt;TODO&lt;/p&gt;
 &lt;h2 id=&#34;isp-access-by-i2c&#34;&gt;ISP access by I2C&lt;/h2&gt;
-&lt;p&gt;You can use CH341A programmer with a tool &lt;a href=&#34;https://github.com/OpenIPC/snander-mstar&#34;&gt;https://github.com/OpenIPC/snander-mstar&lt;/a&gt; to download and upload firmware.&lt;/p&gt;</description>
+&lt;p&gt;The camera doesn&amp;rsquo;t require I2C pull-up resistors as it already has two 4.7K resistors. You can use CH341A programmer with a tool &lt;a href=&#34;https://github.com/OpenIPC/snander-mstar&#34;&gt;https://github.com/OpenIPC/snander-mstar&lt;/a&gt; to download and upload firmware.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
