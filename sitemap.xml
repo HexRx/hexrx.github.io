@@ -3,7 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://hexrx.github.io/</loc>
-    <lastmod>2024-12-10T21:54:26+03:00</lastmod>
+    <lastmod>2025-01-23T22:48:33+02:00</lastmod>
+  </url><url>
+    <loc>https://hexrx.github.io/tags/fonts/</loc>
+    <lastmod>2025-01-23T22:48:33+02:00</lastmod>
+  </url><url>
+    <loc>https://hexrx.github.io/tags/gui/</loc>
+    <lastmod>2025-01-23T22:48:33+02:00</lastmod>
+  </url><url>
+    <loc>https://hexrx.github.io/posts/</loc>
+    <lastmod>2025-01-23T22:48:33+02:00</lastmod>
+  </url><url>
+    <loc>https://hexrx.github.io/tags/</loc>
+    <lastmod>2025-01-23T22:48:33+02:00</lastmod>
+  </url><url>
+    <loc>https://hexrx.github.io/posts/web-based-tools-for-embedded-gui-development/</loc>
+    <lastmod>2025-01-23T22:48:33+02:00</lastmod>
   </url><url>
     <loc>https://hexrx.github.io/tags/imx415/</loc>
     <lastmod>2024-12-10T21:54:26+03:00</lastmod>
@@ -14,16 +29,10 @@
     <loc>https://hexrx.github.io/tags/linux/</loc>
     <lastmod>2024-12-10T21:54:26+03:00</lastmod>
   </url><url>
-    <loc>https://hexrx.github.io/posts/</loc>
-    <lastmod>2024-12-10T21:54:26+03:00</lastmod>
-  </url><url>
     <loc>https://hexrx.github.io/tags/ssc338q/</loc>
     <lastmod>2024-12-10T21:54:26+03:00</lastmod>
   </url><url>
     <loc>https://hexrx.github.io/posts/ssc338q-imx415-ip-camera-first-launch/</loc>
-    <lastmod>2024-12-10T21:54:26+03:00</lastmod>
-  </url><url>
-    <loc>https://hexrx.github.io/tags/</loc>
     <lastmod>2024-12-10T21:54:26+03:00</lastmod>
   </url><url>
     <loc>https://hexrx.github.io/tags/esp32/</loc>
@@ -57,9 +66,6 @@
     <lastmod>2024-08-20T12:17:01+03:00</lastmod>
   </url><url>
     <loc>https://hexrx.github.io/posts/embedded-font-libraries-font-code-size-comparision/</loc>
-    <lastmod>2024-08-13T21:13:40+03:00</lastmod>
-  </url><url>
-    <loc>https://hexrx.github.io/tags/fonts/</loc>
     <lastmod>2024-08-13T21:13:40+03:00</lastmod>
   </url><url>
     <loc>https://hexrx.github.io/tags/nrf52/</loc>

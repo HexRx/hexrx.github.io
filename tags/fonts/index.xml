@@ -7,8 +7,19 @@
     <generator>Hugo -- 0.138.0</generator>
     <language>en-us</language>
     <copyright>Copyright © 2024 HexRx</copyright>
-    <lastBuildDate>Tue, 13 Aug 2024 21:13:40 +0300</lastBuildDate>
+    <lastBuildDate>Thu, 23 Jan 2025 22:48:33 +0200</lastBuildDate>
     <atom:link href="https://hexrx.github.io/tags/fonts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Web-based tools for embedded GUI development</title>
+      <link>https://hexrx.github.io/posts/web-based-tools-for-embedded-gui-development/</link>
+      <pubDate>Thu, 23 Jan 2025 22:48:33 +0200</pubDate>
+      <guid>https://hexrx.github.io/posts/web-based-tools-for-embedded-gui-development/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://javl.github.io/image2cpp&#34;&gt;https://javl.github.io/image2cpp&lt;/a&gt; - An online tool for converting images into byte arrays suitable for monochrome displays such as OLEDs.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://rop.nl/truetype2gfx&#34;&gt;https://rop.nl/truetype2gfx&lt;/a&gt; - Online tool for TTF to Adafruit GFX font conversion.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://hexrx.github.io/mcufont-converter-web&#34;&gt;https://hexrx.github.io/mcufont-converter-web&lt;/a&gt; - Online font converter tool for &lt;a href=&#34;https://github.com/mcufont/mcufont&#34;&gt;mcufont&lt;/a&gt; rendering library.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://lopaka.app/sandbox&#34;&gt;https://lopaka.app/sandbox&lt;/a&gt; - Drag and drop graphics creation for U8g2, Adafruit GFX, and Flipper Zero graphic libraries.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://wokwi.com&#34;&gt;https://wokwi.com&lt;/a&gt; - Simulate embedded systems online with support for microcontrollers like Arduino, ESP32, STM32, and Raspberry Pi Pico, and displays like SSD1306, SH1107, IL9341, and 2.9&amp;quot; e-ink.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Embedded font libraries font code size comparison</title>
       <link>https://hexrx.github.io/posts/embedded-font-libraries-font-code-size-comparision/</link>
