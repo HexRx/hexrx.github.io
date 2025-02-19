@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Install Arch Linux with Openbox &#43; Luks Disk Encryption &#43; UEFI | Blog | HexRx</title>
+<meta name="keywords" content="Arch, Linux">
+<meta name="description" content="Disk
+cfdisk /dev/sda
+Create 3 disk partitions:
+
+EFI System - 100M
+boot - 512M
+root - rest of the disk space
+
+
+LUKS encryption
+modprobe dm-crypt
+modprobe dm-mod
+cryptsetup luksFormat -v -s 512 -h sha512 /dev/sda3
+cryptsetup open /dev/sda3 sda3_crypt
+Disks formatting
+mkfs.vfat /dev/sda1
+mkfs.ext4 /dev/sda2
+mkfs.ext4 /dev/mapper/sda3_crypt
+Disks mounting
+mount /dev/mapper/sda3_crypt /mnt
+mkdir /mnt/boot
+mount /dev/sda2 /mnt/boot
+mkdir /mnt/boot/efi
+mount /dev/sda1 /mnt/boot/efi
+Install Arch
+pacstrap -K /mnt base linux linux-firmware
+genfstab -U /mnt &gt;&gt; /mnt/etc/fstab
+arch-chroot /mnt
+Timezone
+ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
+Set locale
+pacman -S vim
+Uncomment en_US.UTF-8 UTF-8 in the file /etc/locale.gen">
+<meta name="author" content="">
+<link rel="canonical" href="https://hexrx.github.io/posts/install-arch-linux-with-openbox-luks-disk-encryption-and-uefi/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.d6fcd20a4fb86efa4dfac8ec95da60244cc8871042183da1ef28e3a762ad79c8.css" integrity="sha256-1vzSCk&#43;4bvpN&#43;sjsldpgJEzIhxBCGD2h7yjjp2Ktecg=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://hexrx.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://hexrx.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://hexrx.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://hexrx.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://hexrx.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://hexrx.github.io/posts/install-arch-linux-with-openbox-luks-disk-encryption-and-uefi/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-F8HK5X7GEB"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-F8HK5X7GEB');
+        }
+      </script><meta property="og:url" content="https://hexrx.github.io/posts/install-arch-linux-with-openbox-luks-disk-encryption-and-uefi/">
+  <meta property="og:site_name" content="Blog | HexRx">
+  <meta property="og:title" content="Install Arch Linux with Openbox &#43; Luks Disk Encryption &#43; UEFI">
+  <meta property="og:description" content="Disk cfdisk /dev/sda Create 3 disk partitions:
+EFI System - 100M boot - 512M root - rest of the disk space LUKS encryption modprobe dm-crypt modprobe dm-mod cryptsetup luksFormat -v -s 512 -h sha512 /dev/sda3 cryptsetup open /dev/sda3 sda3_crypt Disks formatting mkfs.vfat /dev/sda1 mkfs.ext4 /dev/sda2 mkfs.ext4 /dev/mapper/sda3_crypt Disks mounting mount /dev/mapper/sda3_crypt /mnt mkdir /mnt/boot mount /dev/sda2 /mnt/boot mkdir /mnt/boot/efi mount /dev/sda1 /mnt/boot/efi Install Arch pacstrap -K /mnt base linux linux-firmware genfstab -U /mnt &gt;&gt; /mnt/etc/fstab arch-chroot /mnt Timezone ln -sf /usr/share/zoneinfo/Region/City /etc/localtime Set locale pacman -S vim Uncomment en_US.UTF-8 UTF-8 in the file /etc/locale.gen">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-02-09T18:54:34+02:00">
+    <meta property="article:modified_time" content="2025-02-09T18:54:34+02:00">
+    <meta property="article:tag" content="Arch">
+    <meta property="article:tag" content="Linux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Install Arch Linux with Openbox &#43; Luks Disk Encryption &#43; UEFI">
+<meta name="twitter:description" content="Disk
+cfdisk /dev/sda
+Create 3 disk partitions:
+
+EFI System - 100M
+boot - 512M
+root - rest of the disk space
+
+
+LUKS encryption
+modprobe dm-crypt
+modprobe dm-mod
+cryptsetup luksFormat -v -s 512 -h sha512 /dev/sda3
+cryptsetup open /dev/sda3 sda3_crypt
+Disks formatting
+mkfs.vfat /dev/sda1
+mkfs.ext4 /dev/sda2
+mkfs.ext4 /dev/mapper/sda3_crypt
+Disks mounting
+mount /dev/mapper/sda3_crypt /mnt
+mkdir /mnt/boot
+mount /dev/sda2 /mnt/boot
+mkdir /mnt/boot/efi
+mount /dev/sda1 /mnt/boot/efi
+Install Arch
+pacstrap -K /mnt base linux linux-firmware
+genfstab -U /mnt &gt;&gt; /mnt/etc/fstab
+arch-chroot /mnt
+Timezone
+ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
+Set locale
+pacman -S vim
+Uncomment en_US.UTF-8 UTF-8 in the file /etc/locale.gen">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://hexrx.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Install Arch Linux with Openbox + Luks Disk Encryption + UEFI",
+      "item": "https://hexrx.github.io/posts/install-arch-linux-with-openbox-luks-disk-encryption-and-uefi/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Install Arch Linux with Openbox + Luks Disk Encryption + UEFI",
+  "name": "Install Arch Linux with Openbox \u002b Luks Disk Encryption \u002b UEFI",
+  "description": "Disk cfdisk /dev/sda Create 3 disk partitions:\nEFI System - 100M boot - 512M root - rest of the disk space LUKS encryption modprobe dm-crypt modprobe dm-mod cryptsetup luksFormat -v -s 512 -h sha512 /dev/sda3 cryptsetup open /dev/sda3 sda3_crypt Disks formatting mkfs.vfat /dev/sda1 mkfs.ext4 /dev/sda2 mkfs.ext4 /dev/mapper/sda3_crypt Disks mounting mount /dev/mapper/sda3_crypt /mnt mkdir /mnt/boot mount /dev/sda2 /mnt/boot mkdir /mnt/boot/efi mount /dev/sda1 /mnt/boot/efi Install Arch pacstrap -K /mnt base linux linux-firmware genfstab -U /mnt \u0026gt;\u0026gt; /mnt/etc/fstab arch-chroot /mnt Timezone ln -sf /usr/share/zoneinfo/Region/City /etc/localtime Set locale pacman -S vim Uncomment en_US.UTF-8 UTF-8 in the file /etc/locale.gen\n",
+  "keywords": [
+    "Arch", "Linux"
+  ],
+  "articleBody": "Disk cfdisk /dev/sda Create 3 disk partitions:\nEFI System - 100M boot - 512M root - rest of the disk space LUKS encryption modprobe dm-crypt modprobe dm-mod cryptsetup luksFormat -v -s 512 -h sha512 /dev/sda3 cryptsetup open /dev/sda3 sda3_crypt Disks formatting mkfs.vfat /dev/sda1 mkfs.ext4 /dev/sda2 mkfs.ext4 /dev/mapper/sda3_crypt Disks mounting mount /dev/mapper/sda3_crypt /mnt mkdir /mnt/boot mount /dev/sda2 /mnt/boot mkdir /mnt/boot/efi mount /dev/sda1 /mnt/boot/efi Install Arch pacstrap -K /mnt base linux linux-firmware genfstab -U /mnt \u003e\u003e /mnt/etc/fstab arch-chroot /mnt Timezone ln -sf /usr/share/zoneinfo/Region/City /etc/localtime Set locale pacman -S vim Uncomment en_US.UTF-8 UTF-8 in the file /etc/locale.gen\nlocale-gen Create file /etc/locale.conf with content\nLANG=en_US.UTF-8 Set hotname vim /etc/hostname Root password passwd Sudo user pacman -S sudo Uncomment %wheel ALL=(ALL:ALL) ALL using command\nEDITOR=vim visudo useradd -m -G wheel user passwd user UEFI GRUB pacman -S efibootmgr grub Add the line to the GRUB config /etc/default/grub\nGRUB_CMDLINE_LINUX=\"cryptdevice=/dev/sda3:sda3_crypt\" and add the encrypt after the block in the file /etc/mkinitcpio.conf mkinitcpio -p linux grub-install --efi-directory=/boot/efi grub-mkconfig -o /boot/grub/grub.cfg (optional) If the internet doesn’t work after reboot\npacman -S dhcpcd systemctl enable dhcpcd.service systemctl start dhcpcd.service reboot Post-install sudo pacman -S bash-completion Openbox sudo pacman -S xorg xorg-server xorg-xinit sudo pacman -S openbox cp -s /etc/xgd/openbox ~/.config Add to the file ~/.xinitrc\nexec openbox-session (optional) Install picom compositor\nsudo pacman -S picom Add to auto-start config ~/.config/openbox/autostart\npicom \u0026 (optional) Install openbox menu generator\nsudo pacman -S menumaker Resources https://linuxhint.com/setup-luks-encryption-on-arch-linux/ https://gist.github.com/huntrar/e42aee630bee3295b2c671d098c81268 https://wiki.archlinux.org/title/installation_guide\n",
+  "wordCount" : "235",
+  "inLanguage": "en",
+  "datePublished": "2025-02-09T18:54:34+02:00",
+  "dateModified": "2025-02-09T18:54:34+02:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://hexrx.github.io/posts/install-arch-linux-with-openbox-luks-disk-encryption-and-uefi/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Blog | HexRx",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://hexrx.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://hexrx.github.io/" accesskey="h" title="Blog | HexRx (Alt + H)">Blog | HexRx</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Install Arch Linux with Openbox &#43; Luks Disk Encryption &#43; UEFI
+    </h1>
+    <div class="post-meta"><span title='2025-02-09 18:54:34 +0200 EET'>February 9, 2025</span>
+
+</div>
+  </header> 
+  <div class="post-content"><h2 id="disk">Disk<a hidden class="anchor" aria-hidden="true" href="#disk">#</a></h2>
+<pre tabindex="0"><code>cfdisk /dev/sda
+</code></pre><p>Create 3 disk partitions:</p>
+<ul>
+<li>EFI System - 100M</li>
+<li>boot - 512M</li>
+<li>root - rest of the disk space
+<img alt="arch linux uefi disks" loading="lazy" src="/posts/install-arch-linux-with-openbox-luks-disk-encryption-and-uefi/images/arch_uefi_disks.png"></li>
+</ul>
+<h2 id="luks-encryption">LUKS encryption<a hidden class="anchor" aria-hidden="true" href="#luks-encryption">#</a></h2>
+<pre tabindex="0"><code>modprobe dm-crypt
+modprobe dm-mod
+</code></pre><pre tabindex="0"><code>cryptsetup luksFormat -v -s 512 -h sha512 /dev/sda3
+</code></pre><pre tabindex="0"><code>cryptsetup open /dev/sda3 sda3_crypt
+</code></pre><h2 id="disks-formatting">Disks formatting<a hidden class="anchor" aria-hidden="true" href="#disks-formatting">#</a></h2>
+<pre tabindex="0"><code>mkfs.vfat /dev/sda1
+mkfs.ext4 /dev/sda2
+mkfs.ext4 /dev/mapper/sda3_crypt
+</code></pre><h2 id="disks-mounting">Disks mounting<a hidden class="anchor" aria-hidden="true" href="#disks-mounting">#</a></h2>
+<pre tabindex="0"><code>mount /dev/mapper/sda3_crypt /mnt
+</code></pre><pre tabindex="0"><code>mkdir /mnt/boot
+</code></pre><pre tabindex="0"><code>mount /dev/sda2 /mnt/boot
+</code></pre><pre tabindex="0"><code>mkdir /mnt/boot/efi
+</code></pre><pre tabindex="0"><code>mount /dev/sda1 /mnt/boot/efi
+</code></pre><h2 id="install-arch">Install Arch<a hidden class="anchor" aria-hidden="true" href="#install-arch">#</a></h2>
+<pre tabindex="0"><code>pacstrap -K /mnt base linux linux-firmware
+</code></pre><pre tabindex="0"><code>genfstab -U /mnt &gt;&gt; /mnt/etc/fstab
+</code></pre><pre tabindex="0"><code>arch-chroot /mnt
+</code></pre><h2 id="timezone">Timezone<a hidden class="anchor" aria-hidden="true" href="#timezone">#</a></h2>
+<pre tabindex="0"><code>ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
+</code></pre><h2 id="set-locale">Set locale<a hidden class="anchor" aria-hidden="true" href="#set-locale">#</a></h2>
+<pre tabindex="0"><code>pacman -S vim
+</code></pre><p>Uncomment <code>en_US.UTF-8 UTF-8</code> in the file <code>/etc/locale.gen</code></p>
+<pre tabindex="0"><code>locale-gen
+</code></pre><p>Create file <code>/etc/locale.conf</code> with content</p>
+<pre tabindex="0"><code>LANG=en_US.UTF-8
+</code></pre><h2 id="set-hotname">Set hotname<a hidden class="anchor" aria-hidden="true" href="#set-hotname">#</a></h2>
+<pre tabindex="0"><code>vim /etc/hostname
+</code></pre><h2 id="root-password">Root password<a hidden class="anchor" aria-hidden="true" href="#root-password">#</a></h2>
+<pre tabindex="0"><code>passwd
+</code></pre><h2 id="sudo-user">Sudo user<a hidden class="anchor" aria-hidden="true" href="#sudo-user">#</a></h2>
+<pre tabindex="0"><code>pacman -S sudo
+</code></pre><p>Uncomment <code>%wheel ALL=(ALL:ALL) ALL</code> using command</p>
+<pre tabindex="0"><code>EDITOR=vim visudo
+</code></pre><p><img alt="arch sudo" loading="lazy" src="/posts/install-arch-linux-with-openbox-luks-disk-encryption-and-uefi/images/arch_sudo.png"></p>
+<pre tabindex="0"><code>useradd -m -G wheel user
+passwd user
+</code></pre><h2 id="uefi-grub">UEFI GRUB<a hidden class="anchor" aria-hidden="true" href="#uefi-grub">#</a></h2>
+<pre tabindex="0"><code>pacman -S efibootmgr grub
+</code></pre><p>Add the line to the GRUB config <code>/etc/default/grub</code></p>
+<pre tabindex="0"><code>GRUB_CMDLINE_LINUX=&#34;cryptdevice=/dev/sda3:sda3_crypt&#34;
+</code></pre><p>and add the <code>encrypt</code> after the <code>block</code> in the file <code>/etc/mkinitcpio.conf</code>
+<img alt="arch mkinitcpio encrypt" loading="lazy" src="/posts/install-arch-linux-with-openbox-luks-disk-encryption-and-uefi/images/arch_mkinitcpio_encrypt.png"></p>
+<pre tabindex="0"><code>mkinitcpio -p linux
+</code></pre><pre tabindex="0"><code>grub-install --efi-directory=/boot/efi
+grub-mkconfig -o /boot/grub/grub.cfg
+</code></pre><p>(optional) If the internet doesn&rsquo;t work after reboot</p>
+<pre tabindex="0"><code>pacman -S dhcpcd
+systemctl enable dhcpcd.service
+systemctl start dhcpcd.service
+</code></pre><pre tabindex="0"><code>reboot
+</code></pre><h2 id="post-install">Post-install<a hidden class="anchor" aria-hidden="true" href="#post-install">#</a></h2>
+<pre tabindex="0"><code>sudo pacman -S bash-completion
+</code></pre><h3 id="openbox">Openbox<a hidden class="anchor" aria-hidden="true" href="#openbox">#</a></h3>
+<pre tabindex="0"><code>sudo pacman -S xorg xorg-server xorg-xinit
+</code></pre><pre tabindex="0"><code>sudo pacman -S openbox
+cp -s /etc/xgd/openbox ~/.config
+</code></pre><p>Add to the file <code>~/.xinitrc</code></p>
+<pre tabindex="0"><code>exec openbox-session
+</code></pre><p>(optional) Install picom compositor</p>
+<pre tabindex="0"><code>sudo pacman -S picom
+</code></pre><p>Add to auto-start config <code>~/.config/openbox/autostart</code></p>
+<pre tabindex="0"><code>picom &amp;
+</code></pre><p>(optional) Install openbox menu generator</p>
+<pre tabindex="0"><code>sudo pacman -S menumaker
+</code></pre><h2 id="resources">Resources<a hidden class="anchor" aria-hidden="true" href="#resources">#</a></h2>
+<p><a href="https://linuxhint.com/setup-luks-encryption-on-arch-linux/">https://linuxhint.com/setup-luks-encryption-on-arch-linux/</a>
+<a href="https://gist.github.com/huntrar/e42aee630bee3295b2c671d098c81268">https://gist.github.com/huntrar/e42aee630bee3295b2c671d098c81268</a>
+<a href="https://wiki.archlinux.org/title/installation_guide">https://wiki.archlinux.org/title/installation_guide</a></p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://hexrx.github.io/tags/arch/">Arch</a></li>
+      <li><a href="https://hexrx.github.io/tags/linux/">Linux</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>Copyright © 2024 HexRx</span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

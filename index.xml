@@ -7,8 +7,47 @@
     <generator>Hugo -- 0.138.0</generator>
     <language>en-us</language>
     <copyright>Copyright © 2024 HexRx</copyright>
-    <lastBuildDate>Thu, 23 Jan 2025 22:48:33 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 09 Feb 2025 18:54:34 +0200</lastBuildDate>
     <atom:link href="https://hexrx.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Install Arch Linux with Openbox &#43; Luks Disk Encryption &#43; UEFI</title>
+      <link>https://hexrx.github.io/posts/install-arch-linux-with-openbox-luks-disk-encryption-and-uefi/</link>
+      <pubDate>Sun, 09 Feb 2025 18:54:34 +0200</pubDate>
+      <guid>https://hexrx.github.io/posts/install-arch-linux-with-openbox-luks-disk-encryption-and-uefi/</guid>
+      <description>&lt;h2 id=&#34;disk&#34;&gt;Disk&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;cfdisk /dev/sda
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Create 3 disk partitions:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;EFI System - 100M&lt;/li&gt;
+&lt;li&gt;boot - 512M&lt;/li&gt;
+&lt;li&gt;root - rest of the disk space
+&lt;img alt=&#34;arch linux uefi disks&#34; loading=&#34;lazy&#34; src=&#34;https://hexrx.github.io/posts/install-arch-linux-with-openbox-luks-disk-encryption-and-uefi/images/arch_uefi_disks.png&#34;&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;luks-encryption&#34;&gt;LUKS encryption&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;modprobe dm-crypt
+modprobe dm-mod
+&lt;/code&gt;&lt;/pre&gt;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;cryptsetup luksFormat -v -s 512 -h sha512 /dev/sda3
+&lt;/code&gt;&lt;/pre&gt;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;cryptsetup open /dev/sda3 sda3_crypt
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;disks-formatting&#34;&gt;Disks formatting&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;mkfs.vfat /dev/sda1
+mkfs.ext4 /dev/sda2
+mkfs.ext4 /dev/mapper/sda3_crypt
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;disks-mounting&#34;&gt;Disks mounting&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;mount /dev/mapper/sda3_crypt /mnt
+&lt;/code&gt;&lt;/pre&gt;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;mkdir /mnt/boot
+&lt;/code&gt;&lt;/pre&gt;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;mount /dev/sda2 /mnt/boot
+&lt;/code&gt;&lt;/pre&gt;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;mkdir /mnt/boot/efi
+&lt;/code&gt;&lt;/pre&gt;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;mount /dev/sda1 /mnt/boot/efi
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;install-arch&#34;&gt;Install Arch&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;pacstrap -K /mnt base linux linux-firmware
+&lt;/code&gt;&lt;/pre&gt;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;genfstab -U /mnt &amp;gt;&amp;gt; /mnt/etc/fstab
+&lt;/code&gt;&lt;/pre&gt;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;arch-chroot /mnt
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;timezone&#34;&gt;Timezone&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;set-locale&#34;&gt;Set locale&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;pacman -S vim
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Uncomment &lt;code&gt;en_US.UTF-8 UTF-8&lt;/code&gt; in the file &lt;code&gt;/etc/locale.gen&lt;/code&gt;&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Web-based tools for embedded GUI development</title>
       <link>https://hexrx.github.io/posts/web-based-tools-for-embedded-gui-development/</link>
@@ -233,6 +272,42 @@ and recompile the entire project.&lt;/p&gt;</description>
       <description>&lt;h2 id=&#34;unlocking-module-using-pyocd&#34;&gt;Unlocking module using pyOCD&lt;/h2&gt;
 &lt;p&gt;The Ebyte E104-BT5005A module uses nRF52805 as a chip and can be easily unlocked for flashing new firmware by pyOCD command:
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;pyocd cmd --target nrf52805_xxaa -O auto_unlock&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Bambu Lab P1S 3D Printer start gcode without filament extruding</title>
+      <link>https://hexrx.github.io/posts/bambu-lab-p1s-3d-printer-start-gcode-without-filament-extruding/</link>
+      <pubDate>Sun, 07 Jan 2024 22:47:35 +0200</pubDate>
+      <guid>https://hexrx.github.io/posts/bambu-lab-p1s-3d-printer-start-gcode-without-filament-extruding/</guid>
+      <description>&lt;h2 id=&#34;differences&#34;&gt;Differences&lt;/h2&gt;
+&lt;p&gt;The only thing that was different from the original start gcode was the commented out code:
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;;&lt;span style=&#34;color:#f92672&#34;&gt;=====&lt;/span&gt; *** filament poop &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;standard E50&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;==========&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;;G1 E50 F200
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;;M400
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;;M104 S&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;nozzle_temperature_initial_layer&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;;G92 E0
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;;&lt;span style=&#34;color:#f92672&#34;&gt;=====&lt;/span&gt; *** filament poop &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;standard E50&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;==========&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;;G1 E50 F200
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;;M400
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;;M106 P1 S255
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;;G92 E0
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;;G1 E5 F300
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;;M109 S&lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;nozzle_temperature_initial_layer&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;initial_extruder&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;-20&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt; ; drop nozzle temp, make filament shink a bit
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;;G92 E0
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;;G1 E-0.5 F300
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;;&lt;span style=&#34;color:#f92672&#34;&gt;=====&lt;/span&gt; vibrate/shake toolhead
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;;G1 X70 F9000
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;;G1 X76 F15000
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;;G1 X65 F15000
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;;G1 X76 F15000
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;;G1 X65 F15000; shake to put down garbage
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;;G1 X80 F6000
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;;G1 X95 F15000
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;;G1 X80 F15000
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;;G1 X165 F15000; wipe and shake
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;;M400
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;;M106 P1 S0
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;;&lt;span style=&#34;color:#f92672&#34;&gt;=====&lt;/span&gt; prepare print temperature and material end &lt;span style=&#34;color:#f92672&#34;&gt;=====&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>AWS EC2 sysbench test for t3.medium and t4g.medium</title>

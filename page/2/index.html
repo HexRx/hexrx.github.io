@@ -142,6 +142,32 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Bambu Lab P1S 3D Printer start gcode without filament extruding
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Differences The only thing that was different from the original start gcode was the commented out code: ;===== *** filament poop (standard E50) ========== ;G1 E50 F200 ;M400 ;M104 S[nozzle_temperature_initial_layer] ;G92 E0 ;===== *** filament poop (standard E50) ========== ;G1 E50 F200 ;M400 ;M106 P1 S255 ;G92 E0 ;G1 E5 F300 ;M109 S{nozzle_temperature_initial_layer[initial_extruder]-20} ; drop nozzle temp, make filament shink a bit ;G92 E0 ;G1 E-0.5 F300 ;===== vibrate/shake toolhead ;G1 X70 F9000 ;G1 X76 F15000 ;G1 X65 F15000 ;G1 X76 F15000 ;G1 X65 F15000; shake to put down garbage ;G1 X80 F6000 ;G1 X95 F15000 ;G1 X80 F15000 ;G1 X165 F15000; wipe and shake ;M400 ;M106 P1 S0 ;===== prepare print temperature and material end =====
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-01-07 22:47:35 +0200 EET'>January 7, 2024</span></footer>
+  <a class="entry-link" aria-label="post link to Bambu Lab P1S 3D Printer start gcode without filament extruding" href="https://hexrx.github.io/posts/bambu-lab-p1s-3d-printer-start-gcode-without-filament-extruding/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">AWS EC2 sysbench test for t3.medium and t4g.medium
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Sysbench test was run on two types of AWS EC2 instances t3.medium (x86-64) and t4g.medium (ARM). The command was executed with the parameters sysbench --test=cpu run.
+t3.medium: sysbench 1.0.18 (using system LuaJIT 2.1.0-beta3) Running the test with following options: Number of threads: 1 Initializing random number generator from current time Prime numbers limit: 10000 Initializing worker threads... Threads started! CPU speed: events per second: 984.07 General statistics: total time: 10.0008s total number of events: 9843 Latency (ms): min: 0.94 avg: 1.02 max: 8.81 95th percentile: 1.06 sum: 9995.26 Threads fairness: events (avg/stddev): 9843.0000/0.00 execution time (avg/stddev): 9.9953/0.00 t4g.medium: sysbench 1.0.20 (using system LuaJIT 2.1.0-beta3) Running the test with following options: Number of threads: 1 Initializing random number generator from current time Prime numbers limit: 10000 Initializing worker threads... Threads started! CPU speed: events per second: 2807.81 General statistics: total time: 10.0004s total number of events: 28083 Latency (ms): min: 0.35 avg: 0.36 max: 0.43 95th percentile: 0.36 sum: 9995.59 Threads fairness: events (avg/stddev): 28083.0000/0.00 execution time (avg/stddev): 9.9956/0.00 </p>
+  </div>
+  <footer class="entry-footer"><span title='2023-04-23 23:39:22 +0300 EEST'>April 23, 2023</span></footer>
+  <a class="entry-link" aria-label="post link to AWS EC2 sysbench test for t3.medium and t4g.medium" href="https://hexrx.github.io/posts/aws-ec2-sysbench-test-for-t3.medium-and-t4g.medium/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">AWS EC2 lscpu for t3.small, t2.medium, t3a.xlarge, m5zn.3xlarge, and c6a.large
     </h2>
   </header>

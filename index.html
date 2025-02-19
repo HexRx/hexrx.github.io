@@ -142,6 +142,20 @@
 
 <article class="first-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Install Arch Linux with Openbox &#43; Luks Disk Encryption &#43; UEFI
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Disk cfdisk /dev/sda Create 3 disk partitions:
+EFI System - 100M boot - 512M root - rest of the disk space LUKS encryption modprobe dm-crypt modprobe dm-mod cryptsetup luksFormat -v -s 512 -h sha512 /dev/sda3 cryptsetup open /dev/sda3 sda3_crypt Disks formatting mkfs.vfat /dev/sda1 mkfs.ext4 /dev/sda2 mkfs.ext4 /dev/mapper/sda3_crypt Disks mounting mount /dev/mapper/sda3_crypt /mnt mkdir /mnt/boot mount /dev/sda2 /mnt/boot mkdir /mnt/boot/efi mount /dev/sda1 /mnt/boot/efi Install Arch pacstrap -K /mnt base linux linux-firmware genfstab -U /mnt &gt;&gt; /mnt/etc/fstab arch-chroot /mnt Timezone ln -sf /usr/share/zoneinfo/Region/City /etc/localtime Set locale pacman -S vim Uncomment en_US.UTF-8 UTF-8 in the file /etc/locale.gen
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-02-09 18:54:34 +0200 EET'>February 9, 2025</span></footer>
+  <a class="entry-link" aria-label="post link to Install Arch Linux with Openbox &#43; Luks Disk Encryption &#43; UEFI" href="https://hexrx.github.io/posts/install-arch-linux-with-openbox-luks-disk-encryption-and-uefi/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Web-based tools for embedded GUI development
     </h2>
   </header>
@@ -273,19 +287,6 @@ Font Roboto 12 px Roboto 24 px Roboto 48 px Roboto 72 px Adafruit_GFX/TFT_eSPI (
   </div>
   <footer class="entry-footer"><span title='2024-08-07 19:17:58 +0300 EEST'>August 7, 2024</span></footer>
   <a class="entry-link" aria-label="post link to Unlocking Ebyte E104-BT5005A module using pyOCD" href="https://hexrx.github.io/posts/unlocking-ebyte-e104-bt5005a-module-using-pyocd/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">AWS EC2 sysbench test for t3.medium and t4g.medium
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Sysbench test was run on two types of AWS EC2 instances t3.medium (x86-64) and t4g.medium (ARM). The command was executed with the parameters sysbench --test=cpu run.
-t3.medium: sysbench 1.0.18 (using system LuaJIT 2.1.0-beta3) Running the test with following options: Number of threads: 1 Initializing random number generator from current time Prime numbers limit: 10000 Initializing worker threads... Threads started! CPU speed: events per second: 984.07 General statistics: total time: 10.0008s total number of events: 9843 Latency (ms): min: 0.94 avg: 1.02 max: 8.81 95th percentile: 1.06 sum: 9995.26 Threads fairness: events (avg/stddev): 9843.0000/0.00 execution time (avg/stddev): 9.9953/0.00 t4g.medium: sysbench 1.0.20 (using system LuaJIT 2.1.0-beta3) Running the test with following options: Number of threads: 1 Initializing random number generator from current time Prime numbers limit: 10000 Initializing worker threads... Threads started! CPU speed: events per second: 2807.81 General statistics: total time: 10.0004s total number of events: 28083 Latency (ms): min: 0.35 avg: 0.36 max: 0.43 95th percentile: 0.36 sum: 9995.59 Threads fairness: events (avg/stddev): 28083.0000/0.00 execution time (avg/stddev): 9.9956/0.00 </p>
-  </div>
-  <footer class="entry-footer"><span title='2023-04-23 23:39:22 +0300 EEST'>April 23, 2023</span></footer>
-  <a class="entry-link" aria-label="post link to AWS EC2 sysbench test for t3.medium and t4g.medium" href="https://hexrx.github.io/posts/aws-ec2-sysbench-test-for-t3.medium-and-t4g.medium/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
