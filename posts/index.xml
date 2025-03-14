@@ -7,8 +7,17 @@
     <generator>Hugo -- 0.138.0</generator>
     <language>en-us</language>
     <copyright>Copyright © 2024 HexRx</copyright>
-    <lastBuildDate>Sun, 09 Feb 2025 18:54:34 +0200</lastBuildDate>
+    <lastBuildDate>Thu, 13 Mar 2025 12:32:19 +0200</lastBuildDate>
     <atom:link href="https://hexrx.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JWT online tools</title>
+      <link>https://hexrx.github.io/posts/jwt-online-tools/</link>
+      <pubDate>Thu, 13 Mar 2025 12:32:19 +0200</pubDate>
+      <guid>https://hexrx.github.io/posts/jwt-online-tools/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://jwt.io&#34;&gt;https://jwt.io&lt;/a&gt; - Basic JWT decoder, helps you quickly inspect the JWT structure.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.scottbrady.io/tools/jwt&#34;&gt;https://www.scottbrady.io/tools/jwt&lt;/a&gt; - JWT generator, this tool helps you create test JWTs using asymmetric keys and also create the JWK asymmetric keys.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://jwkset.com/generate&#34;&gt;https://jwkset.com/generate&lt;/a&gt; - JWK generator, it allows you to generate new JWK/PEM key sets for RSA, ECDSA, Ed25519, and X25519, and even create JWKs from existing PEM keys.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Install Arch Linux with Openbox &#43; Luks Disk Encryption &#43; UEFI</title>
       <link>https://hexrx.github.io/posts/install-arch-linux-with-openbox-luks-disk-encryption-and-uefi/</link>
